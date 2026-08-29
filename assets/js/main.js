@@ -147,7 +147,23 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
-  // 4. MOBILE MENU & HOME DROPDOWNS
+  // 4. STICKY HEADER SCROLL SHADOW
+  // ==========================================
+  const siteHeader = document.querySelector('header');
+  if (siteHeader) {
+    const onHeaderScroll = () => {
+      if (window.scrollY > 10) {
+        siteHeader.classList.add('header-scrolled');
+      } else {
+        siteHeader.classList.remove('header-scrolled');
+      }
+    };
+    window.addEventListener('scroll', onHeaderScroll, { passive: true });
+    onHeaderScroll(); // run once on load
+  }
+
+  // ==========================================
+  // 5. MOBILE MENU & HOME DROPDOWNS
   // ==========================================
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
   const mobileMenu = document.getElementById('mobile-menu');
@@ -155,29 +171,26 @@ document.addEventListener('DOMContentLoaded', () => {
   const menuIconClose = document.getElementById('menu-icon-close');
 
   if (mobileMenuBtn && mobileMenu) {
+
+    function openMobileMenu() {
+      mobileMenu.classList.remove('hidden');
+      if (menuIconOpen) menuIconOpen.classList.add('hidden');
+      if (menuIconClose) menuIconClose.classList.remove('hidden');
+    }
+
+    function closeMobileMenu() {
+      mobileMenu.classList.add('hidden');
+      if (menuIconOpen) menuIconOpen.classList.remove('hidden');
+      if (menuIconClose) menuIconClose.classList.add('hidden');
+    }
+
     mobileMenuBtn.addEventListener('click', () => {
-      const isOpen = mobileMenu.classList.contains('hidden');
-      if (isOpen) {
-        mobileMenu.classList.remove('hidden');
-        menuIconOpen.classList.add('hidden');
-        menuIconClose.classList.remove('hidden');
-        document.body.classList.add('overflow-hidden');
-      } else {
-        mobileMenu.classList.add('hidden');
-        menuIconOpen.classList.remove('hidden');
-        menuIconClose.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-      }
+      mobileMenu.classList.contains('hidden') ? openMobileMenu() : closeMobileMenu();
     });
 
-    // Close menu when resizing window past mobile breakpoint
+    // Close menu when resizing past mobile breakpoint
     window.addEventListener('resize', () => {
-      if (window.innerWidth >= 1024) {
-        mobileMenu.classList.add('hidden');
-        if (menuIconOpen) menuIconOpen.classList.remove('hidden');
-        if (menuIconClose) menuIconClose.classList.add('hidden');
-        document.body.classList.remove('overflow-hidden');
-      }
+      if (window.innerWidth >= 1024) closeMobileMenu();
     });
   }
 

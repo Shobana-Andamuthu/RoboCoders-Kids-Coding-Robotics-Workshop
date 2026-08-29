@@ -5,7 +5,8 @@
 
 @media (max-width: 767px) {
   /* Prevent horizontal overflow on ultra small screens */
-  body, html {
+  /* NOTE: overflow-x:hidden on html breaks position:sticky — apply to body only */
+  body {
     overflow-x: hidden;
     width: 100%;
   }

@@ -438,3 +438,30 @@ header .dark-mode-toggle svg {
     display: inline-flex !important;
   }
 }
+
+/* ==========================================
+ * FIXED HEADER — ALWAYS VISIBLE WHILE SCROLLING
+ * position:fixed is immune to parent overflow/transform contexts
+ * that would break position:sticky.
+ * ========================================== */
+header {
+  position: fixed !important;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 50;
+  transition: box-shadow 0.25s ease, background-color 0.25s ease;
+}
+
+/* Push page body content below the fixed header (header height ~80px) */
+body:has(header) {
+  padding-top: 80px;
+}
+
+header.header-scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.08);
+}
+
+.dark header.header-scrolled {
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
