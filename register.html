@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create Account | RoboCoders Academy</title>
+  <meta name="description" content="Sign up for RoboCoders Academy to access your personal compiler sandbox, track achievements, and upload homework projects.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              300: '#7cc8fc',
+              400: '#38abfa',
+              500: '#0e91eb',
+              600: '#0273c7',
+              700: '#035ca1',
+              800: '#074f85',
+              900: '#0c426e',
+            },
+            robotics: {
+              100: '#fef3c7',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+            coding: {
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            heading: ['Fredoka', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 antialiased flex flex-col min-h-screen">
+
+  <!-- Page Loader -->
+  <div id="page-loader">
+    <div class="relative flex items-center justify-center">
+      <svg class="loader-gear w-16 h-16 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+      </svg>
+    </div>
+    <span class="mt-4 font-bold text-lg text-slate-600 dark:text-slate-300 font-heading">Initializing Core...</span>
+  </div>
+
+  <!-- Main Split-Screen Container -->
+  <div class="flex-grow flex flex-col lg:flex-row">
+    
+    <!-- Left Panel: Visual branding & Image (Desktop only) -->
+    <div class="hidden lg:flex lg:w-1/2 bg-slate-900 text-white relative flex-col justify-between p-12 overflow-hidden">
+      <!-- Background Image -->
+      <div class="absolute inset-0 z-0">
+        <img src="assets/images/sections/auth_register.png" alt="Robotics student assembly in modern lab" class="w-full h-full object-cover opacity-50">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/60 to-transparent"></div>
+      </div>
+      
+      <!-- Logo overlay -->
+      <div class="relative z-10">
+        <a href="index.html" class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white shadow-md">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight text-white font-heading">RoboCoders</span>
+        </a>
+      </div>
+
+      <!-- Inspirational message overlay -->
+      <div class="relative z-10 max-w-lg space-y-4">
+        <span class="text-xs px-3 py-1 bg-brand-500 text-white font-bold rounded-full uppercase tracking-wider">Start Your STEM Journey</span>
+        <h2 class="text-4xl font-black font-heading leading-tight">Interactive learning that triggers curiosity.</h2>
+        <p class="text-slate-300 text-sm leading-relaxed">
+          Create a student profile to save your sandbox scripts, register for robotics cohorts, and download learning guides.
+        </p>
+      </div>
+
+      <!-- Bottom footer label -->
+      <div class="relative z-10 text-xs text-slate-400">
+        &copy; 2026 RoboCoders Academy. All rights reserved.
+      </div>
+    </div>
+
+    <!-- Right Panel: Authentication Form -->
+    <div class="w-full lg:w-1/2 flex flex-col justify-between bg-white dark:bg-slate-900 p-8 sm:p-12">
+      
+      <!-- Top header Controls (Theme & RTL Toggle) -->
+      <div class="flex justify-between items-center mb-8">
+        <a href="index.html" class="lg:hidden flex items-center gap-2">
+          <div class="w-8 h-8 rounded-lg bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            </svg>
+          </div>
+          <span class="text-base font-bold tracking-tight text-slate-900 dark:text-white font-heading">RoboCoders</span>
+        </a>
+        <div class="flex items-center gap-4 ltr:ml-auto rtl:mr-auto">
+          <button class="rtl-toggle p-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-colors">
+            <span class="rtl-toggle-text text-xs font-bold">RTL</span>
+          </button>
+          <button class="dark-mode-toggle p-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-colors">
+            <svg class="sun-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-3.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+            </svg>
+            <svg class="moon-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Center Container: Form -->
+      <div class="max-w-md w-full mx-auto my-auto space-y-6">
+        <div class="space-y-2">
+          <h2 class="text-3xl font-black text-slate-900 dark:text-white font-heading">Create Student Account</h2>
+          <p class="text-sm text-slate-650 dark:text-slate-200">Register below to initiate your digital portal.</p>
+        </div>
+
+        <form id="student-register-form" class="space-y-4">
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider">Student Name</label>
+            <input type="text" id="reg-name" required placeholder="Alex Coder" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:border-brand-500">
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider">Parent/Student Email Address</label>
+            <input type="email" id="reg-email" required placeholder="alex@robocoders.com" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:border-brand-500">
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider">Choose Learning Track</label>
+            <select required class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:border-brand-500">
+              <option value="scratch">Junior Explorer (Ages 6-10)</option>
+              <option value="robotics">Robotics Builder (Ages 10-14)</option>
+              <option value="python">Elite Developer (Ages 12-14)</option>
+            </select>
+          </div>
+
+          <div class="space-y-1.5">
+            <label class="text-xs font-bold text-slate-700 dark:text-slate-200 uppercase tracking-wider">Secret Password</label>
+            <div class="relative">
+              <input type="password" id="reg-password" required placeholder="••••••••" class="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 text-sm text-slate-800 dark:text-slate-100 focus:outline-none focus:border-brand-500 pr-10">
+              <button type="button" class="toggle-password-btn absolute right-3 top-3 text-slate-400 hover:text-slate-655 dark:hover:text-white">
+                <svg class="eye-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.542-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l18 18" />
+                </svg>
+              </button>
+            </div>
+          </div>
+
+          <button type="submit" class="w-full py-3.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm transition-colors shadow-lg shadow-brand-500/20">
+            Create Account & Launch
+          </button>
+        </form>
+
+        <div class="text-center text-xs font-semibold text-slate-400">
+          <span>Already have an account? </span>
+          <a href="login.html" class="font-bold text-brand-600 hover:underline">Sign In</a>
+        </div>
+      </div>
+
+      <!-- Bottom controls (Mobile only) -->
+      <div class="lg:hidden text-center text-xs text-slate-400 mt-8 pt-4 border-t border-slate-100 dark:border-slate-800">
+        &copy; 2026 RoboCoders Academy.
+      </div>
+
+    </div>
+
+  </div>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

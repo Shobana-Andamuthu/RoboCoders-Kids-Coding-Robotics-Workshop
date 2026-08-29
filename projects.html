@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Projects | RoboCoders Academy</title>
+  <meta name="description" content="Explore interactive software games, smart circuitry dashboard tools, and sensor-driven rovers built by RoboCoders students.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              300: '#7cc8fc',
+              400: '#38abfa',
+              500: '#0e91eb',
+              600: '#0273c7',
+              700: '#035ca1',
+              800: '#074f85',
+              900: '#0c426e',
+            },
+            robotics: {
+              100: '#fef3c7',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+            coding: {
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            heading: ['Fredoka', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 antialiased">
+
+  <!-- Page Loader -->
+  <div id="page-loader">
+    <div class="relative flex items-center justify-center">
+      <svg class="loader-gear w-16 h-16 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+      </svg>
+    </div>
+    <span class="mt-4 font-bold text-lg text-slate-600 dark:text-slate-300 font-heading">Booting Project Gallery...</span>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 w-full transition-all duration-300 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-brand-600 to-indigo-600 dark:from-brand-400 dark:to-indigo-400 bg-clip-text text-transparent">RoboCoders</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-8">
+          <div class="relative group">
+            <button id="home-dropdown-btn" class="flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">
+              <span>Home</span>
+              <svg class="w-4 h-4 dropdown-arrow transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="home-dropdown-menu" class="absolute left-0 mt-2 w-48 rounded-2xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700/50 py-2 hidden transition-all duration-200">
+              <a href="index.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg mx-2">Home 1 (Playful)</a>
+              <a href="home-2.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg mx-2">Home 2 (Futuristic)</a>
+            </div>
+          </div>
+
+          <a href="programs.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Programs</a>
+          <a href="instructors.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Instructors</a>
+          <a href="projects.html" class="text-brand-600 dark:text-brand-400 font-medium py-2 border-b-2 border-brand-500">Projects</a>
+          <a href="pricing.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Pricing</a>
+          <a href="contact.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Contact</a>
+          <a href="dashboard.html" class="dashboard-nav-link text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Dashboard</a>
+        </nav>
+
+        <!-- Right Side -->
+        <div class="hidden lg:flex items-center gap-4">
+          <button class="rtl-toggle p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-colors">
+            <span class="rtl-toggle-text text-xs font-bold">RTL</span>
+          </button>
+          <button class="dark-mode-toggle p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-colors">
+            <svg class="sun-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-3.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+            </svg>
+            <svg class="moon-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <a href="login.html" class="header-login-btn px-6 py-2.5 rounded-xl bg-brand-600 text-white font-medium text-sm hover:bg-brand-700 shadow-md">
+            Student Login
+          </a>
+        </div>
+
+        <!-- Mobile Buttons -->
+        <div class="flex items-center gap-3 lg:hidden">
+          <button class="rtl-toggle p-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+            <span class="rtl-toggle-text text-xs font-bold">RTL</span>
+          </button>
+          <button class="dark-mode-toggle p-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+            <svg class="sun-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-3.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+            </svg>
+            <svg class="moon-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <button id="mobile-menu-btn" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-105">
+            <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-20 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-50 px-6 py-6 space-y-4 max-h-[calc(100vh-5rem)] overflow-y-auto">
+      
+      <div>
+        <button id="mobile-home-dropdown-btn" class="w-full flex items-center justify-between text-left font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">
+          <span>Home</span>
+          <svg class="w-4 h-4 dropdown-arrow transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="mobile-home-dropdown-menu" class="hidden pl-4 py-2 space-y-2">
+          <a href="index.html" class="block text-sm text-slate-600 dark:text-slate-200 py-1">Home 1 (Playful)</a>
+          <a href="home-2.html" class="block text-sm text-slate-600 dark:text-slate-200 py-1">Home 2 (Futuristic)</a>
+        </div>
+      </div>
+      <a href="programs.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Programs</a>
+      <a href="instructors.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Instructors</a>
+      <a href="projects.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Projects</a>
+      <a href="pricing.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Pricing</a>
+      <a href="contact.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Contact</a>
+      <a href="dashboard.html" class="dashboard-nav-link block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Dashboard</a>
+      <div class="pt-4">
+        <a href="login.html" class="header-login-btn block w-full py-3 rounded-xl bg-brand-600 text-white font-medium text-center">
+          Student Login
+        </a>
+      </div>
+    
+    </div>
+  </header>
+
+  <!-- ==========================================
+       SECTION 1: HERO
+       ========================================== -->
+  <section class="relative py-20 bg-gradient-to-b from-brand-50/50 to-white dark:from-slate-900/50 dark:to-slate-900 text-center overflow-hidden">
+    <!-- Grid pattern overlay -->
+    <div class="absolute inset-0 z-0 opacity-20 dark:opacity-10 pointer-events-none">
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100%" height="100%">
+        <pattern id="projects-grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <circle cx="20" cy="20" r="1.5" fill="#0e91eb" />
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#projects-grid)" />
+      </svg>
+    </div>
+    
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 space-y-6">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 uppercase tracking-widest">
+        <i class="bi bi-cpu-fill text-indigo-500"></i> Student Showcase
+      </span>
+      <h1 class="text-4xl sm:text-6xl font-black text-slate-900 dark:text-white leading-tight font-heading">
+        RoboCoders Project Gallery
+      </h1>
+      <p class="text-slate-600 dark:text-slate-200 max-w-2xl mx-auto text-base sm:text-lg leading-relaxed">
+        Real games, automation scripts, and smart robotics systems designed, coded, and wired by students ages 6–14. Select a project to try the simulator!
+      </p>
+    </div>
+  </section>
+
+
+
+  <!-- ==========================================
+       SECTION 4: INTERACTIVE BLUEPRINT & PROTOTYPING PIPELINE
+       ========================================== -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 uppercase tracking-widest mb-4">
+          <i class="bi bi-lightning-charge-fill text-brand-500"></i> Innovation Workflow
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-4">
+          From Concept to Working Prototype
+        </h2>
+        <p class="text-slate-700 dark:text-slate-200 text-base sm:text-lg leading-relaxed">
+          Every student project follows our structured 4-phase prototyping framework engineered by senior robotics mentors.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Visual Image Column -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800">
+            <img src="assets/images/sections/project_pipeline_blueprint.png" alt="RoboCoders Project Prototyping Workshop" class="w-full h-auto object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+              <div class="bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl border border-slate-800 text-white w-full">
+                <span class="text-[10px] font-mono text-brand-400 font-bold uppercase tracking-wider block">Lab Calibration Standard</span>
+                <span class="text-xs font-bold mt-1 block">Phase 3 Testing: Dual Ultrasonic Sensor Array</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 4-Step Pipeline Accordion Column -->
+        <div class="lg:col-span-7 space-y-4">
+          <!-- Step 1 -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition-all duration-300 shadow-sm">
+            <div class="flex items-start gap-4">
+              <span class="w-10 h-10 rounded-xl bg-brand-500 text-white font-black flex items-center justify-center text-sm shrink-0">01</span>
+              <div>
+                <h4 class="text-lg font-bold text-slate-900 dark:text-white">Logic Flowchart & Sprite Schematics</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed mt-1">
+                  Students draft coordinate grids, game event triggers, and state diagrams before writing any lines of code.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition-all duration-300 shadow-sm">
+            <div class="flex items-start gap-4">
+              <span class="w-10 h-10 rounded-xl bg-indigo-600 text-white font-black flex items-center justify-center text-sm shrink-0">02</span>
+              <div>
+                <h4 class="text-lg font-bold text-slate-900 dark:text-white">Circuit Breadboarding & Wiring</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed mt-1">
+                  Students map pinouts, resistor loads, and jumper wires to microcontroller development boards in safe lab bays.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition-all duration-300 shadow-sm">
+            <div class="flex items-start gap-4">
+              <span class="w-10 h-10 rounded-xl bg-emerald-600 text-white font-black flex items-center justify-center text-sm shrink-0">03</span>
+              <div>
+                <h4 class="text-lg font-bold text-slate-900 dark:text-white">Syntax Scripting & Control Loops</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed mt-1">
+                  Implementing loops, conditionals, and signal handlers in Scratch 3.0 blocks or Python 3 object syntax.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="p-6 rounded-2xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-slate-800 hover:border-brand-500 transition-all duration-300 shadow-sm">
+            <div class="flex items-start gap-4">
+              <span class="w-10 h-10 rounded-xl bg-amber-600 text-white font-black flex items-center justify-center text-sm shrink-0">04</span>
+              <div>
+                <h4 class="text-lg font-bold text-slate-900 dark:text-white">Simulator Test Bay & Final Polish</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed mt-1">
+                  Stress-testing code against physical obstacles, validating edge cases, and publishing to the Academy Project Wall.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 5: STUDENT CREATOR WALL OF FAME
+       ========================================== -->
+  <section class="py-20 bg-slate-900 text-white border-t border-slate-800 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-16 gap-6">
+        <div>
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-amber-500/20 text-amber-400 uppercase tracking-widest mb-4">
+            <i class="bi bi-trophy-fill text-amber-500"></i> Hall of Innovation
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-white">
+            Student Creator Wall of Fame
+          </h2>
+          <p class="text-slate-200 text-sm mt-2 max-w-xl">
+            Celebrating outstanding young engineers who achieved top milestones, published complex projects, and led peer makers.
+          </p>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="text-right">
+            <span class="block text-2xl font-black text-amber-400">450+</span>
+            <span class="text-sm text-slate-350 uppercase font-mono">Robots Deployed</span>
+          </div>
+          <div class="h-10 w-px bg-slate-800"></div>
+          <div class="text-right">
+            <span class="block text-2xl font-black text-brand-400">1.2M+</span>
+            <span class="text-sm text-slate-350 uppercase font-mono">Lines Executed</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Card 1: Innovator Spotlight -->
+        <div class="md:col-span-1 p-8 rounded-3xl bg-slate-950 border border-slate-800 relative overflow-hidden flex flex-col justify-between">
+          <div>
+            <div class="relative h-48 rounded-2xl overflow-hidden mb-6 border border-slate-800">
+              <img src="assets/images/sections/student_wall_of_fame.png" alt="Student Wall of Fame Showcase" class="w-full h-full object-cover">
+              <span class="absolute top-3 right-3 px-3 py-1 rounded-full bg-amber-500 text-slate-950 font-black text-[10px] uppercase tracking-wider">Student of the Month</span>
+            </div>
+            <h3 class="text-xl font-bold text-white">Alex Chen (Age 14)</h3>
+            <p class="text-xs text-brand-400 font-mono mt-1">Lead Developer Track</p>
+            <p class="text-sm text-slate-200 leading-relaxed mt-3">
+              Engineered an autonomous multi-terrain solar rover with real-time web telemetry and ultrasonic obstacle routing.
+            </p>
+          </div>
+          <div class="pt-4 border-t border-slate-800 mt-6 flex justify-between items-center text-sm text-slate-350 font-mono">
+            <span>Badges: 14 Earned</span>
+            <span class="text-amber-400 font-bold">Grade: Elite Master</span>
+          </div>
+        </div>
+
+        <!-- Card 2: Innovation Badges Grid -->
+        <div class="md:col-span-2 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          <div class="p-6 rounded-3xl bg-slate-950/80 border border-slate-800 space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-2xl font-bold"><i class="bi bi-lightning-charge-fill text-brand-500"></i></div>
+            <h4 class="text-base font-bold text-white">Algorithm Architect</h4>
+            <p class="text-sm text-slate-200 leading-relaxed">
+              Awarded for writing zero-latency nested loops and optimized pathfinding arrays in Python.
+            </p>
+            <span class="inline-block text-[11px] font-mono text-slate-350">85 Students Awarded</span>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-slate-950/80 border border-slate-800 space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-indigo-500/20 text-indigo-400 flex items-center justify-center text-2xl font-bold"><i class="bi bi-robot text-brand-500"></i></div>
+            <h4 class="text-base font-bold text-white">Hardware Pioneer</h4>
+            <p class="text-sm text-slate-200 leading-relaxed">
+              Granted for mastering multi-channel H-Bridge motor drivers and custom PCB circuit soldering.
+            </p>
+            <span class="inline-block text-[11px] font-mono text-slate-350">112 Students Awarded</span>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-slate-950/80 border border-slate-800 space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-2xl font-bold"><i class="bi bi-eye-fill text-emerald-500"></i></div>
+            <h4 class="text-base font-bold text-white">AI Visionary Badge</h4>
+            <p class="text-sm text-slate-200 leading-relaxed">
+              Achieved by building real-time OpenCV gesture recognition modules connected to actuators.
+            </p>
+            <span class="inline-block text-[11px] font-mono text-slate-350">64 Students Awarded</span>
+          </div>
+
+          <div class="p-6 rounded-3xl bg-slate-950/80 border border-slate-800 space-y-3">
+            <div class="w-12 h-12 rounded-2xl bg-amber-500/20 text-amber-400 flex items-center justify-center text-2xl font-bold"><i class="bi bi-controller text-indigo-500"></i></div>
+            <h4 class="text-base font-bold text-white">Game Physics Master</h4>
+            <p class="text-sm text-slate-200 leading-relaxed">
+              Earned by designing custom gravity acceleration formulas and multi-level Scratch games.
+            </p>
+            <span class="inline-block text-[11px] font-mono text-slate-350">140 Students Awarded</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 6: HARDWARE & SOFTWARE TECH ECOSYSTEM
+       ========================================== -->
+  <section class="py-20 bg-white dark:bg-slate-900 border-t border-slate-200 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-indigo-100 dark:bg-indigo-950 text-indigo-600 dark:text-indigo-400 uppercase tracking-widest mb-4">
+          <i class="bi bi-tools text-indigo-500"></i> Hardware & Tools
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-4">
+          The RoboCoders Tech Ecosystem
+        </h2>
+        <p class="text-slate-700 dark:text-slate-200 text-base sm:text-lg leading-relaxed">
+          Students master industry-grade microelectronics and modern software stacks in an environment tailored for youth safety.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-4">
+          <span class="px-3 py-1 rounded-full bg-brand-500/10 text-brand-600 dark:text-brand-400 text-xs font-mono font-bold">Microcontrollers</span>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Smart Microcontrollers</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
+            Arduino Nano, Raspberry Pi Pico, and BBC Micro:bit v2 boards providing dual-core processing for robotics.
+          </p>
+          <ul class="text-xs font-mono text-slate-500 space-y-1.5 pt-2 border-t border-slate-200 dark:border-slate-700">
+            <li><i class="bi bi-check-lg text-brand-500"></i> 32-bit ARM Cortex-M0+</li>
+            <li><i class="bi bi-check-lg text-brand-500"></i> Built-in Bluetooth & Sensors</li>
+          </ul>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-4">
+          <span class="px-3 py-1 rounded-full bg-robotics-500/10 text-robotics-600 dark:text-robotics-400 text-xs font-mono font-bold">Sensors & Actuators</span>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Sensors & Motors</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
+            Ultrasonic sonar modules, DHT11 humidity probes, infrared line followers, and precision SG90 micro servos.
+          </p>
+          <ul class="text-xs font-mono text-slate-500 space-y-1.5 pt-2 border-t border-slate-200 dark:border-slate-700">
+            <li><i class="bi bi-check-lg text-brand-500"></i> Kid-safe 5V Operating Logic</li>
+            <li><i class="bi bi-check-lg text-brand-500"></i> Modular Quick-Connect Leads</li>
+          </ul>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 space-y-4">
+          <span class="px-3 py-1 rounded-full bg-coding-500/10 text-coding-600 dark:text-coding-400 text-xs font-mono font-bold">Software Stack</span>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Software Libraries</h3>
+          <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
+            Scratch 3.0 block engines, Python 3 IDLE environments, Pygame 2D graphics framework, and OpenCV computer vision.
+          </p>
+          <ul class="text-xs font-mono text-slate-500 space-y-1.5 pt-2 border-t border-slate-200 dark:border-slate-700">
+            <li><i class="bi bi-check-lg text-brand-500"></i> Real-time Compiler Output</li>
+            <li><i class="bi bi-check-lg text-brand-500"></i> Open Source Libraries</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Feature Image Showcase Card -->
+      <div class="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-800 h-72 sm:h-96">
+        <img src="assets/images/sections/tech_ecosystem_hardware.png" alt="RoboCoders Hardware Tech Ecosystem Flatlay" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-r from-slate-950/90 via-slate-950/60 to-transparent flex items-center p-8 sm:p-12">
+          <div class="max-w-md text-white space-y-4">
+            <span class="px-3 py-1 rounded-full bg-indigo-500 text-white font-mono text-[10px] font-bold uppercase">Makerspace Hardware Kit</span>
+            <h4 class="text-2xl font-black">All Hardware Included in Workshop Fees</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Every enrolled student receives an individual hardware kit with breadboards, jumper wires, sensors, and microcontroller boards to keep and expand.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 7: NATIONAL YOUTH STEM EXPO & HACKATHON HUB
+       ========================================== -->
+  <section class="py-20 bg-gradient-to-br from-brand-900 via-indigo-950 to-slate-950 text-white border-t border-slate-800 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <div class="lg:col-span-7 space-y-6">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-full text-xs font-extrabold bg-amber-400 text-slate-950 uppercase tracking-widest">
+            <i class="bi bi-rocket-takeoff-fill text-amber-500"></i> National Tournament
+          </span>
+          <h2 class="text-3xl sm:text-5xl font-black leading-tight text-white font-heading">
+            Annual Youth STEM Expo & Robotics Hackathon
+          </h2>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Ready to present your student project on the big stage? Enter the RoboCoders National Championship to compete for scholarships, hardware grants, and trophies.
+          </p>
+
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 pt-4">
+            <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 text-center">
+              <span class="block text-2xl font-black text-amber-400">$5,000</span>
+              <span class="text-[10px] font-mono uppercase text-slate-300">STEM Scholarship Fund</span>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 text-center">
+              <span class="block text-2xl font-black text-brand-400">3 Categories</span>
+              <span class="text-[10px] font-mono uppercase text-slate-300">Scratch, Python, Hardware</span>
+            </div>
+            <div class="p-4 rounded-2xl bg-white/10 backdrop-blur-md border border-white/10 text-center">
+              <span class="block text-2xl font-black text-emerald-400">Nov 15, 2026</span>
+              <span class="text-[10px] font-mono uppercase text-slate-300">Submission Deadline</span>
+            </div>
+          </div>
+
+          <div class="pt-4 flex flex-col sm:flex-row gap-4">
+            <a href="contact.html" class="px-8 py-4 rounded-xl bg-brand-500 hover:bg-brand-400 text-white font-bold text-sm text-center shadow-lg transition-colors">
+              Submit Student Project
+            </a>
+            <a href="programs.html" class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/20 text-white font-bold text-sm text-center border border-white/20 transition-colors">
+              Download Guidelines
+            </a>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="relative rounded-3xl overflow-hidden border border-white/20 shadow-2xl">
+            <img src="assets/images/sections/hackathon_expo_banner.png" alt="Youth STEM Expo Robotics Arena" class="w-full h-80 lg:h-96 object-cover">
+            <div class="absolute inset-0 bg-slate-950/40 p-6 flex flex-col justify-between">
+              <div class="flex justify-between items-center">
+                <span class="px-3 py-1 rounded-full bg-emerald-500 text-slate-950 font-black text-[10px] uppercase font-mono">Registration Open</span>
+                <span class="text-xs font-mono text-slate-200">120+ Teams Entered</span>
+              </div>
+              <div class="bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl border border-slate-800 text-xs space-y-1.5">
+                <div class="flex justify-between text-slate-300">
+                  <span>Judge Criteria: Code Quality</span>
+                  <span class="text-brand-400 font-bold">40%</span>
+                </div>
+                <div class="flex justify-between text-slate-300">
+                  <span>Hardware Mechanics & Wiring</span>
+                  <span class="text-amber-400 font-bold">30%</span>
+                </div>
+                <div class="flex justify-between text-slate-300">
+                  <span>Student Live Presentation</span>
+                  <span class="text-emerald-400 font-bold">30%</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION 3: PROJECT GALLERY GRID
+       ========================================== -->
+  <section class="py-6 bg-white dark:bg-slate-900 min-h-[400px]">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- No Projects Alert -->
+      <div id="no-projects-found" class="hidden text-center py-20 space-y-4">
+        <span class="text-4xl"><i class="bi bi-search text-slate-500"></i></span>
+        <h3 class="text-lg font-bold text-slate-700 dark:text-slate-300">No Projects Found</h3>
+        <p class="text-sm text-slate-600 dark:text-slate-200 max-w-sm mx-auto">Try typing a different search term or selecting another learning track filter tab.</p>
+      </div>
+
+      <!-- Grid Wrapper -->
+      <div id="projects-grid-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        
+        <!-- Card 1: Space Rescue -->
+        <div class="project-card bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden" data-category="scratch">
+          <div>
+            <!-- Cover Mock -->
+            <div class="h-48 bg-slate-950 flex flex-col items-center justify-center relative overflow-hidden p-6 border-b border-slate-100 dark:border-slate-800">
+              <div class="absolute inset-0 bg-radial-gradient opacity-40"></div>
+              <!-- Floating stars -->
+              <span class="absolute text-slate-600 text-xs font-semibold top-8 left-12 animate-pulse">⭐</span>
+              <span class="absolute text-slate-600 text-xs font-semibold bottom-8 right-16 animate-pulse">⭐</span>
+              <span class="absolute text-slate-600 text-xs top-12 right-20 animate-bounce">⭐</span>
+              <!-- Ship and asteroid mock art -->
+              <span class="text-5xl transform -rotate-45"><i class="bi bi-rocket-fill text-brand-500"></i></span>
+              <span class="absolute text-3xl right-16 top-16 animate-bounce"><i class="bi bi-activity text-indigo-500"></i></span>
+              <span class="absolute bottom-4 left-6 text-xs font-mono text-slate-500">Block count: 120 blocks</span>
+            </div>
+            
+            <div class="p-6 space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-black uppercase tracking-wider text-indigo-500 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-2.5 py-1 rounded-full">
+                  Scratch Visual
+                </span>
+                <span class="text-sm text-slate-600 dark:text-slate-200 dark:text-slate-300 font-bold">Ages 6-10</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white card-title">Retro Space Rescue Game</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed line-clamp-3">
+                Program coordinates using movement loops to dodge moving asteroids, capture target satellites, and build dynamic score logic.
+              </p>
+              
+              <!-- Specs list -->
+              <div class="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-slate-500">
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Variable Score & Live tracking</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Interactive keyboard triggers</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bottom actions -->
+          <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-100/30 dark:bg-slate-900/10 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="text-xs"><i class="bi bi-person-fill text-slate-500"></i></span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-200">Leo, Age 8</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="likeProject(this)" class="flex items-center gap-1 text-slate-400 hover:text-rose-500 transition-colors">
+                <span><i class="bi bi-heart-fill text-rose-500"></i></span>
+                <span class="text-xs font-semibold font-mono font-bold like-count">245</span>
+              </button>
+              <button onclick="openSimulatorModal(0)" class="px-3.5 py-1.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs font-semibold rounded-lg shadow-sm transition-colors">
+                Try Simulator
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Climate Dashboard -->
+        <div class="project-card bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden" data-category="python">
+          <div>
+            <!-- Cover Mock -->
+            <div class="h-48 bg-slate-950 flex flex-col items-center justify-center relative overflow-hidden p-6 border-b border-slate-100 dark:border-slate-800">
+              <!-- Simulated python compiler output visual -->
+              <div class="w-full h-full bg-slate-900 rounded-xl border border-slate-800 p-3 font-mono text-[9px] text-cyan-400 leading-normal overflow-hidden select-none">
+                <span class="text-slate-500">$ python climate_control.py</span><br>
+                <span>[INFO] Loading sensor dht11... OK</span><br>
+                <span>[DATA] Temperature: 26°C | Humid: 45%</span><br>
+                <span class="text-emerald-400">[ACTUATOR] AC status -> ON</span>
+              </div>
+              <span class="absolute bottom-4 right-6 text-xs font-mono text-slate-500">DHT11 sensor script</span>
+            </div>
+            
+            <div class="p-6 space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-black uppercase tracking-wider text-coding-500 dark:text-coding-400 bg-coding-50 dark:bg-coding-950/50 px-2.5 py-1 rounded-full">
+                  Python Code
+                </span>
+                <span class="text-sm text-slate-600 dark:text-slate-200 dark:text-slate-300 font-bold">Ages 11-14</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white card-title">Smart Climate Dashboard</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed line-clamp-3">
+                Create a syntax automation loop checking virtual thermometer thresholds to activate heater elements or AC fans.
+              </p>
+              
+              <!-- Specs list -->
+              <div class="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-slate-500">
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Sensor threshold statements</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Console log monitoring state</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bottom actions -->
+          <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-100/30 dark:bg-slate-900/10 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="text-xs"><i class="bi bi-person-fill text-slate-500"></i></span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-200">Sarah, Age 12</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="likeProject(this)" class="flex items-center gap-1 text-slate-400 hover:text-rose-500 transition-colors">
+                <span><i class="bi bi-heart-fill text-rose-500"></i></span>
+                <span class="text-xs font-semibold font-mono font-bold like-count">192</span>
+              </button>
+              <button onclick="openSimulatorModal(1)" class="px-3.5 py-1.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs font-semibold rounded-lg shadow-sm transition-colors">
+                Try Simulator
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Sonar Rover -->
+        <div class="project-card bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden" data-category="hardware">
+          <div>
+            <!-- Cover Mock -->
+            <div class="h-48 bg-slate-950 flex flex-col items-center justify-center relative overflow-hidden p-6 border-b border-slate-100 dark:border-slate-800">
+              <div class="absolute inset-0 bg-slate-900/40 pointer-events-none"></div>
+              <!-- Sonar graphic representation -->
+              <svg class="w-16 h-16 text-yellow-500 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="9" stroke-width="1.5"></circle>
+                <circle cx="12" cy="12" r="6" stroke-width="1.5"></circle>
+                <circle cx="12" cy="12" r="3" stroke-width="1.5"></circle>
+              </svg>
+              <span class="absolute text-[10px] text-yellow-500 font-mono bottom-4">HC-SR04 Sonar Active</span>
+            </div>
+            
+            <div class="p-6 space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-black uppercase tracking-wider text-robotics-600 dark:text-robotics-550 bg-robotics-100 dark:bg-robotics-950/50 px-2.5 py-1 rounded-full">
+                  Microcontroller
+                </span>
+                <span class="text-sm text-slate-600 dark:text-slate-200 dark:text-slate-300 font-bold">Ages 10-14</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white card-title">Obstacle Evader Rover</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed line-clamp-3">
+                Wired with distance sonar detectors to trigger custom motor controller boards, turning the vehicle when objects get too close.
+              </p>
+              
+              <!-- Specs list -->
+              <div class="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-slate-500">
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Ultrasonic echo calculation</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Dual H-Bridge Motor controls</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bottom actions -->
+          <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-100/30 dark:bg-slate-900/10 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="text-xs"><i class="bi bi-person-fill text-slate-500"></i></span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-200">Hugo, Age 13</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="likeProject(this)" class="flex items-center gap-1 text-slate-400 hover:text-rose-500 transition-colors">
+                <span><i class="bi bi-heart-fill text-rose-500"></i></span>
+                <span class="text-xs font-semibold font-mono font-bold like-count">318</span>
+              </button>
+              <button onclick="openSimulatorModal(2)" class="px-3.5 py-1.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs font-semibold rounded-lg shadow-sm transition-colors">
+                Try Simulator
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: Smart Traffic Light -->
+        <div class="project-card bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden" data-category="python">
+          <div>
+            <!-- Cover Mock -->
+            <div class="h-48 bg-slate-950 flex flex-col items-center justify-center relative overflow-hidden p-6 border-b border-slate-100 dark:border-slate-800">
+              <!-- Visual light board representation -->
+              <div class="w-12 py-4 bg-slate-800 rounded-xl flex flex-col gap-2 items-center border border-slate-700">
+                <span id="light-red" class="w-4 h-4 rounded-full bg-rose-600 shadow shadow-rose-600/50"></span>
+                <span id="light-yellow" class="w-4 h-4 rounded-full bg-amber-950"></span>
+                <span id="light-green" class="w-4 h-4 rounded-full bg-emerald-950"></span>
+              </div>
+              <span class="absolute bottom-4 left-6 text-xs font-mono text-slate-500">Simulated GPIO signals</span>
+            </div>
+            
+            <div class="p-6 space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-black uppercase tracking-wider text-coding-500 dark:text-coding-400 bg-coding-50 dark:bg-coding-950/50 px-2.5 py-1 rounded-full">
+                  Python Code
+                </span>
+                <span class="text-sm text-slate-600 dark:text-slate-200 dark:text-slate-300 font-bold">Ages 11-14</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white card-title">Smart City Traffic Light</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed line-clamp-3">
+                Learn conditionals and delay loops. Program simulated light nodes that turn green only when a virtual car approaches.
+              </p>
+              
+              <!-- Specs list -->
+              <div class="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-slate-500">
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Conditional branching logic</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>GPIO signal mapping</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bottom actions -->
+          <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-100/30 dark:bg-slate-900/10 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="text-xs"><i class="bi bi-person-fill text-slate-500"></i></span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-200">Alex, Age 11</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="likeProject(this)" class="flex items-center gap-1 text-slate-400 hover:text-rose-500 transition-colors">
+                <span><i class="bi bi-heart-fill text-rose-500"></i></span>
+                <span class="text-xs font-semibold font-mono font-bold like-count">156</span>
+              </button>
+              <button onclick="openSimulatorModal(3)" class="px-3.5 py-1.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs font-semibold rounded-lg shadow-sm transition-colors">
+                Try Simulator
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: Robotic Claw -->
+        <div class="project-card bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden" data-category="hardware">
+          <div>
+            <!-- Cover Mock -->
+            <div class="h-48 bg-slate-950 flex flex-col items-center justify-center relative overflow-hidden p-6 border-b border-slate-100 dark:border-slate-800">
+              <div class="w-24 h-24 text-slate-500 relative">
+                <!-- Mechanical arm line mockup -->
+                <svg class="w-full h-full text-indigo-400 animate-pulse" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path>
+                </svg>
+              </div>
+              <span class="absolute bottom-4 right-6 text-xs font-mono text-slate-500">Servo Motor SG90</span>
+            </div>
+            
+            <div class="p-6 space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-black uppercase tracking-wider text-robotics-600 dark:text-robotics-550 bg-robotics-100 dark:bg-robotics-950/50 px-2.5 py-1 rounded-full">
+                  Microcontroller
+                </span>
+                <span class="text-sm text-slate-600 dark:text-slate-200 dark:text-slate-300 font-bold">Ages 10-14</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white card-title">Mechanical Sorting Claw</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed line-clamp-3">
+                Program servo angles to command gripper structures, sorting colored sensor tokens into distinct bins.
+              </p>
+              
+              <!-- Specs list -->
+              <div class="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-slate-500">
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Servo calibration values</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Automatic sorting sweeps</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bottom actions -->
+          <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-100/30 dark:bg-slate-900/10 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="text-xs"><i class="bi bi-person-fill text-slate-500"></i></span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-200">Emma, Age 13</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="likeProject(this)" class="flex items-center gap-1 text-slate-400 hover:text-rose-500 transition-colors">
+                <span><i class="bi bi-heart-fill text-rose-500"></i></span>
+                <span class="text-xs font-semibold font-mono font-bold like-count">207</span>
+              </button>
+              <button onclick="openSimulatorModal(4)" class="px-3.5 py-1.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs font-semibold rounded-lg shadow-sm transition-colors">
+                Try Simulator
+              </button>
+            </div>
+          </div>
+        </div>
+
+        
+        <!-- Card 7: Pixel Platformer Odyssey (Scratch - 3rd Scratch Card) -->
+        <div class="project-card bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden" data-category="scratch">
+          <div>
+            <!-- Cover Mock -->
+            <div class="h-48 bg-slate-950 flex flex-col items-center justify-center relative overflow-hidden p-6 border-b border-slate-100 dark:border-slate-800">
+              <div class="w-full h-full bg-slate-900 rounded-xl border border-slate-800 p-3 font-mono text-[9px] text-purple-400 flex flex-col justify-between overflow-hidden select-none">
+                <div class="flex justify-between text-slate-500">
+                  <span>LEVEL 03 - GRAVITY ZONE</span>
+                  <span>COINS: 42</span>
+                </div>
+                <div class="text-center my-2 text-3xl"><i class="bi bi-play-btn-fill text-purple-500"></i> Platformer Physics</div>
+                <div class="text-xs text-emerald-400 text-center font-mono">SPRITE VELOCITY Y: -9.8 m/s²</div>
+              </div>
+              <span class="absolute bottom-4 right-6 text-xs font-mono text-slate-500">Gravity & Jump Physics</span>
+            </div>
+            
+            <div class="p-6 space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-black uppercase tracking-wider text-indigo-500 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-2.5 py-1 rounded-full">
+                  Scratch Visual
+                </span>
+                <span class="text-sm text-slate-600 dark:text-slate-200 dark:text-slate-300 font-bold">Ages 6-10</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white card-title">Pixel Platformer Odyssey</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed line-clamp-3">
+                Program custom jump velocity loops, sprite collision hitboxes, level progression portals, and score tracking variables.
+              </p>
+              
+              <!-- Specs list -->
+              <div class="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-slate-500">
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Custom Sprite Hitbox Logic</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Gravity & Velocity Calculations</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bottom actions -->
+          <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-100/30 dark:bg-slate-900/10 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="text-xs"><i class="bi bi-person-fill text-slate-500"></i></span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-200">Maya, Age 9</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="likeProject(this)" class="flex items-center gap-1 text-slate-400 hover:text-rose-500 transition-colors">
+                <span><i class="bi bi-heart-fill text-rose-500"></i></span>
+                <span class="text-xs font-semibold font-mono font-bold like-count">210</span>
+              </button>
+              <button onclick="openSimulatorModal(6)" class="px-3.5 py-1.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs font-semibold rounded-lg shadow-sm transition-colors">
+                Try Simulator
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8: AI Gesture & Vision Bot (Python - 3rd Python Card) -->
+        <div class="project-card bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden" data-category="python">
+          <div>
+            <!-- Cover Mock -->
+            <div class="h-48 bg-slate-950 flex flex-col items-center justify-center relative overflow-hidden p-6 border-b border-slate-100 dark:border-slate-800">
+              <div class="w-full h-full bg-slate-900 rounded-xl border border-slate-800 p-3 font-mono text-[9px] text-emerald-400 leading-normal overflow-hidden select-none">
+                <span class="text-slate-500">$ python vision_recognizer.py</span><br>
+                <span>[CAMERA] Stream 1080p @ 60 FPS... OK</span><br>
+                <span>[AI MODEL] Gesture detected: THUMBS_UP</span><br>
+                <span class="text-cyan-400">[ACTION] Trigger Servo Angle -> 180°</span>
+              </div>
+              <span class="absolute bottom-4 right-6 text-xs font-mono text-slate-500">OpenCV Camera Module</span>
+            </div>
+            
+            <div class="p-6 space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-black uppercase tracking-wider text-coding-500 dark:text-coding-400 bg-coding-50 dark:bg-coding-950/50 px-2.5 py-1 rounded-full">
+                  Python Code
+                </span>
+                <span class="text-sm text-slate-600 dark:text-slate-200 dark:text-slate-300 font-bold">Ages 11-14</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white card-title">AI Gesture & Vision Bot</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed line-clamp-3">
+                Use Python OpenCV computer vision scripts to recognize student hand gestures and trigger automated hardware outputs.
+              </p>
+              
+              <!-- Specs list -->
+              <div class="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-slate-500">
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Hand gesture tracking arrays</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Real-time frame processing</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bottom actions -->
+          <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-100/30 dark:bg-slate-900/10 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="text-xs"><i class="bi bi-person-fill text-slate-500"></i></span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-200">Daniel, Age 14</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="likeProject(this)" class="flex items-center gap-1 text-slate-400 hover:text-rose-500 transition-colors">
+                <span><i class="bi bi-heart-fill text-rose-500"></i></span>
+                <span class="text-xs font-semibold font-mono font-bold like-count">268</span>
+              </button>
+              <button onclick="openSimulatorModal(7)" class="px-3.5 py-1.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs font-semibold rounded-lg shadow-sm transition-colors">
+                Try Simulator
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9: Smart Irrigation Station (Hardware - 3rd Hardware Card) -->
+        <div class="project-card bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden" data-category="hardware">
+          <div>
+            <!-- Cover Mock -->
+            <div class="h-48 bg-slate-950 flex flex-col items-center justify-center relative overflow-hidden p-6 border-b border-slate-100 dark:border-slate-800">
+              <div class="w-full h-full bg-slate-900 rounded-xl border border-slate-800 p-3 font-mono text-[9px] text-amber-400 flex flex-col justify-between select-none">
+                <span class="text-slate-500">SOIL MOISTURE SENSOR v2</span>
+                <div class="text-center my-1 text-2xl"><i class="bi bi-droplet-half text-emerald-500"></i> Irrigation Module</div>
+                <div class="text-xs text-cyan-400 text-center font-mono">MOISTURE: 28% (LOW) -> WATER PUMP ON</div>
+              </div>
+              <span class="absolute bottom-4 right-6 text-xs font-mono text-slate-500">Relay & Pump Module</span>
+            </div>
+            
+            <div class="p-6 space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-black uppercase tracking-wider text-robotics-600 dark:text-robotics-550 bg-robotics-100 dark:bg-robotics-950/50 px-2.5 py-1 rounded-full">
+                  Microcontroller
+                </span>
+                <span class="text-sm text-slate-600 dark:text-slate-200 dark:text-slate-300 font-bold">Ages 10-14</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white card-title">Smart Plant Irrigation Station</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed line-clamp-3">
+                Wire soil moisture probes to microcontrollers to auto-trigger mini water pumps when soil dryness triggers set thresholds.
+              </p>
+              
+              <!-- Specs list -->
+              <div class="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-slate-500">
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Analog moisture signal reading</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>5V Relay switch control</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bottom actions -->
+          <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-100/30 dark:bg-slate-900/10 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="text-xs"><i class="bi bi-person-fill text-slate-500"></i></span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-200">Liam, Age 12</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="likeProject(this)" class="flex items-center gap-1 text-slate-400 hover:text-rose-500 transition-colors">
+                <span><i class="bi bi-heart-fill text-rose-500"></i></span>
+                <span class="text-xs font-semibold font-mono font-bold like-count">289</span>
+              </button>
+              <button onclick="openSimulatorModal(8)" class="px-3.5 py-1.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs font-semibold rounded-lg shadow-sm transition-colors">
+                Try Simulator
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: AI Maze Solver -->
+        <div class="project-card bg-slate-50 dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow hover:shadow-xl hover:-translate-y-1 transition-all duration-300 flex flex-col justify-between overflow-hidden" data-category="scratch">
+          <div>
+            <!-- Cover Mock -->
+            <div class="h-48 bg-slate-950 flex flex-col items-center justify-center relative overflow-hidden p-6 border-b border-slate-100 dark:border-slate-800">
+              <!-- Maze SVG artwork -->
+              <div class="w-32 h-32 border-2 border-indigo-900 rounded-lg p-1 relative flex items-center justify-center">
+                <div class="absolute inset-2 border border-slate-800 flex items-center justify-center">
+                  <div class="absolute inset-2 border border-dashed border-slate-700"></div>
+                </div>
+                <!-- Small smiley ball solver -->
+                <span class="absolute text-sm top-3 left-3 animate-ping"><span class="relative flex h-2.5 w-2.5"><span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-rose-450 opacity-75"></span><span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-rose-500"></span></span></span>
+                <span class="absolute text-sm bottom-3 right-3">⭐</span>
+              </div>
+              <span class="absolute bottom-4 left-6 text-xs font-mono text-slate-500">Recursive path-finding</span>
+            </div>
+            
+            <div class="p-6 space-y-4">
+              <div class="flex justify-between items-center">
+                <span class="text-xs font-black uppercase tracking-wider text-indigo-500 dark:text-indigo-400 bg-indigo-50 dark:bg-indigo-950/50 px-2.5 py-1 rounded-full">
+                  Scratch Visual
+                </span>
+                <span class="text-sm text-slate-600 dark:text-slate-200 dark:text-slate-300 font-bold">Ages 6-10</span>
+              </div>
+              <h3 class="text-xl font-bold text-slate-900 dark:text-white card-title">Smart Maze Navigator</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed line-clamp-3">
+                Utilize color-sensing algorithms to trace paths automatically, backing up and turning when boundary conditions trigger.
+              </p>
+              
+              <!-- Specs list -->
+              <div class="space-y-1.5 pt-2 border-t border-slate-100 dark:border-slate-800 text-xs font-semibold text-slate-500">
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Grid wall sensor logic</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-brand-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span>Continuous speed variables</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Bottom actions -->
+          <div class="p-6 border-t border-slate-100 dark:border-slate-800 bg-slate-100/30 dark:bg-slate-900/10 flex justify-between items-center gap-4">
+            <div class="flex items-center gap-1">
+              <span class="text-xs"><i class="bi bi-person-fill text-slate-500"></i></span>
+              <span class="text-xs font-semibold text-slate-500 dark:text-slate-200">Ryan, Age 9</span>
+            </div>
+            <div class="flex items-center gap-3">
+              <button onclick="likeProject(this)" class="flex items-center gap-1 text-slate-400 hover:text-rose-500 transition-colors">
+                <span><i class="bi bi-heart-fill text-rose-500"></i></span>
+                <span class="text-xs font-semibold font-mono font-bold like-count">183</span>
+              </button>
+              <button onclick="openSimulatorModal(5)" class="px-3.5 py-1.5 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs font-semibold rounded-lg shadow-sm transition-colors">
+                Try Simulator
+              </button>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       MODALS: DYNAMIC SIMULATORS
+       ========================================== -->
+  <div id="simulator-modal-backdrop" class="fixed inset-0 z-50 bg-slate-900/70 backdrop-blur-sm hidden flex items-center justify-center p-4">
+    <div id="simulator-modal-container" class="bg-white dark:bg-slate-800 rounded-3xl border border-slate-200 dark:border-slate-800/80 shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto transform scale-95 opacity-0 transition-all duration-300">
+      
+      <!-- Modal Header -->
+      <div class="px-6 py-4 border-b border-slate-100 dark:border-slate-800 flex justify-between items-center bg-slate-50 dark:bg-slate-900/40 rounded-t-3xl">
+        <div>
+          <span id="modal-project-badge" class="text-[10px] font-black uppercase tracking-wider px-2 py-0.5 rounded bg-brand-100 dark:bg-brand-950 text-brand-600">Scratch Block</span>
+          <h3 id="modal-project-title" class="text-lg font-bold text-slate-900 dark:text-white mt-1 font-heading">Retro Space Rescue</h3>
+        </div>
+        <button onclick="closeSimulatorModal()" class="p-2 rounded-xl text-slate-400 hover:text-slate-650 dark:hover:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M6 18L18 6M6 6l12 12"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Modal Body (Dynamic Simulator Box) -->
+      <div class="p-6 space-y-6">
+        
+        <!-- Live simulator bay -->
+        <div id="modal-simulator-bay" class="relative rounded-2xl bg-slate-950 p-6 min-h-60 border border-slate-800/60 overflow-hidden flex flex-col justify-between">
+          <!-- Dynamic Content Injected here -->
+        </div>
+
+        <!-- Details -->
+        <div class="space-y-2">
+          <h4 class="text-xs font-bold text-slate-700 dark:text-slate-200 uppercase">Student Programming Notes</h4>
+          <p id="modal-project-notes" class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
+            I built this game by mapping asteroid loops to generate random velocities. Keyboard clicks trigger vertical and horizontal movement constraints.
+          </p>
+        </div>
+
+      </div>
+
+      <!-- Modal Footer -->
+      <div class="px-6 py-4 border-t border-slate-100 dark:border-slate-800 bg-slate-50/50 dark:bg-slate-900/20 flex justify-between items-center rounded-b-3xl">
+        <span class="text-[10px] text-slate-500 font-mono">RoboCoders Simulation Lab v2.0</span>
+        <button onclick="closeSimulatorModal()" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 font-bold text-xs rounded-xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-colors">
+          Close Lab
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 dark:bg-slate-950 border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div class="space-y-6">
+          <a href="index.html" class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white shadow-md">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+              </svg>
+            </div>
+            <span class="text-xl font-bold text-white">RoboCoders</span>
+          </a>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Empowering the next generation of creators through playful, gamified, and professional hands-on robotics and coding workshops.
+          </p>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-white font-bold tracking-wide uppercase text-sm">Quick Links</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home 1 (Playful)</a></li>
+            <li><a href="home-2.html" class="hover:text-white transition-colors">Home 2 (Futuristic)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Academy Programs</a></li>
+            <li><a href="curriculum.html" class="hover:text-white transition-colors">Learning Tracks</a></li>
+            <li><a href="instructors.html" class="hover:text-white transition-colors">Meet the Team</a></li>
+            <li><a href="projects.html" class="hover:text-white transition-colors">Student Projects</a></li>
+          </ul>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-white font-bold tracking-wide uppercase text-sm">Programs</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="programs.html" class="hover:text-white transition-colors">Scratch Visual Coding (6-10 yrs)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Python Games & Logic (11-14 yrs)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Robotics Kits & Sensors (10-14 yrs)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Arduino Smart City (12+ yrs)</a></li>
+          </ul>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-white font-bold tracking-wide uppercase text-sm">Contact Info</h4>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <span>123 Innovation Boulevard, Tech District</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              <span>+1 (555) 908-3210</span>
+            </li>
+            <li class="flex items-start gap-2.5 pt-2">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div>
+                <span class="block font-bold text-white text-xs uppercase tracking-wider">Academy Hours</span>
+                <span class="text-xs text-slate-300 block mt-0.5">Mon-Fri: 3:30 PM - 7:30 PM</span>
+                <span class="text-xs text-slate-300 block">Sat-Sun: 9:00 AM - 5:00 PM</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+        <p>&copy; 2026 RoboCoders Academy. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="fixed bottom-6 right-6 p-4 rounded-full bg-brand-600 text-white shadow-xl hover:bg-brand-700 opacity-0 invisible translate-y-4 z-40 transition-all">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7 7 7M12 3v18"></path>
+    </svg>
+  </button>
+
+  <!-- Global scripts -->
+  <script src="assets/js/main.js"></script>
+
+  <!-- Projects Page Interactive Logics -->
+  <script>
+    // Search Filtering
+    function searchProjects() {
+      const searchInput = document.getElementById('project-search-input');
+      const searchVal = searchInput ? searchInput.value.toLowerCase() : '';
+      const cards = document.querySelectorAll('.project-card');
+      let visibleCount = 0;
+
+      cards.forEach(card => {
+        const title = card.querySelector('.card-title').textContent.toLowerCase();
+        const category = card.getAttribute('data-category');
+        const activeFilter = getActiveFilterCategory();
+        
+        const matchesSearch = title.includes(searchVal);
+        const matchesCategory = (activeFilter === 'all' || category === activeFilter);
+
+        if (matchesSearch && matchesCategory) {
+          card.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          card.classList.add('hidden');
+        }
+      });
+
+      const noProjectsAlert = document.getElementById('no-projects-found');
+      if (visibleCount === 0) {
+        noProjectsAlert.classList.remove('hidden');
+      } else {
+        noProjectsAlert.classList.add('hidden');
+      }
+    }
+
+    // Tab category filter
+    function filterCategory(catName) {
+      // Toggle button styles
+      const filterBtns = document.querySelectorAll('.project-filter-btn');
+      filterBtns.forEach(btn => {
+        if (btn.id === `filter-btn-${catName}`) {
+          btn.className = 'project-filter-btn px-5 py-2.5 rounded-xl bg-brand-600 text-white font-bold text-xs sm:text-sm shadow transition-all duration-300';
+        } else {
+          btn.className = 'project-filter-btn px-5 py-2.5 rounded-xl bg-slate-200/50 dark:bg-slate-800 text-slate-600 dark:text-slate-200 hover:bg-slate-200 dark:hover:bg-slate-700 font-bold text-xs sm:text-sm transition-all duration-300';
+        }
+      });
+
+      // Rerun search to combine filters
+      searchProjects();
+    }
+
+    function getActiveFilterCategory() {
+      const activeBtn = document.querySelector('.project-filter-btn.bg-brand-600');
+      if (activeBtn) {
+        return activeBtn.id.replace('filter-btn-', '');
+      }
+      return 'all';
+    }
+
+    // Like incremental count logic
+    function likeProject(btn) {
+      const countSpan = btn.querySelector('.like-count');
+      if (countSpan && !btn.classList.contains('liked')) {
+        let currentLikes = parseInt(countSpan.textContent);
+        countSpan.textContent = currentLikes + 1;
+        btn.classList.add('liked', 'text-rose-500');
+        // Simple scale pop animation
+        btn.style.transform = 'scale(1.25)';
+        setTimeout(() => {
+          btn.style.transform = 'scale(1.0)';
+        }, 150);
+      }
+    }
+
+    // SIMULATORS CONFIGURATIONS
+    const simulators = [
+      // 0: Space Rescue
+      {
+        badge: "Scratch Block",
+        title: "Retro Space Rescue Game",
+        notes: "Leo mapped keyboard arrows to ship thruster conditions. Dodging obstacles increments score integers every tick.",
+        content: `
+          <div class="absolute top-4 left-4 text-sm text-slate-600 dark:text-slate-200 font-mono">Score: <span id="modal-space-score">200</span> | Lives: <i class="bi bi-heart-fill text-rose-500"></i><i class="bi bi-heart-fill text-rose-500"></i><i class="bi bi-heart-fill text-rose-500"></i></div>
+          <div id="modal-space-ship" class="absolute transition-all duration-300 text-3xl" style="left: 15%; bottom: 35%;"><i class="bi bi-rocket-fill text-brand-500"></i></div>
+          <div id="modal-asteroid-1" class="absolute text-xl animate-bounce" style="right: 25%; top: 20%;"><i class="bi bi-activity text-indigo-500"></i></div>
+          <div id="modal-asteroid-2" class="absolute text-2xl animate-pulse" style="right: 40%; bottom: 15%;"><i class="bi bi-activity text-indigo-500"></i></div>
+          <div class="text-center text-sm text-slate-600 dark:text-slate-200 mt-28">
+            <span class="block text-indigo-400 font-bold mb-1">Visual Code Block Logic:</span>
+            <code class="bg-indigo-900/30 text-indigo-300 px-2 py-0.5 rounded font-mono">when green flag clicked -> forever { if obstacle_distance &lt; 30 then dodge() }</code>
+          </div>
+          <div class="mt-4 flex justify-between items-center">
+            <button onclick="runModalSpaceSim()" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs rounded-xl shadow-md transition-colors">Run Simulation</button>
+            <span class="text-sm text-slate-600 dark:text-slate-200 font-mono">Scratch Block Execution: PASS</span>
+          </div>
+        `
+      },
+      // 1: Climate Dashboard
+      {
+        badge: "Python Code",
+        title: "Smart Climate Dashboard",
+        notes: "Sarah configured custom loops reading sensor variables. Temperatures above 25°C trigger cooling vents, otherwise heaters start.",
+        content: `
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div class="bg-slate-900 rounded-xl p-4 font-mono text-[11px] text-slate-400 leading-relaxed border border-slate-800">
+              <p class="text-slate-500"># Check ambient temperature</p>
+              <p><span class="text-purple-400">def</span> check_temp(temp):</p>
+              <p class="pl-4"><span class="text-purple-400">if</span> temp &gt;= <span class="text-amber-400">25</span>:</p>
+              <p class="pl-8 text-cyan-400">ac.turn_on()</p>
+              <p class="pl-4"><span class="text-purple-400">else</span>:</p>
+              <p class="pl-8 text-rose-450">heater.turn_on()</p>
+            </div>
+            <div class="bg-slate-900 rounded-xl p-4 border border-slate-800 flex flex-col justify-between items-center">
+              <span class="text-sm text-slate-600 dark:text-slate-200">Climate Sensor State</span>
+              <div class="text-center my-2">
+                <span id="modal-temp-display" class="text-4xl font-bold font-mono text-amber-500">26°C</span>
+                <span id="modal-status-display" class="block text-xs text-cyan-400 font-mono mt-1 text-center">AC SYSTEM ACTIVATED</span>
+              </div>
+              <button onclick="toggleModalTemp()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-[10px] font-bold rounded-lg transition-colors">Adjust Temperature</button>
+            </div>
+          </div>
+        `
+      },
+      // 2: Sonar Rover
+      {
+        badge: "Microcontroller",
+        title: "Obstacle Evader Rover",
+        notes: "Hugo built echo distance calculations in C++. When echo returns in under 15cm, speed drops to zero and reverses direction.",
+        content: `
+          <div class="flex flex-col items-center justify-center relative min-h-[160px]">
+            <div id="modal-sonar-waves" class="absolute w-24 h-24 rounded-full border-4 border-dashed border-yellow-500/30" style="left: 40%; top: 15%;"></div>
+            <svg class="w-16 h-16 text-slate-400 z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <rect x="4" y="6" width="16" height="10" rx="2" stroke-width="2"></rect>
+              <circle cx="7" cy="18" r="3" stroke-width="2"></circle>
+              <circle cx="17" cy="18" r="3" stroke-width="2"></circle>
+              <circle cx="9" cy="11" r="1" fill="currentColor"></circle>
+              <circle cx="15" cy="11" r="1" fill="currentColor"></circle>
+              <line x1="12" y1="6" x2="12" y2="2" stroke-width="2"></line>
+            </svg>
+            <span class="text-xs text-yellow-500 font-mono mt-3 z-10">Object detected: <span id="modal-rover-distance">45cm</span></span>
+            <span id="modal-rover-action" class="text-xs font-semibold text-emerald-400 font-mono mt-1 z-10">SPEED 40% | RUNNING SWEEP</span>
+          </div>
+          <div class="mt-4 flex justify-between items-center">
+            <button onclick="triggerModalRoverObstacle()" class="px-4 py-2 bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs rounded-xl shadow-md transition-colors">Place Obstacle Close</button>
+            <span class="text-sm text-slate-600 dark:text-slate-200 font-mono">Ultrasonic echo calculation: ACTIVE</span>
+          </div>
+        `
+      },
+      // 3: Smart Traffic Light
+      {
+        badge: "Python Code",
+        title: "Smart City Traffic Light",
+        notes: "Alex mapped light signals to digital outputs. When sensor distance registers a vehicle, the green light output is set high.",
+        content: `
+          <div class="flex flex-col sm:flex-row gap-6 items-center justify-center p-4">
+            <div class="w-16 py-4 bg-slate-900 rounded-2xl flex flex-col gap-3 items-center border border-slate-800">
+              <span id="modal-traffic-red" class="w-6 h-6 rounded-full bg-rose-600 shadow shadow-rose-600/50"></span>
+              <span id="modal-traffic-yellow" class="w-6 h-6 rounded-full bg-amber-950"></span>
+              <span id="modal-traffic-green" class="w-6 h-6 rounded-full bg-emerald-950"></span>
+            </div>
+            <div class="text-center sm:text-left space-y-4">
+              <span class="text-sm text-slate-600 dark:text-slate-200 block font-mono">GPIO Signal Registry</span>
+              <div class="p-3 bg-slate-900 rounded-xl border border-slate-800 font-mono text-xs font-semibold text-slate-300">
+                GPIO.output(red, HIGH)<br>
+                GPIO.output(green, LOW)
+              </div>
+              <button onclick="triggerModalTrafficCar()" class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs rounded-xl transition-colors">Simulate Car Approaching</button>
+            </div>
+          </div>
+        `
+      },
+      // 4: Robotic Claw
+      {
+        badge: "Microcontroller",
+        title: "Mechanical Sorting Claw",
+        notes: "Emma calibrated SG90 motors. Input pulses translate into physical sweeps to direct claw closures around sorting tokens.",
+        content: `
+          <div class="flex flex-col items-center justify-center relative min-h-[160px] space-y-4">
+            <svg id="modal-claw-svg" class="w-20 h-20 text-indigo-400 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 100-6 3 3 0 000 6z"></path>
+            </svg>
+            <div class="flex gap-2">
+              <button onclick="adjustClawAngle(30)" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-semibold font-mono font-bold rounded">Angle 30°</button>
+              <button onclick="adjustClawAngle(90)" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-semibold font-mono font-bold rounded">Angle 90° (Grab)</button>
+              <button onclick="adjustClawAngle(150)" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-xs font-semibold font-mono font-bold rounded">Angle 150°</button>
+            </div>
+            <span class="text-xs font-semibold text-slate-400 font-mono">Current Servo Input Duty Cycle: <span id="modal-claw-servo">90°</span></span>
+          </div>
+        `
+      },
+      // 5: AI Maze Solver
+      {
+        badge: "Scratch Block",
+        title: "Smart Maze Navigator",
+        notes: "Ryan programmed recursive sensor algorithms. The sprite tracks coordinate offsets until collision indexes trigger a reverse recursion.",
+        content: `
+          <div class="flex flex-col items-center justify-center p-4">
+            <div class="w-48 h-32 bg-slate-900 border border-slate-800 rounded-xl relative overflow-hidden flex items-center justify-center">
+              <div id="modal-maze-walls" class="absolute inset-4 border border-dashed border-slate-700"></div>
+              <div id="modal-maze-ball" class="absolute w-4 h-4 rounded-full bg-rose-600 transition-all duration-300" style="left: 15%; top: 15%;"></div>
+              <div class="absolute bottom-2 right-4 text-xs">⭐</div>
+            </div>
+            <div class="mt-4 flex gap-4 items-center">
+              <button onclick="runModalMazeSolver()" class="px-4 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs rounded-xl shadow transition-colors">Start Solver</button>
+              <span class="text-xs font-semibold text-slate-400 font-mono">Solver Status: <span id="modal-maze-status">IDLE</span></span>
+            </div>
+          </div>
+        `
+      },
+      // 6: Pixel Platformer Odyssey
+      {
+        badge: "Scratch Block",
+        title: "Pixel Platformer Odyssey",
+        notes: "Maya programmed custom jump velocity loops and sprite collision hitboxes. Pressing the spacebar increments velocity vectors.",
+        content: `
+          <div class="flex flex-col items-center justify-center p-4">
+            <div class="w-full h-36 bg-slate-900 rounded-xl border border-slate-800 relative overflow-hidden flex flex-col justify-between p-3 font-mono text-xs">
+              <div class="flex justify-between text-slate-400">
+                <span>STAGE: GRAVITY ZONE</span>
+                <span>SCORE: <span id="modal-platform-score">420</span></span>
+              </div>
+              <div class="text-center my-2">
+                <span id="modal-player-sprite" class="text-3xl inline-block transition-all duration-300"><i class="bi bi-person-walking text-brand-500"></i></span>
+              </div>
+              <div class="text-center text-cyan-400 font-mono text-[10px]">
+                PHYSICS ENGINE: ACTIVE (-9.8 m/s²)
+              </div>
+            </div>
+            <div class="mt-4 flex gap-4 items-center">
+              <button onclick="triggerModalPlatformJump()" class="px-4 py-2 bg-purple-600 hover:bg-purple-500 text-white font-bold text-xs rounded-xl shadow transition-colors">Trigger Sprite Jump</button>
+              <span class="text-xs font-semibold text-slate-400 font-mono">Hitbox Collision: PASS</span>
+            </div>
+          </div>
+        `
+      },
+      // 7: AI Gesture Bot
+      {
+        badge: "Python Code",
+        title: "AI Gesture & Vision Bot",
+        notes: "Daniel integrated OpenCV camera recognition arrays with hardware servos. Detected gestures send pulse-width modulation signals.",
+        content: `
+          <div class="flex flex-col items-center justify-center p-4 space-y-4">
+            <div class="w-full h-32 bg-slate-900 rounded-xl border border-slate-800 p-4 font-mono text-xs text-emerald-400 flex flex-col justify-between">
+              <span>$ python vision_recognizer.py</span>
+              <span id="modal-vision-status" class="text-cyan-400">[CAMERA] Detecting hand gestures... ACTIVE</span>
+              <span class="text-amber-400">Recognized: <span id="modal-gesture-text">THUMBS_UP</span></span>
+            </div>
+            <button onclick="toggleModalVisionGesture()" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs rounded-xl transition-colors">Change Camera Gesture Input</button>
+          </div>
+        `
+      },
+      // 8: Smart Irrigation Station
+      {
+        badge: "Microcontroller",
+        title: "Smart Plant Irrigation Station",
+        notes: "Liam wired analog moisture probes to 5V relay switches. When soil moisture drops below 30%, the relay closes the water pump circuit.",
+        content: `
+          <div class="flex flex-col items-center justify-center p-4 space-y-4">
+            <div class="w-full h-32 bg-slate-900 rounded-xl border border-slate-800 p-4 font-mono text-xs flex flex-col justify-between text-center">
+              <span class="text-slate-400">SOIL MOISTURE SENSOR STATE</span>
+              <span id="modal-moisture-val" class="text-3xl font-bold text-amber-500">28% (DRY)</span>
+              <span id="modal-pump-status" class="text-emerald-400 font-bold">PUMP RELAY: ON (WATERING)</span>
+            </div>
+            <button onclick="toggleModalMoisture()" class="px-4 py-2 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs rounded-xl transition-colors">Simulate Water Level Change</button>
+          </div>
+        `
+      }
+    ];
+
+    function openSimulatorModal(index) {
+      const data = simulators[index];
+      if (!data) return;
+
+      document.getElementById('modal-project-badge').textContent = data.badge;
+      document.getElementById('modal-project-title').textContent = data.title;
+      document.getElementById('modal-project-notes').textContent = data.notes;
+      document.getElementById('modal-simulator-bay').innerHTML = data.content;
+
+      // Show modal backdrop
+      const backdrop = document.getElementById('simulator-modal-backdrop');
+      const container = document.getElementById('simulator-modal-container');
+      
+      backdrop.classList.remove('hidden');
+      setTimeout(() => {
+        container.classList.remove('scale-95', 'opacity-0');
+        container.classList.add('scale-100', 'opacity-100');
+      }, 50);
+
+      // Reset internal states if needed
+      modalObstaclePlaced = false;
+      modalClawAngle = 90;
+      modalMazeTimer = null;
+      modalTrafficState = false;
+    }
+
+    function closeSimulatorModal() {
+      const backdrop = document.getElementById('simulator-modal-backdrop');
+      const container = document.getElementById('simulator-modal-container');
+      
+      // Stop any maze solver timers
+      if (modalMazeTimer) clearInterval(modalMazeTimer);
+
+      container.classList.remove('scale-100', 'opacity-100');
+      container.classList.add('scale-95', 'opacity-0');
+      setTimeout(() => {
+        backdrop.classList.add('hidden');
+      }, 300);
+    }
+
+    // MODAL INTERACTIVE CONTROLS
+    function runModalSpaceSim() {
+      const ship = document.getElementById('modal-space-ship');
+      const score = document.getElementById('modal-space-score');
+      if (ship && score) {
+        ship.style.transform = 'translateY(-30px) rotate(-45deg)';
+        setTimeout(() => {
+          ship.style.transform = 'translateY(0px) rotate(-45deg)';
+          score.textContent = parseInt(score.textContent) + 50;
+        }, 400);
+      }
+    }
+
+    let modalTemp = 26;
+    function toggleModalTemp() {
+      const tempDisp = document.getElementById('modal-temp-display');
+      const statusDisp = document.getElementById('modal-status-display');
+      if (tempDisp && statusDisp) {
+        if (modalTemp === 26) {
+          modalTemp = 21;
+          tempDisp.textContent = modalTemp + '°C';
+          tempDisp.className = 'text-4xl font-bold font-mono text-cyan-400';
+          statusDisp.textContent = 'HEATER ACTIVATED | TEMP COLD';
+          statusDisp.className = 'block text-xs text-rose-400 font-mono mt-1 text-center';
+        } else {
+          modalTemp = 26;
+          tempDisp.textContent = modalTemp + '°C';
+          tempDisp.className = 'text-4xl font-bold font-mono text-amber-500';
+          statusDisp.textContent = 'AC SYSTEM ACTIVATED';
+          statusDisp.className = 'block text-xs text-cyan-400 font-mono mt-1 text-center';
+        }
+      }
+    }
+
+    let modalObstaclePlaced = false;
+    function triggerModalRoverObstacle() {
+      const dist = document.getElementById('modal-rover-distance');
+      const action = document.getElementById('modal-rover-action');
+      const waves = document.getElementById('modal-sonar-waves');
+      if (dist && action) {
+        if (!modalObstaclePlaced) {
+          dist.textContent = '12cm';
+          action.textContent = 'OBSTACLE DETECTED! HALTING MOTORS & REVERSING';
+          action.className = 'text-[11px] text-rose-500 font-mono mt-1 z-10 text-center';
+          if (waves) waves.className = 'absolute w-24 h-24 rounded-full border-4 border-dashed border-rose-500/80 animate-ping';
+          modalObstaclePlaced = true;
+        } else {
+          dist.textContent = '45cm';
+          action.textContent = 'SPEED 40% | RUNNING SWEEP';
+          action.className = 'text-xs font-semibold text-emerald-400 font-mono mt-1 z-10 text-center';
+          if (waves) waves.className = 'absolute w-24 h-24 rounded-full border-4 border-dashed border-yellow-500/30';
+          modalObstaclePlaced = false;
+        }
+      }
+    }
+
+    let modalTrafficState = false;
+    function triggerModalTrafficCar() {
+      const red = document.getElementById('modal-traffic-red');
+      const green = document.getElementById('modal-traffic-green');
+      if (red && green) {
+        if (!modalTrafficState) {
+          // Switch to green
+          red.className = 'w-6 h-6 rounded-full bg-rose-950';
+          green.className = 'w-6 h-6 rounded-full bg-emerald-500 shadow shadow-emerald-500/50';
+          modalTrafficState = true;
+        } else {
+          // Switch to red
+          red.className = 'w-6 h-6 rounded-full bg-rose-600 shadow shadow-rose-600/50';
+          green.className = 'w-6 h-6 rounded-full bg-emerald-950';
+          modalTrafficState = false;
+        }
+      }
+    }
+
+    function adjustClawAngle(angle) {
+      const svg = document.getElementById('modal-claw-svg');
+      const angleDisp = document.getElementById('modal-claw-servo');
+      if (svg && angleDisp) {
+        angleDisp.textContent = angle + '°';
+        if (angle === 90) {
+          svg.style.transform = 'scale(0.85)';
+        } else if (angle === 30) {
+          svg.style.transform = 'rotate(-30deg)';
+        } else {
+          svg.style.transform = 'rotate(30deg)';
+        }
+      }
+    }
+
+    let modalMazeTimer = null;
+    
+    function triggerModalPlatformJump() {
+      const sprite = document.getElementById('modal-player-sprite');
+      const score = document.getElementById('modal-platform-score');
+      if (sprite && score) {
+        sprite.style.transform = 'translateY(-25px)';
+        setTimeout(() => {
+          sprite.style.transform = 'translateY(0px)';
+          score.textContent = parseInt(score.textContent) + 10;
+        }, 350);
+      }
+    }
+
+    let modalGestureState = false;
+    function toggleModalVisionGesture() {
+      const text = document.getElementById('modal-gesture-text');
+      const status = document.getElementById('modal-vision-status');
+      if (text && status) {
+        if (!modalGestureState) {
+          text.textContent = 'PEACE_SIGN (ANGLE 90°)';
+          status.textContent = '[CAMERA] Gesture detected: PEACE_SIGN';
+          modalGestureState = true;
+        } else {
+          text.textContent = 'THUMBS_UP';
+          status.textContent = '[CAMERA] Gesture detected: THUMBS_UP';
+          modalGestureState = false;
+        }
+      }
+    }
+
+    let modalMoistureState = false;
+    function toggleModalMoisture() {
+      const val = document.getElementById('modal-moisture-val');
+      const pump = document.getElementById('modal-pump-status');
+      if (val && pump) {
+        if (!modalMoistureState) {
+          val.textContent = '65% (OPTIMAL)';
+          val.className = 'text-3xl font-bold text-emerald-400';
+          pump.textContent = 'PUMP RELAY: OFF (STANDBY)';
+          pump.className = 'text-slate-400 font-bold';
+          modalMoistureState = true;
+        } else {
+          val.textContent = '28% (DRY)';
+          val.className = 'text-3xl font-bold text-amber-500';
+          pump.textContent = 'PUMP RELAY: ON (WATERING)';
+          pump.className = 'text-emerald-400 font-bold';
+          modalMoistureState = false;
+        }
+      }
+    }
+
+    function runModalMazeSolver() {
+      const ball = document.getElementById('modal-maze-ball');
+      const status = document.getElementById('modal-maze-status');
+      if (!ball || !status) return;
+
+      status.textContent = 'NAVIGATING...';
+      status.className = 'text-xs font-semibold text-cyan-400 font-mono';
+      
+      let step = 0;
+      const path = [
+        { left: '40%', top: '15%' },
+        { left: '40%', top: '55%' },
+        { left: '75%', top: '55%' },
+        { left: '75%', top: '75%' }
+      ];
+
+      if (modalMazeTimer) clearInterval(modalMazeTimer);
+
+      modalMazeTimer = setInterval(() => {
+        if (step < path.length) {
+          ball.style.left = path[step].left;
+          ball.style.top = path[step].top;
+          step++;
+        } else {
+          clearInterval(modalMazeTimer);
+          status.textContent = 'SOLVED! Goal reached.';
+          status.className = 'text-xs font-semibold text-emerald-400 font-mono';
+          setTimeout(() => {
+            // reset
+            ball.style.left = '15%';
+            ball.style.top = '15%';
+            status.textContent = 'IDLE';
+            status.className = 'text-xs font-semibold text-slate-400 font-mono';
+          }, 2000);
+        }
+      }, 600);
+    }
+  </script>
+
+</body>
+</html>

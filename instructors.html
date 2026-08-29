@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Instructors | RoboCoders Academy</title>
+  <meta name="description" content="Meet our child-certified STEM coaches. Learn about our low student-to-teacher ratios, safety standards, and active mentoring.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              300: '#7cc8fc',
+              400: '#38abfa',
+              500: '#0e91eb',
+              600: '#0273c7',
+              700: '#035ca1',
+              800: '#074f85',
+              900: '#0c426e',
+            },
+            robotics: {
+              100: '#fef3c7',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+            coding: {
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            heading: ['Fredoka', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 antialiased">
+
+  <!-- Page Loader -->
+  <div id="page-loader">
+    <div class="relative flex items-center justify-center">
+      <svg class="loader-gear w-16 h-16 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+      </svg>
+    </div>
+    <span class="mt-4 font-bold text-lg text-slate-600 dark:text-slate-300 font-heading">Introducing Coaches...</span>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 w-full transition-all duration-300 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-brand-600 to-indigo-600 dark:from-brand-400 dark:to-indigo-400 bg-clip-text text-transparent">RoboCoders</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-8">
+          <div class="relative group">
+            <button id="home-dropdown-btn" class="flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">
+              <span>Home</span>
+              <svg class="w-4 h-4 dropdown-arrow transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="home-dropdown-menu" class="absolute left-0 mt-2 w-48 rounded-2xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700/50 py-2 hidden transition-all duration-200">
+              <a href="index.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg mx-2">Home 1 (Playful)</a>
+              <a href="home-2.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg mx-2">Home 2 (Futuristic)</a>
+            </div>
+          </div>
+
+          <a href="programs.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Programs</a>
+          <a href="instructors.html" class="text-brand-600 dark:text-brand-400 font-medium py-2 border-b-2 border-brand-500">Instructors</a>
+          <a href="projects.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Projects</a>
+          <a href="pricing.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Pricing</a>
+          <a href="contact.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Contact</a>
+          <a href="dashboard.html" class="dashboard-nav-link text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Dashboard</a>
+        </nav>
+
+        <!-- Right Side -->
+        <div class="hidden lg:flex items-center gap-4">
+          <button class="rtl-toggle p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-colors">
+            <span class="rtl-toggle-text text-xs font-bold">RTL</span>
+          </button>
+          <button class="dark-mode-toggle p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-colors">
+            <svg class="sun-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-3.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+            </svg>
+            <svg class="moon-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <a href="login.html" class="header-login-btn px-6 py-2.5 rounded-xl bg-brand-600 text-white font-medium text-sm hover:bg-brand-700 shadow-md">
+            Student Login
+          </a>
+        </div>
+
+        <!-- Mobile Buttons -->
+        <div class="flex items-center gap-3 lg:hidden">
+          <button class="rtl-toggle p-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+            <span class="rtl-toggle-text text-xs font-bold">RTL</span>
+          </button>
+          <button class="dark-mode-toggle p-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+            <svg class="sun-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-3.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+            </svg>
+            <svg class="moon-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <button id="mobile-menu-btn" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100">
+            <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-20 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-50 px-6 py-6 space-y-4 max-h-[calc(100vh-5rem)] overflow-y-auto">
+      
+      <div>
+        <button id="mobile-home-dropdown-btn" class="w-full flex items-center justify-between text-left font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">
+          <span>Home</span>
+          <svg class="w-4 h-4 dropdown-arrow transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="mobile-home-dropdown-menu" class="hidden pl-4 py-2 space-y-2">
+          <a href="index.html" class="block text-sm text-slate-600 dark:text-slate-200 py-1">Home 1 (Playful)</a>
+          <a href="home-2.html" class="block text-sm text-slate-600 dark:text-slate-200 py-1">Home 2 (Futuristic)</a>
+        </div>
+      </div>
+      <a href="programs.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Programs</a>
+      <a href="instructors.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Instructors</a>
+      <a href="projects.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Projects</a>
+      <a href="pricing.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Pricing</a>
+      <a href="contact.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Contact</a>
+      <a href="dashboard.html" class="dashboard-nav-link block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Dashboard</a>
+      <div class="pt-4">
+        <a href="login.html" class="header-login-btn block w-full py-3 rounded-xl bg-brand-600 text-white font-medium text-center">
+          Student Login
+        </a>
+      </div>
+    
+    </div>
+  </header>
+
+  <!-- ==========================================
+       SECTION 1: HERO
+       ========================================== -->
+  <section class="py-16 bg-gradient-to-b from-brand-50/50 to-white dark:from-slate-900/50 dark:to-slate-900 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <span class="text-sm font-bold text-brand-600 uppercase tracking-widest block">Our Mentorship Team</span>
+      <h1 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white leading-tight">
+        Meet Our STEM Educators
+      </h1>
+      <p class="text-slate-600 dark:text-slate-200 max-w-xl mx-auto text-sm sm:text-base">
+        Active software engineers, mechanical researchers, and certified elementary child-learning specialists.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 2: INSTRUCTORS GRID (3 PROFILES)
+       ========================================== -->
+  <section class="py-10 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Profile 1 -->
+        <div class="group p-6 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/80 hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300">
+          <div class="relative rounded-2xl overflow-hidden mb-6 aspect-square">
+            <img src="assets/images/sections/instructor_1.png" alt="Sarah Jenkins smiling in front of tech workspace" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-350">
+            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-brand-600 text-white font-bold text-xs font-semibold">Junior Lead</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Sarah Jenkins</h3>
+          <span class="text-sm text-slate-600 dark:text-slate-200 block mb-3">BS in Creative Technologies</span>
+          <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed mb-4">
+            Specializes in graphical interface programming. Sarah guides our youngest coders into the coordinate loops of Scratch block coding.
+          </p>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Class size:</span>
+            <span class="text-xs font-semibold font-extrabold text-brand-600 dark:text-brand-400">Max 8 Students</span>
+          </div>
+        </div>
+
+        <!-- Profile 2 -->
+        <div class="group p-6 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/80 hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300">
+          <div class="relative rounded-2xl overflow-hidden mb-6 aspect-square">
+            <img src="assets/images/sections/instructor_2.png" alt="David Chen coding on high-tech microcontroller kits" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-350">
+            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-robotics-500 text-white font-bold text-xs font-semibold">Robotics Lead</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">David Chen</h3>
+          <span class="text-sm text-slate-600 dark:text-slate-200 block mb-3">MS in Robotics Engineering</span>
+          <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed mb-4">
+            Robotics hardware researcher. David instructs circuits layout, breadboard sensors calibration, and microcontroller automation programs.
+          </p>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Class size:</span>
+            <span class="text-xs font-semibold font-extrabold text-robotics-500">Max 6 Students</span>
+          </div>
+        </div>
+
+        <!-- Profile 3 -->
+        <div class="group p-6 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/80 hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300">
+          <div class="relative rounded-2xl overflow-hidden mb-6 aspect-square">
+            <img src="assets/images/sections/instructor_3.png" alt="Dr. Liam Vance explaining programming code lines" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-350">
+            <span class="absolute bottom-3 left-3 px-3 py-1 rounded-full bg-coding-500 text-white font-bold text-xs font-semibold">Senior Developer</span>
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Dr. Liam Vance</h3>
+          <span class="text-sm text-slate-600 dark:text-slate-200 block mb-3">PhD in Computer Science</span>
+          <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed mb-4">
+            Focuses on syntax coding. Liam helps older teenagers transition to professional Python files, database requests, and API queries.
+          </p>
+          <div class="flex items-center gap-2">
+            <span class="text-xs font-bold uppercase tracking-wider text-slate-400">Class size:</span>
+            <span class="text-xs font-semibold font-extrabold text-coding-600 dark:text-coding-400">Max 8 Students</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 3: TEACHING PHILOSOPHY
+       ========================================== -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <div class="space-y-6 ltr:lg:text-left rtl:lg:text-right">
+          <span class="text-xs font-bold text-brand-600 uppercase tracking-widest block">Active Pedagogy</span>
+          <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Our Teaching Philosophy</h2>
+          <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed">
+            We reject the slide presentation model. We believe children learn concepts only when they are applied immediately to solve real issues. Our coaches structure every class to be interactive, encouraging students to trace bugs and write custom scripts.
+          </p>
+          <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed">
+            By building active games or physical circuit dashboards, kids retain logic protocols much longer.
+          </p>
+        </div>
+        <div class="p-8 rounded-3xl bg-white dark:bg-slate-900 border border-slate-150 dark:border-slate-800 shadow-sm space-y-4">
+          <h4 class="font-bold text-lg text-slate-900 dark:text-white">Active Mentor Pillars</h4>
+          <div class="space-y-3 text-xs">
+            <div class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5"></span>
+              <span class="text-slate-600 dark:text-slate-200"><strong>Encourage Error Analysis:</strong> Help children inspect error logs rather than fixing code for them.</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5"></span>
+              <span class="text-slate-600 dark:text-slate-200"><strong>Low Ratio Tracking:</strong> Check individual progress metrics every 15 minutes during classes.</span>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-1.5 h-1.5 rounded-full bg-brand-500 mt-1.5"></span>
+              <span class="text-slate-600 dark:text-slate-200"><strong>Celebrate Failures:</strong> Teach kids that syntax debug runs are a normal part of creation.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 4: SAFETY & SECURITY STANDARDS
+       ========================================== -->
+  <section class="py-20 bg-white dark:bg-slate-900 border-t border-slate-50 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Workspace Safety Measures</h2>
+        <p class="text-slate-600 dark:text-slate-200 mt-2">Providing a secure and protected physical environment for hardware creation.</p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 space-y-4">
+          <h4 class="font-bold text-lg text-slate-900 dark:text-white">Protected Wiring Tools</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
+            All kids microcontrollers and breadboards run on low-voltage 5V connections. Children never handle high-voltage sockets directly.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 space-y-4">
+          <h4 class="font-bold text-lg text-slate-900 dark:text-white">Inspected Hardware Kits</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
+            Every electronic sensor, battery pack, and solder-free connector is thoroughly inspected for structural damage before class.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 space-y-4">
+          <h4 class="font-bold text-lg text-slate-900 dark:text-white">Safe Lab Designs</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
+            Our classroom labs features rounded tables, anti-slip laboratory mats, and active coach oversight to prevent wire mess hazards.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 5: RATIO CALLOUT
+       ========================================== -->
+  <section class="py-16 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="p-8 sm:p-12 rounded-3xl bg-white dark:bg-slate-900 border border-slate-150 dark:border-slate-800 shadow-sm max-w-4xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+          <div class="space-y-4 ltr:md:text-left rtl:md:text-right">
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white">Individual Progress Mentoring</h3>
+            <p class="text-slate-650 dark:text-slate-200 text-xs leading-relaxed">
+              With a max ratio of 8 children per educator, our coordinators check in on your student's progress parameters frequently during the lesson, offering targeted assistance.
+            </p>
+          </div>
+          <!-- Visual representation of 1-to-8 class ratio -->
+          <div class="flex flex-col items-center justify-center p-6 bg-slate-50 dark:bg-slate-800 rounded-2xl border border-slate-100 dark:border-slate-700">
+            <span class="block text-4xl font-black text-brand-600 dark:text-brand-400 font-heading">1 : 8</span>
+            <span class="text-xs font-bold text-slate-400 uppercase tracking-widest mt-1">Maximum Teacher-Student Ratio</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 6: RECRUITMENT CTA
+       ========================================== -->
+  <section class="py-16 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-slate-900 border border-slate-800 text-white p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6">
+        <h3 class="text-2xl font-bold">Passionate About Kids STEM Education?</h3>
+        <p class="text-slate-400 text-sm max-w-xl mx-auto">
+          We are always looking for freelance programmers, robotics engineers, and educators who love coaching youngsters.
+        </p>
+        <div class="pt-4">
+          <a href="contact.html" class="inline-block px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm shadow">
+            Join Our Teaching Team
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 5: MENTOR RECRUITMENT & PEDAGOGICAL TRAINING
+       ========================================== -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Visual Column -->
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800">
+          <img src="assets/images/sections/instructors_recruitment.png" alt="University Computer Science Lab Mentors Reviewing Curriculum" class="w-full h-auto object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+            <div class="bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl border border-slate-800 text-white w-full">
+              <span class="text-[10px] font-mono text-brand-400 font-bold uppercase tracking-wider block">Pedagogical Standards</span>
+              <span class="text-xs font-bold mt-1 block">Quarterly training seminars and background safety evaluations</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Column -->
+        <div class="space-y-6">
+          <span class="text-xs font-bold text-brand-600 dark:text-brand-450 uppercase tracking-widest block">Pedagogical Framework</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white leading-tight font-heading">
+            How We Train Our Mentors
+          </h2>
+          <p class="text-slate-655 dark:text-slate-200 text-sm leading-relaxed">
+            Not everyone who codes can teach. We select top-tier university undergraduates and active developers, putting them through our intensive 6-week teaching boot camp before they lead a class.
+          </p>
+          
+          <div class="space-y-4 pt-4 border-t border-slate-150 dark:border-slate-850">
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-brand-500 mt-2 shrink-0"></span>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">Continuous Child-Safety Certifications</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-200 mt-0.5">All staff undergo complete background checks and child welfare protocol updates.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="w-2 h-2 rounded-full bg-brand-500 mt-2 shrink-0"></span>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">Active Debug Demonstration Lab</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-200 mt-0.5">Mentors are trained to facilitate independent discovery rather than writing code for students.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 6: GUEST LECTURERS & INDUSTRY WORKSHOPS
+       ========================================== -->
+  <section class="py-20 bg-white dark:bg-slate-900 border-t border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
+        <span class="text-xs font-bold text-indigo-650 dark:text-indigo-400 uppercase tracking-widest block">Industry Connection</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white font-heading">
+          Guest Industry Lecturers
+        </h2>
+        <p class="text-slate-655 dark:text-slate-200 text-sm max-w-xl mx-auto">
+          We invite software engineers and robotics researchers from top companies to demonstrate coding applications.
+        </p>
+      </div>
+
+      <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800 mb-12 h-64 sm:h-96">
+        <img src="assets/images/sections/instructors_guest_lectures.png" alt="Guest speaker presenting slides on robotics to coding students" class="w-full h-full object-cover">
+        <div class="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-slate-950/45 to-transparent flex items-end p-8 sm:p-12">
+          <div class="max-w-md text-white space-y-2">
+            <span class="px-2.5 py-0.5 rounded bg-amber-500 text-slate-950 font-bold text-[10px] uppercase font-mono tracking-wider">Quarterly Masterclass</span>
+            <h4 class="text-xl sm:text-2xl font-black">Real-World Automation Lectures</h4>
+            <p class="text-xs text-slate-300 leading-relaxed">
+              Students get to interact directly with developers building machine learning models, autonomous drone routes, and smart grids.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800/80">
+          <span class="text-2xl block mb-2"><i class="bi bi-robot text-brand-500"></i></span>
+          <h4 class="font-bold text-sm text-slate-900 dark:text-white">AI Vision Arrays</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-200 mt-2 leading-relaxed">
+            FAANG researchers demonstrate facial detection parameters using OpenCV scripts.
+          </p>
+        </div>
+        <div class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800/80">
+          <span class="text-2xl block mb-2"><i class="bi bi-motherboard text-indigo-500"></i></span>
+          <h4 class="font-bold text-sm text-slate-900 dark:text-white">Drone Coordinate Maps</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-200 mt-2 leading-relaxed">
+            Aerospace engineers explain the physics loops driving autonomous navigation arrays.
+          </p>
+        </div>
+        <div class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800/80">
+          <span class="text-2xl block mb-2"><i class="bi bi-battery-charging text-emerald-500"></i></span>
+          <h4 class="font-bold text-sm text-slate-900 dark:text-white">Smart IoT Home Networks</h4>
+          <p class="text-xs text-slate-600 dark:text-slate-200 mt-2 leading-relaxed">
+            Hardware developers demonstrate microcontrollers managing local wireless telemetry nodes.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 dark:bg-slate-950 border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div class="space-y-6">
+          <a href="index.html" class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white shadow-md">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+              </svg>
+            </div>
+            <span class="text-xl font-bold text-white">RoboCoders</span>
+          </a>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Empowering the next generation of creators through playful, gamified, and professional hands-on robotics and coding workshops.
+          </p>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-white font-bold tracking-wide uppercase text-sm">Quick Links</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home 1 (Playful)</a></li>
+            <li><a href="home-2.html" class="hover:text-white transition-colors">Home 2 (Futuristic)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Academy Programs</a></li>
+            <li><a href="curriculum.html" class="hover:text-white transition-colors">Learning Tracks</a></li>
+            <li><a href="instructors.html" class="hover:text-white transition-colors">Meet the Team</a></li>
+            <li><a href="projects.html" class="hover:text-white transition-colors">Student Projects</a></li>
+          </ul>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-white font-bold tracking-wide uppercase text-sm">Programs</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="programs.html" class="hover:text-white transition-colors">Scratch Visual Coding (6-10 yrs)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Python Games & Logic (11-14 yrs)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Robotics Kits & Sensors (10-14 yrs)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Arduino Smart City (12+ yrs)</a></li>
+          </ul>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-white font-bold tracking-wide uppercase text-sm">Contact Info</h4>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <span>123 Innovation Boulevard, Tech District</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              <span>+1 (555) 908-3210</span>
+            </li>
+            <li class="flex items-start gap-2.5 pt-2">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div>
+                <span class="block font-bold text-white text-xs uppercase tracking-wider">Academy Hours</span>
+                <span class="text-xs text-slate-300 block mt-0.5">Mon-Fri: 3:30 PM - 7:30 PM</span>
+                <span class="text-xs text-slate-300 block">Sat-Sun: 9:00 AM - 5:00 PM</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+        <p>&copy; 2026 RoboCoders Academy. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="fixed bottom-6 right-6 p-4 rounded-full bg-brand-600 text-white shadow-xl hover:bg-brand-700 opacity-0 invisible translate-y-4 z-40 transition-all">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7 7 7M12 3v18"></path>
+    </svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

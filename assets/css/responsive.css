@@ -1,0 +1,32 @@
+/* 
+ * Kids Coding & Robotics Workshop / Academy Responsive Sheet
+ * Responsive design specific tweaks that extend tailwind's utilities
+ */
+
+@media (max-width: 767px) {
+  /* Prevent horizontal overflow on ultra small screens */
+  body, html {
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Form spacing improvements on small screens */
+  input, select, textarea {
+    font-size: 16px; /* Prevents auto-zoom on iOS */
+  }
+
+  /* Better mobile menu scrolling */
+  #mobile-menu {
+    max-height: calc(100vh - 4.5rem);
+    overflow-y: auto;
+  }
+
+  /* Stacked timeline for mobile */
+  .timeline-line::before {
+    left: 20px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  /* Tablet tweaks if needed */
+}

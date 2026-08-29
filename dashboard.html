@@ -1,0 +1,883 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Student Dashboard | RoboCoders Academy</title>
+  <meta name="description" content="Access your RoboCoders learning profile to compile smart programs, check achievement badges, and submit project assignments.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              300: '#7cc8fc',
+              400: '#38abfa',
+              500: '#0e91eb',
+              600: '#0273c7',
+              700: '#035ca1',
+              800: '#074f85',
+              900: '#0c426e',
+            },
+            robotics: {
+              100: '#fef3c7',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+            coding: {
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            heading: ['Fredoka', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Route Access Protection Check -->
+  <script>
+    if (localStorage.getItem('isLoggedIn') !== 'true') {
+      window.location.href = 'login.html';
+    }
+  </script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-slate-50 text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 antialiased">
+
+  <!-- Page Loader -->
+  <div id="page-loader">
+    <div class="relative flex items-center justify-center">
+      <svg class="loader-gear w-16 h-16 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+      </svg>
+    </div>
+    <span class="mt-4 font-bold text-lg text-slate-600 dark:text-slate-300 font-heading">Syncing Sandbox Compiler...</span>
+  </div>
+
+  <!-- ==========================================
+       PROFILE MODAL
+       ========================================== -->
+  <div id="profile-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-slate-900/60 backdrop-blur-sm p-4">
+    <div class="bg-white dark:bg-slate-800 rounded-3xl shadow-2xl border border-slate-100 dark:border-slate-700 w-full max-w-md overflow-hidden">
+      <!-- Modal Header -->
+      <div class="bg-gradient-to-tr from-brand-600 to-indigo-700 p-6 text-white">
+        <div class="flex items-center justify-between mb-4">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-200">Student Profile</span>
+          <button id="profile-modal-close" class="w-8 h-8 rounded-full bg-white/20 hover:bg-white/30 flex items-center justify-center transition-colors">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+          </button>
+        </div>
+        <div class="flex items-center gap-4">
+          <div class="w-14 h-14 rounded-2xl bg-white/20 border-2 border-white/40 flex items-center justify-center">
+            <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+          </div>
+          <div>
+            <h3 class="text-xl font-black font-heading" id="modal-student-name">Alex</h3>
+            <p class="text-brand-200 text-xs" id="modal-student-email">alex.coder@academy.com</p>
+          </div>
+        </div>
+      </div>
+      <!-- Modal Body -->
+      <div class="p-6 space-y-4">
+        <div class="grid grid-cols-2 gap-4">
+          <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-700">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Learning Track</span>
+            <span class="text-sm font-bold text-slate-900 dark:text-white mt-1 block">Explorer Track</span>
+          </div>
+          <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-700">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Age Group</span>
+            <span class="text-sm font-bold text-slate-900 dark:text-white mt-1 block">8–10 Years</span>
+          </div>
+          <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-700">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Enrolled Program</span>
+            <span class="text-sm font-bold text-slate-900 dark:text-white mt-1 block">Scratch & Robotics</span>
+          </div>
+          <div class="p-3 bg-slate-50 dark:bg-slate-900 rounded-2xl border border-slate-100 dark:border-slate-700">
+            <span class="text-[10px] font-bold text-slate-400 uppercase tracking-wider block">Course Progress</span>
+            <span class="text-sm font-bold text-brand-600 dark:text-brand-400 mt-1 block">60% Complete</span>
+          </div>
+        </div>
+        <div class="p-4 bg-brand-50 dark:bg-slate-900 rounded-2xl border border-brand-100 dark:border-slate-700 space-y-1">
+          <span class="text-[10px] font-bold text-brand-600 dark:text-brand-400 uppercase tracking-wider">Account Status</span>
+          <p class="text-xs text-slate-700 dark:text-slate-200 leading-relaxed">Active student account — Cohort Autumn 2026. Next class session: Monday, 4:00 PM.</p>
+        </div>
+        <button id="profile-modal-logout" class="w-full py-3 rounded-xl bg-rose-50 dark:bg-rose-950/20 text-rose-600 dark:text-rose-400 font-bold text-xs hover:bg-rose-100 dark:hover:bg-rose-950/40 transition-colors">
+          Log Out of Account
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Top Navbar (Full Width at Top) -->
+  <nav class="fixed top-0 left-0 right-0 z-50 h-16 bg-white dark:bg-slate-800 border-b border-slate-100 dark:border-slate-700 px-4 sm:px-6 flex items-center justify-between flex-shrink-0">
+    <!-- Left: Logo & Website Name -->
+    <a href="index.html" class="flex items-center gap-3 hover:opacity-85 transition-opacity">
+      <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white shadow">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+        </svg>
+      </div>
+      <span class="text-lg font-bold bg-gradient-to-r from-brand-600 to-indigo-600 dark:from-brand-400 dark:to-indigo-400 bg-clip-text text-transparent font-heading">RoboCoders</span>
+    </a>
+
+    <!-- Right: Premium Rounded Controls -->
+    <div class="flex items-center gap-1.5 sm:gap-2">
+      <!-- RTL/LTR Toggle -->
+      <button class="rtl-toggle w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-150 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 transition-all text-[10px] font-black" title="Toggle RTL/LTR">
+        <span class="rtl-toggle-text">RTL</span>
+      </button>
+
+      <!-- Dark Mode Toggle -->
+      <button class="dark-mode-toggle w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-150 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 transition-all" title="Toggle Dark/Light Mode">
+        <svg class="sun-icon w-4 h-4 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-3.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path></svg>
+        <svg class="moon-icon w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path></svg>
+      </button>
+
+      <!-- Profile Button -->
+      <button id="dashboard-profile-btn-top" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-slate-50 dark:bg-slate-700 text-slate-600 dark:text-slate-300 border border-slate-150 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-600 transition-all" title="My Profile">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+      </button>
+
+      <!-- Logout -->
+      <button id="dashboard-logout-btn" class="w-8 h-8 sm:w-9 sm:h-9 rounded-full flex items-center justify-center bg-rose-50 dark:bg-rose-950/20 text-rose-600 dark:text-rose-455 border border-rose-100 dark:border-rose-900/50 hover:bg-rose-100 dark:hover:bg-rose-950/40 transition-all" title="Log Out">
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"></path></svg>
+      </button>
+
+
+    </div>
+  </nav>
+
+  <!-- Mobile Sidebar Overlay -->
+  <div id="sidebar-overlay" class="fixed inset-0 z-40 bg-slate-900/50 backdrop-blur-sm hidden lg:hidden" onclick="closeSidebar()"></div>
+
+  <!-- Main Layout Wrapper (flex container starting below navbar) -->
+  <div id="student-dashboard" class="flex w-full min-h-screen pt-16">
+
+    <!-- ==========================================
+         SIDEBAR: STUDENT PROFILE & TABS NAVIGATION
+         ========================================== -->
+    <aside id="dashboard-sidebar" class="fixed lg:sticky top-16 start-0 h-[calc(100vh-4rem)] w-72 bg-white dark:bg-slate-800 border-e border-slate-100 dark:border-slate-700 flex flex-col overflow-hidden transition-transform duration-300 -translate-x-full lg:translate-x-0 flex-shrink-0 z-45">
+
+      <!-- Student Profile Row -->
+      <div class="p-5 border-b border-slate-100 dark:border-slate-700 bg-slate-50/50 dark:bg-slate-900/20 flex-shrink-0">
+        <div class="flex items-center gap-3">
+          <button id="dashboard-profile-btn" class="w-10 h-10 rounded-full bg-brand-100 dark:bg-brand-950 flex items-center justify-center text-brand-600 dark:text-brand-400 hover:ring-2 hover:ring-brand-400 transition-all flex-shrink-0" title="View Profile">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"></path></svg>
+          </button>
+          <div class="min-w-0">
+            <h4 class="font-bold text-slate-900 dark:text-white text-xs">Hi, <span id="student-name-display">Alex</span></h4>
+            <span id="student-email-display" class="text-[11px] text-slate-500 dark:text-slate-400 block truncate">alex.coder@academy.com</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Navigation Tabs -->
+      <div class="p-4 border-b border-slate-100 dark:border-slate-700 space-y-1 flex-shrink-0">
+        <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block px-2 mb-2">Student Area</span>
+
+        <button onclick="switchDashboardTab('sandbox')" class="dashboard-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all bg-brand-50 dark:bg-slate-700 text-brand-600 dark:text-brand-400">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+          <span>Practice Sandbox</span>
+        </button>
+
+        <button onclick="switchDashboardTab('projects')" class="dashboard-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-slate-600 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 7v10a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-6l-2-2H5a2 2 0 00-2 2z"></path></svg>
+          <span>My Projects</span>
+        </button>
+
+        <button onclick="switchDashboardTab('achievements')" class="dashboard-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-slate-600 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z"></path></svg>
+          <span>Achievements</span>
+        </button>
+
+        <button onclick="switchDashboardTab('progress')" class="dashboard-nav-btn w-full flex items-center gap-3 px-3 py-2.5 rounded-xl text-xs font-bold transition-all text-slate-600 dark:text-slate-200 hover:bg-slate-50 dark:hover:bg-slate-700/50">
+          <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path></svg>
+          <span>Learning Progress</span>
+        </button>
+      </div>
+
+      <!-- Cohort Lessons — ALWAYS VISIBLE -->
+      <div id="cohort-lessons-list" class="flex-grow overflow-y-auto p-4 space-y-3">
+        <span class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block px-2">Your Cohort Lessons</span>
+
+        <!-- Lesson 1 -->
+        <div class="lesson-item p-3 rounded-2xl border border-brand-300 bg-brand-50 dark:bg-slate-700 cursor-pointer transition-all space-y-1.5" data-lesson-id="lesson-1" onclick="switchDashboardTab('sandbox')">
+          <div class="flex justify-between items-start gap-2">
+            <span class="text-xs font-bold text-slate-900 dark:text-white leading-tight">1. Smart City Grid</span>
+            <div class="status-icon flex-shrink-0">
+              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path></svg>
+            </div>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-1">Visual sensors control light gates.</p>
+        </div>
+
+        <!-- Lesson 2 -->
+        <div class="lesson-item p-3 rounded-2xl border border-slate-100 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50 cursor-pointer transition-all space-y-1.5" data-lesson-id="lesson-2" onclick="switchDashboardTab('sandbox')">
+          <div class="flex justify-between items-start gap-2">
+            <span class="text-xs font-bold text-slate-900 dark:text-white leading-tight">2. Loops &amp; Movement</span>
+            <div class="status-icon flex-shrink-0">
+              <span class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600 block m-1"></span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-1">Program continuous drone flight paths.</p>
+        </div>
+
+        <!-- Lesson 3 -->
+        <div class="lesson-item p-3 rounded-2xl border border-slate-100 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50 cursor-pointer transition-all space-y-1.5" data-lesson-id="lesson-3" onclick="switchDashboardTab('sandbox')">
+          <div class="flex justify-between items-start gap-2">
+            <span class="text-xs font-bold text-slate-900 dark:text-white leading-tight">3. Sensor Conditions</span>
+            <div class="status-icon flex-shrink-0">
+              <span class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600 block m-1"></span>
+            </div>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-1">Light levels check logic switches.</p>
+        </div>
+      </div>
+
+    </aside>
+
+    <!-- ==========================================
+         MAIN WORKSPACE CONTENT PANEL
+         ========================================== -->
+    <div class="flex-1 flex flex-col min-h-[calc(100vh-4rem)] overflow-hidden">
+
+      <!-- Mobile Sub-Navigation Tabs (Visible only < lg) -->
+      <div class="lg:hidden bg-white dark:bg-slate-800 border-b border-slate-100 dark:border-slate-700 px-4 py-3 flex gap-2 overflow-x-auto scrollbar-none flex-shrink-0">
+        <button onclick="switchDashboardTab('sandbox')" class="dashboard-nav-btn shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all bg-brand-50 dark:bg-slate-700 text-brand-600 dark:text-brand-400 border border-brand-100 dark:border-slate-600">
+          Practice Sandbox
+        </button>
+        <button onclick="switchDashboardTab('projects')" class="dashboard-nav-btn shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all text-slate-650 dark:text-slate-200 border border-slate-200 dark:border-slate-850">
+          My Projects
+        </button>
+        <button onclick="switchDashboardTab('achievements')" class="dashboard-nav-btn shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all text-slate-655 dark:text-slate-200 border border-slate-200 dark:border-slate-850">
+          Achievements
+        </button>
+        <button onclick="switchDashboardTab('progress')" class="dashboard-nav-btn shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all text-slate-655 dark:text-slate-200 border border-slate-200 dark:border-slate-850">
+          Progress
+        </button>
+        <button onclick="switchDashboardTab('lessons')" class="dashboard-nav-btn shrink-0 px-4 py-2 rounded-full text-xs font-bold transition-all text-slate-655 dark:text-slate-200 border border-slate-200 dark:border-slate-850">
+          Cohort Lessons
+        </button>
+      </div>
+
+      <!-- Scrollable Tab Content Area -->
+      <main class="flex-1 overflow-y-auto bg-slate-100 dark:bg-slate-900">
+
+        <!-- Student Greeting Row (Visible only on mobile/tablet `< lg`) -->
+        <div class="lg:hidden p-4 sm:p-6 pb-0">
+          <div class="p-4 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-700/60 shadow-sm flex items-center gap-4">
+            <div class="mobile-student-avatar w-12 h-12 rounded-full bg-brand-100 dark:bg-brand-950/80 text-brand-655 dark:text-brand-400 font-black flex items-center justify-center text-sm border border-brand-200 dark:border-brand-900">
+              AL
+            </div>
+            <div>
+              <h4 class="font-black text-slate-900 dark:text-white text-base leading-tight">Welcome back, <span class="mobile-student-name">Alex</span></h4>
+              <p class="text-xs text-slate-550 dark:text-slate-400">Cohort Autumn 2026</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- TAB 1: PRACTICE SANDBOX COMPILER (DEFAULT) -->
+        <div id="tab-sandbox" class="dashboard-tab-content p-4 sm:p-6 space-y-6">
+        
+        <!-- Progression tracker bar banner -->
+        <div class="bg-gradient-to-tr from-brand-600 to-indigo-700 text-white p-6 rounded-3xl shadow">
+          <div class="flex flex-col sm:flex-row justify-between sm:items-center gap-4">
+            <div class="space-y-1">
+              <span class="text-xs font-bold uppercase tracking-widest text-brand-100">Explorer Track Progression</span>
+              <h3 class="text-xl font-bold font-heading">Syllabus Milestones</h3>
+            </div>
+            <div class="text-right">
+              <span id="dashboard-progress-text" class="text-lg font-black font-mono">60%</span>
+              <span class="text-xs text-brand-100 block font-bold">Course Completed</span>
+            </div>
+          </div>
+          <!-- Track bar -->
+          <div class="w-full h-2.5 bg-slate-900/20 rounded-full mt-4 overflow-hidden">
+            <div id="dashboard-progress-bar" class="h-full bg-white transition-all duration-500" style="width: 60%"></div>
+          </div>
+        </div>
+
+        <!-- Split Grid Workspace -->
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+          
+          <!-- Sandbox IDE and Instructions -->
+          <div class="xl:col-span-8 space-y-6">
+            
+            <div class="p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800/80 shadow-sm space-y-3">
+              <div class="flex items-center gap-2">
+                <span class="text-xs px-2.5 py-0.5 rounded-full bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 font-extrabold uppercase">Exercise</span>
+                <h2 id="current-lesson-title" class="text-base font-bold text-slate-900 dark:text-white">1. Welcome to the Smart City Grid</h2>
+              </div>
+              <p id="current-lesson-desc" class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
+                In this lesson, you will learn the basics of visual sensors and how grid systems control city traffic lights using microcontrollers.
+              </p>
+            </div>
+
+            <!-- IDE Window -->
+            <div class="rounded-3xl border border-slate-250 dark:border-slate-800 overflow-hidden bg-slate-950 shadow-lg flex flex-col h-112">
+              <div class="bg-slate-900 px-6 py-3 border-b border-slate-800 flex justify-between items-center flex-shrink-0">
+                <div class="flex gap-2">
+                  <span class="w-3 h-3 rounded-full bg-rose-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-amber-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-emerald-500"></span>
+                </div>
+                <span class="text-xs font-bold text-slate-500 font-mono">robocoders_compiler.py</span>
+              </div>
+              
+              <div id="coding-editor-instruction" class="bg-slate-900/60 p-4 border-b border-slate-800 text-xs font-mono text-slate-400 leading-relaxed">
+                Instructions: Complete the code logic to turn on the green LED when a car approaches. Set `car_present = true`.
+              </div>
+
+              <div class="flex-grow p-4 relative">
+                <textarea id="code-editor-textarea" required class="w-full h-full bg-transparent text-emerald-400 font-mono text-xs focus:outline-none resize-none leading-relaxed border-none focus:ring-0"># Python Smart Grid Code
+car_present = False
+
+if car_present:
+    print("Green Light ON")
+else:
+    print("Red Light ON")</textarea>
+              </div>
+
+              <div class="bg-slate-900 border-t border-slate-800 p-4 space-y-3 flex-shrink-0">
+                <div class="flex justify-between items-center">
+                  <span class="text-xs text-slate-400 font-mono">Python Interpreter 3.10</span>
+                  <button id="run-code-btn" class="px-5 py-2 bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs rounded-xl shadow transition-colors">
+                    Run Code
+                  </button>
+                </div>
+                <div class="p-3 bg-slate-950 rounded-xl border border-slate-800">
+                  <pre id="code-output" class="text-xs text-slate-300 font-mono leading-relaxed truncate-3-lines">Click "Run Code" to execute code...</pre>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quick Badges Sidebar -->
+          <div class="xl:col-span-4 space-y-6">
+            <div class="p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-6">
+              <h3 class="font-bold text-sm text-slate-900 dark:text-white">Earned Badges</h3>
+              
+              <div class="grid grid-cols-3 gap-4">
+                <div class="flex flex-col items-center text-center space-y-2">
+                  <div class="w-12 h-12 rounded-full bg-indigo-50 dark:bg-indigo-950/50 flex items-center justify-center text-xl shadow-sm">
+                    <i class="bi bi-trophy-fill text-amber-500"></i>
+                  </div>
+                  <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Scratch Star</span>
+                </div>
+                <div id="badge-sensor" class="flex flex-col items-center text-center space-y-2 opacity-40 grayscale transition-all duration-500">
+                  <div class="w-12 h-12 rounded-full bg-amber-50 dark:bg-amber-950/50 flex items-center justify-center text-xl shadow-sm">
+                    <i class="bi bi-robot text-brand-500"></i>
+                  </div>
+                  <span class="badge-title text-[10px] font-bold text-slate-700 dark:text-slate-200">Sensor Slayer</span>
+                </div>
+                <div class="flex flex-col items-center text-center space-y-2">
+                  <div class="w-12 h-12 rounded-full bg-emerald-50 dark:bg-emerald-950/50 flex items-center justify-center text-xl shadow-sm">
+                    <i class="bi bi-braces text-emerald-500"></i>
+                  </div>
+                  <span class="text-[10px] font-bold text-slate-700 dark:text-slate-200">Snake King</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project Upload form inside Sandbox -->
+            <div class="p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-4">
+              <h3 class="font-bold text-sm text-slate-900 dark:text-white">Upload Class Project</h3>
+              <p class="text-xs text-slate-550 dark:text-slate-400 leading-relaxed">
+                Submit your Scratch file or python script (.sb3, .py) for coach review.
+              </p>
+              
+              <form id="dashboard-project-form" class="space-y-4">
+                <div class="border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl p-6 text-center hover:border-brand-500 dark:hover:border-brand-400 cursor-pointer transition-colors">
+                  <i class="bi bi-cloud-arrow-up text-slate-450 dark:text-slate-400 text-3xl block mb-2"></i>
+                  <span class="text-xs font-bold text-slate-600 dark:text-slate-200">Drag files here or browse</span>
+                </div>
+                <button type="submit" class="w-full py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs shadow transition-colors">
+                  Submit File
+                </button>
+              </form>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- TAB 2: MY PROJECTS (Split-screen structured list & upload log) -->
+      <div id="tab-projects" class="dashboard-tab-content flex-grow overflow-y-auto p-6 sm:p-8 space-y-6 hidden">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6">
+          <div>
+            <span class="text-xs px-2.5 py-0.5 rounded-full bg-coding-100 dark:bg-emerald-950 text-coding-700 dark:text-coding-400 font-extrabold uppercase"><i class="bi bi-folder-fill"></i> Student Submissions</span>
+            <h2 class="text-2xl font-black text-slate-900 dark:text-white font-heading mt-2">Projects & Submissions Portal</h2>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 xl:grid-cols-12 gap-6 items-start">
+          <!-- Submission Log List -->
+          <div class="xl:col-span-8 p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800/80 shadow-sm space-y-6">
+            <h3 class="font-bold text-base text-slate-900 dark:text-white">Submission History</h3>
+            
+            <div class="overflow-x-auto">
+              <table class="w-full text-left text-xs border-collapse">
+                <thead>
+                  <tr class="border-b border-slate-150 dark:border-slate-700 text-slate-400 uppercase tracking-wider font-bold">
+                    <th class="py-3 px-2">Project Name</th>
+                    <th class="py-3 px-2">Track</th>
+                    <th class="py-3 px-2">Submitted</th>
+                    <th class="py-3 px-2">Status</th>
+                    <th class="py-3 px-2">Instructor Review</th>
+                  </tr>
+                </thead>
+                <tbody class="divide-y divide-slate-100 dark:divide-slate-700 font-semibold text-slate-750 dark:text-slate-200">
+                  <tr>
+                    <td class="py-4 px-2 font-bold text-slate-900 dark:text-white">Smart Traffic Light</td>
+                    <td class="py-4 px-2">Builder Track</td>
+                    <td class="py-4 px-2">Oct 28, 2026</td>
+                    <td class="py-4 px-2"><span class="px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold uppercase text-[10px]">Graded 95/100</span></td>
+                    <td class="py-4 px-2 text-slate-450 dark:text-slate-400 text-[11px] leading-relaxed">"Excellent push button switch logic. Coding flow matches the loops!"</td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 px-2 font-bold text-slate-900 dark:text-white">Maze Escape</td>
+                    <td class="py-4 px-2">Explorer Track</td>
+                    <td class="py-4 px-2">Oct 12, 2026</td>
+                    <td class="py-4 px-2"><span class="px-2 py-0.5 rounded-full bg-emerald-100 dark:bg-emerald-950 text-emerald-700 dark:text-emerald-300 font-bold uppercase text-[10px]">Approved 88/100</span></td>
+                    <td class="py-4 px-2 text-slate-450 dark:text-slate-400 text-[11px] leading-relaxed">"Sprite collision coordinates are correct, but add custom score logic next."</td>
+                  </tr>
+                  <tr>
+                    <td class="py-4 px-2 font-bold text-slate-900 dark:text-white">Ultrasonic Sonic Sonar</td>
+                    <td class="py-4 px-2">Builder Track</td>
+                    <td class="py-4 px-2">Just Now</td>
+                    <td class="py-4 px-2"><span class="px-2 py-0.5 rounded-full bg-amber-100 dark:bg-amber-955 text-amber-700 dark:text-amber-300 font-bold uppercase text-[10px]">Under Review</span></td>
+                    <td class="py-4 px-2 text-slate-400 text-[11px] italic">Pending feedback...</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Submit New Project File Form -->
+          <div class="xl:col-span-4 p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-4">
+            <h3 class="font-bold text-sm text-slate-900 dark:text-white">Submit Assignment</h3>
+            <form class="space-y-4">
+              <div class="space-y-1">
+                <label class="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">Select Milestone</label>
+                <select class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs focus:outline-none focus:border-brand-500">
+                  <option>Milestone 4: Autonomous Range sonars</option>
+                  <option>Milestone 5: Smart API Cloud link</option>
+                </select>
+              </div>
+              <div class="space-y-1">
+                <label class="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase">Student Notes</label>
+                <textarea rows="3" placeholder="Explain how you wired the ultrasonic echo pins..." class="w-full px-3 py-2 rounded-xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 text-xs focus:outline-none focus:border-brand-500"></textarea>
+              </div>
+              <div class="border-2 border-dashed border-slate-200 dark:border-slate-700 rounded-2xl p-4 text-center cursor-pointer">
+                <span class="text-xs font-bold text-slate-500 dark:text-slate-300">Drop project file (.py, .sb3)</span>
+              </div>
+              <button type="button" onclick="alert('Submission mock successful!')" class="w-full py-2.5 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs transition-colors">
+                Upload to Coordinator
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 3: ACHIEVEMENTS (Gamer-style badges grid & milestones checklist) -->
+      <div id="tab-achievements" class="dashboard-tab-content flex-grow overflow-y-auto p-6 sm:p-8 space-y-6 hidden">
+        <div class="mb-6">
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-robotics-100 dark:bg-amber-955 text-robotics-700 dark:text-robotics-400 font-extrabold uppercase"><i class="bi bi-trophy-fill text-amber-500"></i> Achievements Hall</span>
+          <h2 class="text-2xl font-black text-slate-900 dark:text-white font-heading mt-2">Badges, Streaks & Milestones</h2>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Column 1: Gamified Badges Grid -->
+          <div class="lg:col-span-8 p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800/80 shadow-sm space-y-6">
+            <h3 class="font-bold text-base text-slate-900 dark:text-white">Earned & Locked Badges</h3>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+              
+              <!-- Unlocked Badge 1 -->
+              <div class="p-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl text-center space-y-2 relative overflow-hidden">
+                <div class="text-3xl"><i class="bi bi-trophy-fill text-amber-500"></i></div>
+                <span class="block font-bold text-xs text-slate-900 dark:text-white">Scratch Star</span>
+                <span class="text-[9px] text-emerald-500 font-extrabold uppercase bg-emerald-500/10 px-2 py-0.5 rounded-full inline-block">Unlocked</span>
+                <p class="text-[9px] text-slate-400 leading-relaxed pt-1">Constructed a complete custom sprite game with coordinate loop tags.</p>
+              </div>
+
+              <!-- Unlocked Badge 2 -->
+              <div class="p-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl text-center space-y-2 relative overflow-hidden">
+                <div class="text-3xl"><i class="bi bi-braces text-emerald-500"></i></div>
+                <span class="block font-bold text-xs text-slate-900 dark:text-white">Snake King</span>
+                <span class="text-[9px] text-emerald-500 font-extrabold uppercase bg-emerald-500/10 px-2 py-0.5 rounded-full inline-block">Unlocked</span>
+                <p class="text-[9px] text-slate-400 leading-relaxed pt-1">Wrote a classic snake array loop using standard python syntax commands.</p>
+              </div>
+
+              <!-- Locked Badge 3 -->
+              <div class="p-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl text-center space-y-2 opacity-50 relative overflow-hidden">
+                <div class="absolute top-2 right-2 text-xs text-slate-400"><i class="bi bi-lock-fill"></i></div>
+                <div class="text-3xl text-slate-400 filter grayscale"><i class="bi bi-cpu"></i></div>
+                <span class="block font-bold text-xs text-slate-900 dark:text-white">API Overlord</span>
+                <span class="text-[9px] text-slate-450 font-bold uppercase bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full inline-block">Locked</span>
+                <p class="text-[9px] text-slate-400 leading-relaxed pt-1">Connect your local board compiler to live weather server data.</p>
+              </div>
+
+              <!-- Locked Badge 4 -->
+              <div class="p-4 bg-slate-50 dark:bg-slate-900 border border-slate-100 dark:border-slate-800 rounded-2xl text-center space-y-2 opacity-50 relative overflow-hidden">
+                <div class="absolute top-2 right-2 text-xs text-slate-400"><i class="bi bi-lock-fill"></i></div>
+                <div class="text-3xl text-slate-400 filter grayscale"><i class="bi bi-motherboard text-indigo-500"></i></div>
+                <span class="block font-bold text-xs text-slate-900 dark:text-white">Robotics Titan</span>
+                <span class="text-[9px] text-slate-450 font-bold uppercase bg-slate-100 dark:bg-slate-800 px-2 py-0.5 rounded-full inline-block">Locked</span>
+                <p class="text-[9px] text-slate-400 leading-relaxed pt-1">Program coordinate motor wheels to run a multi-room obstacle grid.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Column 2: Streak Box & Timeline Milestones -->
+          <div class="lg:col-span-4 space-y-6">
+            <!-- Streak Box -->
+            <div class="p-6 bg-gradient-to-tr from-rose-500 to-amber-500 text-white rounded-3xl shadow-md text-center space-y-4">
+              <div class="text-4xl"><i class="bi bi-fire text-white animate-pulse"></i></div>
+              <h3 class="text-lg font-black font-heading">7 Day Learning Streak!</h3>
+              <p class="text-xs text-rose-100 leading-relaxed max-w-xs mx-auto">
+                Excellent daily progress. Keep compiling scripts inside the sandbox to unlock the Sunday Level Booster.
+              </p>
+              <div class="flex justify-center gap-2 pt-2">
+                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-[10px] font-bold">M</span>
+                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-[10px] font-bold">T</span>
+                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-[10px] font-bold">W</span>
+                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-[10px] font-bold">T</span>
+                <span class="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center text-[10px] font-bold">F</span>
+                <span class="w-6 h-6 rounded-full bg-white flex items-center justify-center text-[10px] font-bold text-rose-600">S</span>
+                <span class="w-6 h-6 rounded-full bg-white/10 flex items-center justify-center text-[10px] font-bold opacity-40">S</span>
+              </div>
+            </div>
+
+            <!-- Milestone Tracker list -->
+            <div class="p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-4">
+              <h3 class="font-bold text-xs text-slate-900 dark:text-white uppercase tracking-wider">Completed Milestones</h3>
+              <div class="space-y-3 text-xs font-semibold">
+                <div class="flex items-center gap-2">
+                  <span class="text-emerald-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span class="text-slate-700 dark:text-slate-200">Scratch Sprite Animation Setup</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-emerald-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span class="text-slate-700 dark:text-slate-200">X/Y coordinate grid navigations</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <span class="text-emerald-500"><i class="bi bi-check-lg text-brand-500"></i></span>
+                  <span class="text-slate-700 dark:text-slate-200">Ultrasonic Echo range conditions</span>
+                </div>
+                <div class="flex items-center gap-2 text-slate-400">
+                  <span>○</span>
+                  <span>Python smart city API endpoints (Locked)</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB 4: LEARNING PROGRESS (Stats matrix and visual progress diagram) -->
+      <div id="tab-progress" class="dashboard-tab-content flex-grow overflow-y-auto p-6 sm:p-8 space-y-6 hidden">
+        <div class="mb-6">
+          <span class="text-xs px-2.5 py-0.5 rounded-full bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-350 font-extrabold uppercase"><i class="bi bi-graph-up-arrow"></i> Analytics Hub</span>
+          <h2 class="text-2xl font-black text-slate-900 dark:text-white font-heading mt-2">Overall Learning Statistics</h2>
+        </div>
+
+        <!-- Metric Grid -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-2">
+            <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block">Compiled Scripts</span>
+            <span class="text-3xl font-black text-slate-900 dark:text-white font-mono">1,250+</span>
+            <p class="text-[11px] text-slate-500">Lines of Python & block codes executed inside sandbox.</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-2">
+            <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block">Sandbox Hours</span>
+            <span class="text-3xl font-black text-slate-900 dark:text-white font-mono">12.5 hrs</span>
+            <p class="text-[11px] text-slate-500">Time logged in active hardware test compilations.</p>
+          </div>
+          <div class="p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-2">
+            <span class="text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-wider block">Syllabus Completion</span>
+            <span class="text-3xl font-black text-brand-600 dark:text-brand-400 font-mono">60%</span>
+            <p class="text-[11px] text-slate-500">Student is currently in Module 3: Hardware Circuits.</p>
+          </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+          
+          <!-- Skill tree progress bars -->
+          <div class="lg:col-span-6 p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-6">
+            <h3 class="font-bold text-base text-slate-900 dark:text-white">Unlocked Technical Skills</h3>
+            
+            <div class="space-y-4">
+              <!-- Skill 1 -->
+              <div class="space-y-1.5">
+                <div class="flex justify-between text-xs font-bold">
+                  <span class="text-slate-800 dark:text-slate-200">Block Logic & Sequences</span>
+                  <span class="text-brand-655 dark:text-brand-400">90%</span>
+                </div>
+                <div class="w-full h-2 bg-slate-100 dark:bg-slate-900 rounded-full overflow-hidden">
+                  <div class="h-full bg-brand-500" style="width: 90%"></div>
+                </div>
+              </div>
+              <!-- Skill 2 -->
+              <div class="space-y-1.5">
+                <div class="flex justify-between text-xs font-bold">
+                  <span class="text-slate-800 dark:text-slate-200">Breadboard Circuits & Resistors</span>
+                  <span class="text-robotics-500">70%</span>
+                </div>
+                <div class="w-full h-2 bg-slate-100 dark:bg-slate-900 rounded-full overflow-hidden">
+                  <div class="h-full bg-robotics-500" style="width: 70%"></div>
+                </div>
+              </div>
+              <!-- Skill 3 -->
+              <div class="space-y-1.5">
+                <div class="flex justify-between text-xs font-bold">
+                  <span class="text-slate-800 dark:text-slate-200">Python Syntax Loops</span>
+                  <span class="text-coding-500">45%</span>
+                </div>
+                <div class="w-full h-2 bg-slate-100 dark:bg-slate-900 rounded-full overflow-hidden">
+                  <div class="h-full bg-coding-500" style="width: 45%"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Module progression visual timeline -->
+          <div class="lg:col-span-6 p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800 shadow-sm space-y-6">
+            <h3 class="font-bold text-base text-slate-900 dark:text-white">Module Pipeline Timeline</h3>
+            
+            <div class="space-y-4 relative pl-6 before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-slate-100 dark:before:bg-slate-850">
+              <!-- Item 1 -->
+              <div class="relative space-y-1">
+                <span class="absolute -left-6 top-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-800 block"></span>
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Module 1: Scratch Coordinates (Completed)</h4>
+                <p class="text-[10px] text-slate-400 leading-relaxed">Completed 12 lessons on keyboard coordinates, sound triggers, and visual sprite mapping.</p>
+              </div>
+              <!-- Item 2 -->
+              <div class="relative space-y-1">
+                <span class="absolute -left-6 top-1 w-3.5 h-3.5 rounded-full bg-emerald-500 border-2 border-white dark:border-slate-800 block"></span>
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Module 2: Ultrasonic Sensors (Completed)</h4>
+                <p class="text-[10px] text-slate-400 leading-relaxed">Built smart vehicle grids and programmed ultrasonic loops to turn light switches.</p>
+              </div>
+              <!-- Item 3 -->
+              <div class="relative space-y-1">
+                <span class="absolute -left-6 top-1 w-3.5 h-3.5 rounded-full bg-brand-500 border-2 border-white dark:border-slate-800 block animate-pulse"></span>
+                <h4 class="text-xs font-bold text-slate-900 dark:text-white">Module 3: Python Data Endpoints (Active)</h4>
+                <p class="text-[10px] text-slate-400 leading-relaxed">Currently writing loop scripts and conditional print algorithms in Python interpreter.</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- TAB 5: COHORT LESSONS (MOBILE ONLY TAB) -->
+      <div id="tab-lessons" class="dashboard-tab-content p-4 sm:p-6 space-y-6 hidden lg:hidden">
+        <div class="p-6 bg-white dark:bg-slate-800 rounded-3xl border border-slate-100 dark:border-slate-800/80 shadow-sm space-y-4">
+          <div class="flex justify-between items-center">
+            <h3 class="font-bold text-sm text-slate-900 dark:text-white uppercase tracking-wider">Cohort Syllabus Lessons</h3>
+            <span class="text-[10px] font-mono text-slate-450 dark:text-slate-500">Autumn 2026 Batch</span>
+          </div>
+          <p class="text-xs text-slate-600 dark:text-slate-350">
+            Select a lesson below to load it into the Practice Sandbox workspace.
+          </p>
+          <div class="space-y-3 pt-2">
+            <!-- Lesson 1 -->
+            <div class="lesson-item p-3 rounded-2xl border border-brand-300 bg-brand-50 dark:bg-slate-700 cursor-pointer transition-all space-y-1.5" data-lesson-id="lesson-1" onclick="switchDashboardTab('sandbox')">
+              <div class="flex justify-between items-start gap-2">
+                <span class="text-xs font-bold text-slate-900 dark:text-white leading-tight">1. Smart City Grid</span>
+                <div class="status-icon flex-shrink-0">
+                  <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"></path></svg>
+                </div>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-1">Visual sensors control light gates.</p>
+            </div>
+
+            <!-- Lesson 2 -->
+            <div class="lesson-item p-3 rounded-2xl border border-slate-100 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50 cursor-pointer transition-all space-y-1.5" data-lesson-id="lesson-2" onclick="switchDashboardTab('sandbox')">
+              <div class="flex justify-between items-start gap-2">
+                <span class="text-xs font-bold text-slate-900 dark:text-white leading-tight">2. Loops &amp; Movement</span>
+                <div class="status-icon flex-shrink-0">
+                  <span class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600 block m-1"></span>
+                </div>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-1">Program continuous drone flight paths.</p>
+            </div>
+
+            <!-- Lesson 3 -->
+            <div class="lesson-item p-3 rounded-2xl border border-slate-100 dark:border-slate-700 hover:bg-slate-50 dark:hover:bg-slate-700/50 cursor-pointer transition-all space-y-1.5" data-lesson-id="lesson-3" onclick="switchDashboardTab('sandbox')">
+              <div class="flex justify-between items-start gap-2">
+                <span class="text-xs font-bold text-slate-900 dark:text-white leading-tight">3. Sensor Conditions</span>
+                <div class="status-icon flex-shrink-0">
+                  <span class="w-2 h-2 rounded-full bg-slate-300 dark:bg-slate-600 block m-1"></span>
+                </div>
+              </div>
+              <p class="text-xs text-slate-600 dark:text-slate-300 line-clamp-1">Light levels check logic switches.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </main><!-- end scrollable content -->
+    </div><!-- end flex-1 main column -->
+
+  </div><!-- end student-dashboard flex wrapper -->
+
+  <script src="assets/js/main.js"></script>
+
+  <!-- Dashboard Interactive Scripts -->
+  <script>
+    // ── Sidebar Mobile Toggle ──────────────────────────────────
+    function toggleSidebar() {
+      const sidebar = document.getElementById('dashboard-sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      const isOpen = !sidebar.classList.contains('-translate-x-full');
+      if (isOpen) {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      } else {
+        sidebar.classList.remove('-translate-x-full');
+        overlay.classList.remove('hidden');
+      }
+    }
+    function closeSidebar() {
+      const sidebar = document.getElementById('dashboard-sidebar');
+      const overlay = document.getElementById('sidebar-overlay');
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+    }
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024) closeSidebar();
+    });
+
+    // ── Profile Modal ──────────────────────────────────────────
+    function openProfileModal() {
+      const modal = document.getElementById('profile-modal');
+      modal.classList.remove('hidden');
+      modal.classList.add('flex');
+      // Populate with live data
+      const name = document.getElementById('student-name-display')?.textContent || 'Alex';
+      const email = document.getElementById('student-email-display')?.textContent || 'alex.coder@academy.com';
+      document.getElementById('modal-student-name').textContent = name;
+      document.getElementById('modal-student-email').textContent = email;
+    }
+    function closeProfileModal() {
+      const modal = document.getElementById('profile-modal');
+      modal.classList.add('hidden');
+      modal.classList.remove('flex');
+    }
+    document.getElementById('profile-modal-close')?.addEventListener('click', closeProfileModal);
+    document.getElementById('dashboard-profile-btn')?.addEventListener('click', openProfileModal);
+    document.getElementById('dashboard-profile-btn-top')?.addEventListener('click', openProfileModal);
+    document.getElementById('profile-modal')?.addEventListener('click', function(e) {
+      if (e.target === this) closeProfileModal();
+    });
+    document.getElementById('profile-modal-logout')?.addEventListener('click', () => {
+      localStorage.removeItem('isLoggedIn');
+      localStorage.removeItem('studentEmail');
+      window.location.href = 'login.html';
+    });
+
+    // ── Tab Switcher (Cohort lessons ALWAYS stay visible) ──────
+    function switchDashboardTab(tabId) {
+      document.querySelectorAll('.dashboard-tab-content').forEach(tab => {
+        tab.classList.add('hidden');
+      });
+      const selectedTab = document.getElementById('tab-' + tabId);
+      if (selectedTab) selectedTab.classList.remove('hidden');
+
+      // Cohort lessons: NEVER hide, always visible in sidebar
+      // (removed the hide/show logic)
+
+      // Update nav button active styles (highlight both desktop and mobile buttons if they exist)
+      document.querySelectorAll('.dashboard-nav-btn').forEach(btn => {
+        btn.classList.remove('bg-brand-50', 'dark:bg-slate-700', 'text-brand-600', 'dark:text-brand-400');
+        btn.classList.add('text-slate-655', 'dark:text-slate-200', 'border-slate-200', 'dark:border-slate-850');
+      });
+      const activeBtns = Array.from(document.querySelectorAll('.dashboard-nav-btn')).filter(btn =>
+        btn.getAttribute('onclick') && btn.getAttribute('onclick').includes(tabId)
+      );
+      activeBtns.forEach(btn => {
+        btn.classList.remove('text-slate-655', 'dark:text-slate-200', 'border-slate-200', 'dark:border-slate-850');
+        btn.classList.add('bg-brand-50', 'dark:bg-slate-700', 'text-brand-600', 'dark:text-brand-400');
+      });
+
+      // Close mobile sidebar after selecting a tab
+      if (window.innerWidth < 1024) closeSidebar();
+    }
+  </script>
+
+  <!-- ==========================================
+       BACK TO TOP BUTTON
+       Must be placed BEFORE the back-to-top script so
+       getElementById finds it when the IIFE executes.
+       ========================================== -->
+  <button id="back-to-top"
+    class="fixed bottom-6 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center bg-brand-600 hover:bg-brand-700 active:bg-brand-800 text-white shadow-lg opacity-0 pointer-events-none translate-y-4 scale-90 transition-all duration-300 hover:scale-110 active:scale-95"
+    style="box-shadow: 0 4px 20px rgba(14,145,235,0.45);"
+    title="Back to Top"
+    aria-label="Scroll back to top">
+    <!-- Arrow-up: vertical stem + arrowhead, matches reference ↑ -->
+    <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+      <line x1="12" y1="19" x2="12" y2="5"/>
+      <polyline points="5 12 12 5 19 12"/>
+    </svg>
+  </button>
+
+  <script>
+    // ── Back to Top Scroll Logic ──────
+    // NOTE: button must be in DOM above this script block.
+    (function() {
+      var btn = document.getElementById('back-to-top');
+      if (!btn) { console.warn('back-to-top button not found'); return; }
+
+      function getScrollY() {
+        return window.scrollY || window.pageYOffset || document.documentElement.scrollTop || 0;
+      }
+
+      function showBtn() {
+        btn.classList.remove('opacity-0', 'pointer-events-none', 'translate-y-4', 'scale-90');
+        btn.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0', 'scale-100');
+      }
+
+      function hideBtn() {
+        btn.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0', 'scale-100');
+        btn.classList.add('opacity-0', 'pointer-events-none', 'translate-y-4', 'scale-90');
+      }
+
+      window.addEventListener('scroll', function() {
+        getScrollY() > 300 ? showBtn() : hideBtn();
+      }, { passive: true });
+
+      btn.addEventListener('click', function() {
+        if ('scrollBehavior' in document.documentElement.style) {
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+          document.documentElement.scrollTop = 0;
+          document.body.scrollTop = 0;
+        }
+      });
+    })();
+  </script>
+</body>
+</html>

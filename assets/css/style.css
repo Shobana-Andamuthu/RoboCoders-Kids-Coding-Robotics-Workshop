@@ -1,0 +1,440 @@
+/* 
+ * Kids Coding & Robotics Workshop / Academy Style Sheet
+ * Global styles, custom scrollbars, animations, and Tailwind overrides
+ */
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Outfit:wght@100..900&display=swap');
+
+:root {
+  --font-heading: 'Fredoka', sans-serif;
+  --font-sans: 'Outfit', sans-serif;
+}
+
+body {
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+.dark ::-webkit-scrollbar-track {
+  background: #0f172a;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #bae0fd;
+  border-radius: 5px;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+  background: #1e293b;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #38abfa;
+}
+
+/* Page Loader styling */
+#page-loader {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background-color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+
+.dark #page-loader {
+  background-color: #0f172a;
+}
+
+/* Loader gear animation */
+.loader-gear {
+  animation: spin 3s linear infinite;
+}
+
+.loader-gear-reverse {
+  animation: spin-reverse 2s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes spin-reverse {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); }
+}
+
+/* Glassmorphism card utility */
+.glass-card {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.dark .glass-card {
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Glowing animations */
+.glow-primary {
+  box-shadow: 0 0 20px rgba(56, 171, 250, 0.3);
+}
+
+.dark .glow-primary {
+  box-shadow: 0 0 25px rgba(56, 171, 250, 0.5);
+}
+
+/* Button micro-interactions */
+.btn-primary-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.btn-primary-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px -10px rgba(14, 145, 235, 0.5);
+}
+
+/* Timeline vertical line */
+.timeline-line::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: #bae0fd;
+  transform: translateX(-50%);
+}
+
+.dark .timeline-line::before {
+  background: #1e293b;
+}
+
+/* Smooth transition for theme & RTL */
+html {
+  scroll-behavior: smooth;
+}
+
+/* For RTL specific transitions */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+
+/* ==========================================
+ * HIGH-CONTRAST & ACCESSIBLE TYPOGRAPHY FOR DARK MODE & RESPONSIVE PARAGRAPHS
+ * ========================================== */
+
+/* Slightly increase description/paragraph text size globally */
+p,
+.text-slate-600,
+.text-slate-550,
+.text-slate-500,
+.text-slate-400 {
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+@media (max-width: 768px) {
+  p,
+  .text-slate-600,
+  .text-slate-550,
+  .text-slate-500,
+  .text-slate-400 {
+    font-size: 0.9375rem;
+  }
+}
+
+/* Force excellent contrast in dark mode */
+.dark p,
+.dark li,
+.dark .text-slate-600,
+.dark .text-slate-550,
+.dark .text-slate-500,
+.dark .text-slate-400,
+.dark .text-slate-350,
+.dark .text-slate-300,
+.dark .text-slate-200,
+.dark .text-slate-100 {
+  color: #f1f5f9 !important;
+}
+
+/* Preserve colored accent text */
+.dark .text-brand-500, .dark .text-brand-400,
+.dark .text-indigo-400, .dark .text-indigo-300,
+.dark .text-emerald-500, .dark .text-emerald-400,
+.dark .text-amber-500, .dark .text-amber-400,
+.dark .text-rose-500, .dark .text-rose-400,
+.dark .text-cyan-400, .dark .text-cyan-300 {
+  color: inherit !important;
+}
+
+/* ==========================================
+ * PROGRAMS PAGE — ICON CONTRAST IN DARK MODE
+ * ========================================== */
+.dark .program-icon-wrap,
+.dark [class*="bg-brand-100"],
+.dark [class*="bg-indigo-100"],
+.dark [class*="bg-emerald-100"],
+.dark [class*="bg-amber-100"],
+.dark [class*="bg-robotics-100"],
+.dark [class*="bg-coding-100"] {
+  background-color: rgba(255,255,255,0.08) !important;
+}
+
+.dark [class*="text-brand-600"],
+.dark [class*="text-indigo-600"],
+.dark [class*="text-emerald-600"],
+.dark [class*="text-amber-600"] {
+  color: #93c5fd !important;
+}
+
+/* ==========================================
+ * GLOBAL RESPONSIVE — PREVENT OVERFLOW
+ * ========================================== */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  overflow-x: hidden;
+  max-width: 100vw;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Prevent tables from overflowing on mobile */
+.overflow-x-auto {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Responsive text clamp helpers */
+@media (max-width: 480px) {
+  h1 { font-size: clamp(1.75rem, 6vw, 2.5rem); }
+  h2 { font-size: clamp(1.4rem, 5vw, 2rem); }
+  h3 { font-size: clamp(1.1rem, 4vw, 1.5rem); }
+}
+
+/* ==========================================
+ * DASHBOARD — MOBILE RESPONSIVE LAYOUT
+ * ========================================== */
+
+/* Sidebar uses fixed overlay on mobile, static on desktop */
+#dashboard-sidebar {
+  height: 100vh;
+  height: 100dvh;
+  transition: transform 0.3s ease;
+}
+
+/* RTL support for sidebar start/end edge */
+[dir="rtl"] #dashboard-sidebar {
+  transform: translateX(100%);
+}
+[dir="rtl"] #dashboard-sidebar.open-rtl {
+  transform: translateX(0);
+}
+
+/* Tab content fills available height, scroll inside */
+.dashboard-tab-content {
+  min-height: 0;
+}
+.dashboard-tab-content.hidden {
+  display: none !important;
+}
+
+/* Code editor responsive height */
+@media (max-width: 768px) {
+  #dashboard-sidebar {
+    width: 280px;
+  }
+  .h-112 {
+    height: 320px !important;
+  }
+}
+
+/* Lesson items: clear active and inactive distinct state */
+.lesson-item {
+  transition: background-color 0.15s ease, border-color 0.15s ease;
+}
+
+/* ==========================================
+ * PROJECTS PAGE — CONTRAST FIX
+ * ========================================== */
+.dark .project-card {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+.dark .project-card h3,
+.dark .project-card h4 {
+  color: #f8fafc;
+}
+.dark .project-card p,
+.dark .project-card span:not([class*="text-brand"]):not([class*="text-emerald"]):not([class*="text-amber"]) {
+  color: #e2e8f0;
+}
+
+/* ==========================================
+ * SITE-WIDE DARK MODE READABILITY OVERRIDES
+ * ========================================== */
+.dark p, 
+.dark .text-slate-650,
+.dark .text-slate-600, 
+.dark .text-slate-500, 
+.dark .text-slate-400 {
+  color: #e2e8f0 !important; /* High contrast slate-200 */
+}
+
+.dark h1, 
+.dark h2, 
+.dark h3, 
+.dark h4, 
+.dark h5, 
+.dark h6 {
+  color: #ffffff !important; /* Pure white headers */
+}
+
+/* Slightly increase paragraph/description font size site-wide for comfortable reading */
+p, 
+.text-sm.leading-relaxed,
+.project-card p,
+.program-card p {
+  font-size: 15px !important;
+  line-height: 1.625 !important;
+}
+
+@media (max-width: 640px) {
+  p, 
+  .text-sm.leading-relaxed,
+  .project-card p,
+  .program-card p {
+    font-size: 14px !important;
+  }
+}
+
+/* ==========================================
+ * GLOBAL PUBLIC HEADER TOGGLE BUTTON MATCHING
+ * ========================================== */
+header .rtl-toggle, 
+header .dark-mode-toggle {
+  width: 40px !important;
+  height: 40px !important;
+  padding: 0 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 12px !important; /* rounded-xl */
+}
+
+header .rtl-toggle-text {
+  font-size: 11px !important;
+  font-weight: 900 !important;
+  line-height: 1 !important;
+  letter-spacing: 0.05em !important;
+}
+
+header .dark-mode-toggle svg {
+  width: 18px !important;
+  height: 18px !important;
+}
+
+@media (max-width: 1024px) {
+  header .rtl-toggle, 
+  header .dark-mode-toggle {
+    width: 36px !important;
+    height: 36px !important;
+  }
+}
+
+/* ==========================================
+ * CUSTOM 950 SHADE COLOR FALLBACKS FOR DARK MODE
+ * ========================================== */
+.dark .bg-brand-950,
+.dark .dark\:bg-brand-950 {
+  background-color: #031b2e !important;
+}
+.dark .bg-brand-950\/30,
+.dark .dark\:bg-brand-950\/30 {
+  background-color: rgba(3, 27, 46, 0.3) !important;
+}
+.dark .bg-brand-950\/50,
+.dark .dark\:bg-brand-950\/50 {
+  background-color: rgba(3, 27, 46, 0.5) !important;
+}
+.dark .bg-robotics-950,
+.dark .dark\:bg-robotics-950 {
+  background-color: #2b1a03 !important;
+}
+.dark .bg-robotics-950\/50,
+.dark .dark\:bg-robotics-950\/50 {
+  background-color: rgba(43, 26, 3, 0.5) !important;
+}
+.dark .bg-coding-950,
+.dark .dark\:bg-coding-950 {
+  background-color: #022d1b !important;
+}
+.dark .bg-coding-950\/50,
+.dark .dark\:bg-coding-950\/50 {
+  background-color: rgba(2, 45, 27, 0.5) !important;
+}
+.dark .bg-indigo-950,
+.dark .dark\:bg-indigo-950 {
+  background-color: #1e1b4b !important;
+}
+.dark .bg-indigo-950\/50,
+.dark .dark\:bg-indigo-950\/50 {
+  background-color: rgba(30, 27, 75, 0.5) !important;
+}
+.dark .bg-amber-950,
+.dark .dark\:bg-amber-950 {
+  background-color: #451a03 !important;
+}
+.dark .bg-amber-950\/50,
+.dark .dark\:bg-amber-950\/50 {
+  background-color: rgba(69, 26, 3, 0.5) !important;
+}
+.dark .bg-emerald-950,
+.dark .dark\:bg-emerald-950 {
+  background-color: #022c22 !important;
+}
+.dark .bg-emerald-950\/50,
+.dark .dark\:bg-emerald-950\/50 {
+  background-color: rgba(2, 44, 34, 0.5) !important;
+}
+
+/* ==========================================
+ * OTHER PAGES — MOBILE NAV PREFERENCES CONTROL
+ * ========================================== */
+@media (max-width: 1023px) {
+  /* Hide the toggles in the mobile navbar by default */
+  .lg\:hidden .rtl-toggle,
+  .lg\:hidden .dark-mode-toggle {
+    display: none !important;
+  }
+  
+  /* Show them inside the mobile menu drawer when appended */
+  #mobile-menu .rtl-toggle,
+  #mobile-menu .dark-mode-toggle {
+    display: inline-flex !important;
+  }
+}

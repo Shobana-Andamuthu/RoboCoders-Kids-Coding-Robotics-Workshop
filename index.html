@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoboCoders Academy | Home - Kids Coding & Robotics Workshops</title>
+  <meta name="description" content="Empowering kids aged 6-14 with visual block coding, Python game development, and hands-on robotics in a fun, gamified makerspace.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              300: '#7cc8fc',
+              400: '#38abfa',
+              500: '#0e91eb',
+              600: '#0273c7',
+              700: '#035ca1',
+              800: '#074f85',
+              900: '#0c426e',
+            },
+            robotics: {
+              100: '#fef3c7',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+            coding: {
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            heading: ['Fredoka', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 antialiased">
+
+  <!-- ==========================================
+       0. PAGE LOADER
+       ========================================== -->
+  <div id="page-loader">
+    <div class="relative flex items-center justify-center">
+      <!-- Large Gear -->
+      <svg class="loader-gear w-16 h-16 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+      </svg>
+      <!-- Small Gear -->
+      <svg class="loader-gear-reverse absolute -bottom-2 -right-2 w-8 h-8 text-robotics-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+      </svg>
+    </div>
+    <span class="mt-4 font-bold text-lg text-slate-600 dark:text-slate-300 font-heading tracking-wide">Assembling Robots...</span>
+  </div>
+
+  <!-- ==========================================
+       HEADER & NAVIGATION
+       ========================================== -->
+  <header class="sticky top-0 z-50 w-full transition-all duration-300 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-brand-600 to-indigo-600 dark:from-brand-400 dark:to-indigo-400 bg-clip-text text-transparent">RoboCoders</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-8">
+          <!-- Home Dropdown -->
+          <div class="relative group">
+            <button id="home-dropdown-btn" class="flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">
+              <span>Home</span>
+              <svg class="w-4 h-4 dropdown-arrow transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="home-dropdown-menu" class="absolute left-0 mt-2 w-48 rounded-2xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700/50 py-2 hidden transition-all duration-200">
+              <a href="index.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg mx-2">Home 1 (Playful)</a>
+              <a href="home-2.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg mx-2">Home 2 (Futuristic)</a>
+            </div>
+          </div>
+
+          <a href="programs.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Programs</a>
+          <a href="instructors.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Instructors</a>
+          <a href="projects.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Projects</a>
+          <a href="pricing.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Pricing</a>
+          <a href="contact.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Contact</a>
+          <a href="dashboard.html" class="dashboard-nav-link text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Dashboard</a>
+        </nav>
+
+        <!-- Right Side Buttons -->
+        <div class="hidden lg:flex items-center gap-4">
+          <!-- LTR/RTL -->
+          <button class="rtl-toggle p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 hover:bg-brand-50 dark:hover:bg-slate-700 transition-colors" title="Toggle RTL/LTR">
+            <span class="rtl-toggle-text text-xs font-bold tracking-wider">RTL</span>
+          </button>
+          <!-- Dark Mode Toggle -->
+          <button class="dark-mode-toggle p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 hover:bg-brand-50 dark:hover:bg-slate-700 transition-colors" title="Toggle Dark/Light Mode">
+            <svg class="sun-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-3.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+            </svg>
+            <svg class="moon-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <!-- Student CTA -->
+          <a href="login.html" class="header-login-btn relative overflow-hidden group px-6 py-2.5 rounded-xl bg-brand-600 text-white font-medium text-sm transition-all duration-300 hover:bg-brand-700 shadow-md shadow-brand-500/10">
+            <span class="relative z-10">Student Login</span>
+          </a>
+        </div>
+
+        <!-- Mobile Buttons -->
+        <div class="flex items-center gap-3 lg:hidden">
+          <button class="rtl-toggle p-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors">
+            <span class="rtl-toggle-text text-xs font-bold tracking-wider">RTL</span>
+          </button>
+          <button class="dark-mode-toggle p-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 transition-colors">
+            <svg class="sun-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-3.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+            </svg>
+            <svg class="moon-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <button id="mobile-menu-btn" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors">
+            <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-20 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-50 px-6 py-6 space-y-4 max-h-[calc(100vh-5rem)] overflow-y-auto">
+      
+      <div>
+        <button id="mobile-home-dropdown-btn" class="w-full flex items-center justify-between text-left font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">
+          <span>Home</span>
+          <svg class="w-4 h-4 dropdown-arrow transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="mobile-home-dropdown-menu" class="hidden pl-4 py-2 space-y-2">
+          <a href="index.html" class="block text-sm text-slate-600 dark:text-slate-200 py-1">Home 1 (Playful)</a>
+          <a href="home-2.html" class="block text-sm text-slate-600 dark:text-slate-200 py-1">Home 2 (Futuristic)</a>
+        </div>
+      </div>
+      <a href="programs.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Programs</a>
+      <a href="instructors.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Instructors</a>
+      <a href="projects.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Projects</a>
+      <a href="pricing.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Pricing</a>
+      <a href="contact.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Contact</a>
+      <a href="dashboard.html" class="dashboard-nav-link block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Dashboard</a>
+      <div class="pt-4">
+        <a href="login.html" class="header-login-btn block w-full py-3 rounded-xl bg-brand-600 text-white font-medium text-center shadow-lg">
+          Student Login
+        </a>
+      </div>
+    
+    </div>
+  </header>
+
+  <!-- ==========================================
+       SECTION 1: HERO
+       ========================================== -->
+  <section class="relative overflow-hidden py-16 lg:py-24 bg-gradient-to-b from-brand-50/50 to-white dark:from-slate-900/50 dark:to-slate-900">
+    <div class="absolute inset-0 z-0 opacity-30 dark:opacity-10 pointer-events-none">
+      <!-- Playful Grid background dots -->
+      <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="none">
+        <pattern id="grid-dots" width="40" height="40" patternUnits="userSpaceOnUse">
+          <circle cx="20" cy="20" r="2" fill="#0e91eb" />
+        </pattern>
+        <rect width="100%" height="100%" fill="url(#grid-dots)" />
+      </svg>
+    </div>
+
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Hero Content -->
+        <div class="space-y-8 text-center lg:text-left ltr:lg:text-left rtl:lg:text-right">
+          <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-100 dark:bg-brand-950/50 border border-brand-200 dark:border-brand-900">
+            <span class="w-2.5 h-2.5 rounded-full bg-brand-500 animate-pulse"></span>
+            <span class="text-xs font-bold text-brand-700 dark:text-brand-300 uppercase tracking-widest">Enrolling for Fall Term!</span>
+          </div>
+
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white leading-tight">
+            Where Young Minds <br>
+            <span class="bg-gradient-to-r from-brand-500 via-indigo-500 to-robotics-500 bg-clip-text text-transparent">Code & Build</span> <br>
+            The Future!
+          </h1>
+
+          <p class="text-base sm:text-lg text-slate-600 dark:text-slate-300 leading-relaxed max-w-xl mx-auto lg:mx-0">
+            Empower your child with fundamental programming, game design, and hands-on robotics workshops. Interactive learning made fun for ages 6 to 14.
+          </p>
+
+          <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <a href="programs.html" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-brand-600 text-white font-bold text-center btn-primary-hover shadow-lg shadow-brand-500/20">
+              Explore Programs
+            </a>
+            <a href="contact.html" class="w-full sm:w-auto px-8 py-4 rounded-2xl bg-slate-50 dark:bg-slate-800 text-slate-700 dark:text-slate-200 font-bold text-center border border-slate-200 dark:border-slate-700 hover:bg-slate-100 dark:hover:bg-slate-700 transition-colors">
+              Book a Free Trial
+            </a>
+          </div>
+
+          <!-- Stats Grid -->
+          <div class="grid grid-cols-3 gap-6 pt-6 border-t border-slate-100 dark:border-slate-800 max-w-md mx-auto lg:mx-0">
+            <div>
+              <span class="block text-2xl sm:text-3xl font-black text-brand-600 dark:text-brand-400">5,000+</span>
+              <span class="text-sm text-slate-600 dark:text-slate-200 font-medium">Happy Graduates</span>
+            </div>
+            <div>
+              <span class="block text-2xl sm:text-3xl font-black text-robotics-500">45+</span>
+              <span class="text-sm text-slate-600 dark:text-slate-200 font-medium">STEM Schools</span>
+            </div>
+            <div>
+              <span class="block text-2xl sm:text-3xl font-black text-coding-500">4.9/5</span>
+              <span class="text-sm text-slate-600 dark:text-slate-200 font-medium">Parent Rating</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero Image (Unique Image 1) -->
+        <div class="relative lg:ml-4">
+          <!-- Decorative shapes -->
+          <div class="absolute -top-6 -left-6 w-24 h-24 bg-robotics-500/10 rounded-full blur-xl"></div>
+          <div class="absolute -bottom-6 -right-6 w-32 h-32 bg-indigo-500/10 rounded-3xl blur-2xl"></div>
+
+          <div class="relative rounded-3xl overflow-hidden border-8 border-white dark:border-slate-800 shadow-2xl scale-95 hover:scale-100 transition-transform duration-500">
+            <img src="assets/images/hero/hero_home_1.png" alt="Kids coding robots in a brightly lit modern STEM workshop" class="w-full aspect-[4/3] object-cover">
+            
+            <!-- Small interactive badge overlay -->
+            <div class="absolute bottom-4 left-4 bg-white/95 dark:bg-slate-900/95 backdrop-blur px-4 py-3 rounded-2xl border border-slate-100 dark:border-slate-800 shadow-lg flex items-center gap-3">
+              <span class="flex h-3 w-3 relative">
+                <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span class="relative inline-flex rounded-full h-3 w-3 bg-emerald-500"></span>
+              </span>
+              <p class="text-xs font-bold text-slate-800 dark:text-slate-200">Active Classroom: 12 Students building drones</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 2: PROGRAMS / LEARNING TRACKS
+       ========================================== -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-800/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-4">
+          Tailored Programs for Every Age Group
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300">
+          Our core tracks are crafted to scale with children's developmental skills, beginning with logic puzzles and progressing to professional syntax.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Scratch Track -->
+        <div class="group relative rounded-3xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-indigo-50 dark:bg-indigo-950/50 flex items-center justify-center text-indigo-600 dark:text-indigo-400 mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+              </svg>
+            </div>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-extrabold bg-indigo-100 dark:bg-indigo-900/30 text-indigo-700 dark:text-indigo-300 mb-4">Ages 6-10</span>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Scratch Visual Coding</h3>
+            <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed mb-6">
+              Learn the core structure of programming using visual block puzzle grids. Create stories, logic mini-games, and colorful artwork.
+            </p>
+          </div>
+          <a href="programs.html" class="flex items-center gap-2 text-brand-600 dark:text-brand-400 font-bold hover:underline">
+            <span>Learn More</span>
+            <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </a>
+        </div>
+
+        <!-- Python Track -->
+        <div class="group relative rounded-3xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-coding-100 dark:bg-emerald-950/50 flex items-center justify-center text-coding-500 mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path>
+              </svg>
+            </div>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-extrabold bg-coding-100 dark:bg-emerald-900/30 text-coding-600 dark:text-coding-400 mb-4">Ages 11-14</span>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Python Programming</h3>
+            <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed mb-6">
+              Transition to text programming syntax. Master control structures, functions, simple data frameworks, and build classic games from scratch.
+            </p>
+          </div>
+          <a href="programs.html" class="flex items-center gap-2 text-brand-600 dark:text-brand-400 font-bold hover:underline">
+            <span>Learn More</span>
+            <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </a>
+        </div>
+
+        <!-- Robotics Track -->
+        <div class="group relative rounded-3xl bg-white dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 p-8 shadow-md hover:shadow-xl transition-all duration-300 flex flex-col justify-between">
+          <div>
+            <div class="w-14 h-14 rounded-2xl bg-robotics-100 dark:bg-amber-950/50 flex items-center justify-center text-robotics-500 mb-6 group-hover:scale-110 transition-transform">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+              </svg>
+            </div>
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-extrabold bg-robotics-100 dark:bg-amber-900/30 text-robotics-600 dark:text-robotics-400 mb-4">Ages 10-14</span>
+            <h3 class="text-2xl font-bold text-slate-900 dark:text-white mb-3">Hardware & Robotics</h3>
+            <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed mb-6">
+              Merge hardware circuits with software code. Construct robotic structures using microcontrollers, wires, gears, and obstacle range sensors.
+            </p>
+          </div>
+          <a href="programs.html" class="flex items-center gap-2 text-brand-600 dark:text-brand-400 font-bold hover:underline">
+            <span>Learn More</span>
+            <svg class="w-4 h-4 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 3: WHY KIDS LOVE IT (BENTO GRID)
+       ========================================== -->
+  <section class="py-20 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-4">
+          A Learning Environment Kids Actually Love
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300">
+          Our gamified pedagogy turns difficult engineering and coding logical structures into friendly milestone challenges.
+        </p>
+      </div>
+
+      <!-- Bento Grid Layout -->
+      <div class="grid grid-cols-1 md:grid-cols-6 gap-6">
+        
+        <!-- Block 1: Large Playful -->
+        <div class="md:col-span-3 rounded-3xl bg-gradient-to-tr from-brand-500 to-indigo-600 text-white p-8 sm:p-10 shadow-lg flex flex-col justify-between min-h-[300px]">
+          <div class="space-y-4">
+            <h3 class="text-2xl sm:text-3xl font-black font-heading leading-tight">Gamified Missions & Level Ups</h3>
+            <p class="text-brand-100 text-sm leading-relaxed max-w-md">
+              Students complete coding exercises to earn customized badge certificates, moving up the ranks from Novice Coder to Master Architect.
+            </p>
+          </div>
+          <div class="flex items-center gap-3 pt-6 border-t border-brand-400/30">
+            <span class="text-xs font-bold tracking-wider uppercase text-brand-200">Featured system: Badge System</span>
+            <span class="w-2 h-2 rounded-full bg-brand-200"></span>
+            <span class="text-xs text-brand-200">8 achievement stages</span>
+          </div>
+        </div>
+
+        <!-- Block 2: Small -->
+        <div class="md:col-span-3 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 p-8 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="w-10 h-10 rounded-xl bg-robotics-100 dark:bg-amber-950/30 flex items-center justify-center text-robotics-500">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
+            </div>
+            <h4 class="text-xl font-bold text-slate-900 dark:text-white">1-on-1 Coach Guidance</h4>
+            <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed">
+              We maintain a strict ratio of 6 students per instructor, ensuring customized mentorship paths for every single project stage.
+            </p>
+          </div>
+        </div>
+
+        <!-- Block 3: Half Row Left -->
+        <div class="md:col-span-2 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 p-8 shadow-sm space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-brand-100 dark:bg-brand-950/30 flex items-center justify-center text-brand-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"></path></svg>
+          </div>
+          <h4 class="text-xl font-bold text-slate-900 dark:text-white">Structured Curriculums</h4>
+          <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed">
+            Our lesson tracks are developed in collaboration with primary school educators to match core math and problem-solving benchmarks.
+          </p>
+        </div>
+
+        <!-- Block 4: Half Row Center -->
+        <div class="md:col-span-2 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 p-8 shadow-sm space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-coding-100 dark:bg-emerald-950/30 flex items-center justify-center text-coding-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+          </div>
+          <h4 class="text-xl font-bold text-slate-900 dark:text-white">Social Collaboration</h4>
+          <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed">
+            Kids pair-program and present their final capstone robot designs during our term graduation showcase ceremonies.
+          </p>
+        </div>
+
+        <!-- Block 5: Half Row Right -->
+        <div class="md:col-span-2 rounded-3xl bg-slate-50 dark:bg-slate-800 border border-slate-100 dark:border-slate-700/50 p-8 shadow-sm space-y-4">
+          <div class="w-10 h-10 rounded-xl bg-indigo-100 dark:bg-indigo-950/30 flex items-center justify-center text-indigo-500">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path></svg>
+          </div>
+          <h4 class="text-xl font-bold text-slate-900 dark:text-white">Empowered Creativity</h4>
+          <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed">
+            We do not restrict kids to templates. They build custom games and program original robotic actions.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 4: STUDENT PROJECT SHOWCASE
+       ========================================== -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-800/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Project Image (Unique Image 2) -->
+        <div class="relative order-2 lg:order-1">
+          <div class="absolute -top-6 -right-6 w-24 h-24 bg-brand-500/10 rounded-full blur-xl"></div>
+          <div class="relative rounded-3xl overflow-hidden border-8 border-white dark:border-slate-800 shadow-2xl scale-95">
+            <img src="assets/images/sections/showcase_project.png" alt="Smart greenhouse microcontroller project built by young students" class="w-full aspect-[4/3] object-cover">
+          </div>
+        </div>
+
+        <!-- Project Details -->
+        <div class="space-y-8 order-1 lg:order-2 ltr:lg:text-left rtl:lg:text-right">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-robotics-100 dark:bg-amber-950/30 text-robotics-700 dark:text-robotics-300">
+            Featured Capstone Project
+          </span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white leading-tight">
+            The Smart Greenhouse
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300 leading-relaxed">
+            Created by Emily (Age 11) and Tyler (Age 12) during our Autumn term, this smart greenhouse runs on Python. It utilizes soil sensors to verify moisture and programs an automated small water pump when the soil becomes dry.
+          </p>
+
+          <!-- Specifications List -->
+          <div class="grid grid-cols-2 gap-6 pt-4">
+            <div class="flex gap-3">
+              <div class="w-5 h-5 rounded bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 dark:text-slate-200 text-sm">Microcontroller</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-200">Arduino Uno Board</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <div class="w-5 h-5 rounded bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 dark:text-slate-200 text-sm">Sensor Suite</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-200">Moisture, Light & Temp</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <div class="w-5 h-5 rounded bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 dark:text-slate-200 text-sm">Code Lines</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-200">84 lines of custom Python</p>
+              </div>
+            </div>
+            <div class="flex gap-3">
+              <div class="w-5 h-5 rounded bg-emerald-500/10 dark:bg-emerald-500/20 text-emerald-500 flex items-center justify-center flex-shrink-0 mt-0.5">
+                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 dark:text-slate-200 text-sm">Skills Earned</h4>
+                <p class="text-sm text-slate-600 dark:text-slate-200">Loops, thresholds, signals</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="pt-4">
+            <a href="curriculum.html" class="inline-flex items-center gap-2 text-brand-600 dark:text-brand-400 font-bold hover:underline">
+              <span>View the full curriculum milestones</span>
+              <svg class="w-5 h-5 rtl-flip" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 5: LEARNING JOURNEY / HOW IT WORKS
+       ========================================== -->
+  <section class="py-20 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-4">
+          The 3-Step Learning Journey
+        </h2>
+        <p class="text-slate-600 dark:text-slate-300">
+          How we guide children from starting with zero experience to presenting fully integrated smart systems.
+        </p>
+      </div>
+
+      <!-- Horizontal Steps Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 relative">
+        <!-- Connecting Line Background for Large Screen -->
+        <div class="hidden lg:block absolute top-14 left-1/6 right-1/6 h-0.5 bg-slate-100 dark:bg-slate-800 -z-10"></div>
+
+        <!-- Step 1 -->
+        <div class="text-center space-y-4">
+          <div class="w-16 h-16 rounded-full bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 border-4 border-white dark:border-slate-900 shadow-md flex items-center justify-center text-xl font-bold mx-auto">
+            1
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Play & Explore</h3>
+          <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed px-4">
+            We start with engaging block programming and logic puzzles. Kids explore coordinates and variables by moving funny screen characters.
+          </p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center space-y-4">
+          <div class="w-16 h-16 rounded-full bg-robotics-100 dark:bg-amber-950 text-robotics-500 border-4 border-white dark:border-slate-900 shadow-md flex items-center justify-center text-xl font-bold mx-auto">
+            2
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Build & Program</h3>
+          <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed px-4">
+            Next, we introduce physical components. Kids build cars and drones, using Python scripts to react to infrared obstacles and color lines.
+          </p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center space-y-4">
+          <div class="w-16 h-16 rounded-full bg-coding-100 dark:bg-emerald-950 text-coding-500 border-4 border-white dark:border-slate-900 shadow-md flex items-center justify-center text-xl font-bold mx-auto">
+            3
+          </div>
+          <h3 class="text-xl font-bold text-slate-900 dark:text-white">Showcase & Scale</h3>
+          <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed px-4">
+            Students present their integrated designs to instructors and peers. They earn achievement badges, unlock the online console, and progress.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 6: SKILLS CHILDREN DEVELOP
+       ========================================== -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-800/30">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Content Column -->
+        <div class="space-y-8 ltr:lg:text-left rtl:lg:text-right">
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white leading-tight">
+            Cognitive Skills for <br>
+            A Digital World
+          </h2>
+          <p class="text-slate-600 dark:text-slate-300">
+            Coding is more than syntax. Our classes build transferrable cognitive practices that helper children excel in mathematical analysis and general problem-solving.
+          </p>
+
+          <!-- Checklists -->
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-950 text-brand-500 flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 dark:text-white text-base">Decomposition</h4>
+                <p class="text-sm text-slate-500 dark:text-slate-200">Breaking complex engineering requirements into small manageable block sequences.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-950 text-brand-500 flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 dark:text-white text-base">Algorithmic Thinking</h4>
+                <p class="text-sm text-slate-500 dark:text-slate-200">Designing logical sequences (if-this-then-that) to solve repetitive conditions.</p>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-full bg-brand-100 dark:bg-brand-950 text-brand-500 flex items-center justify-center flex-shrink-0 mt-1">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              </div>
+              <div>
+                <h4 class="font-bold text-slate-800 dark:text-white text-base">Persistence & Debugging</h4>
+                <p class="text-sm text-slate-500 dark:text-slate-200">Viewing program bugs not as mistakes but as fun puzzles to step-trace and resolve.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Decorative Interactive Visual representation of code compiles -->
+        <div class="p-8 sm:p-10 rounded-3xl bg-slate-900 text-slate-200 font-mono shadow-2xl space-y-6 relative overflow-hidden">
+          <div class="absolute top-0 right-0 p-4 opacity-5 pointer-events-none">
+            <svg class="w-48 h-48 text-white" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </div>
+          
+          <!-- Code editor top circles -->
+          <div class="flex gap-2">
+            <span class="w-3 h-3 rounded-full bg-red-500"></span>
+            <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+            <span class="w-3 h-3 rounded-full bg-green-500"></span>
+          </div>
+
+          <div class="space-y-2 text-sm leading-relaxed">
+            <p class="text-slate-500"># Autonomous Drone Route</p>
+            <p><span class="text-indigo-400">import</span> drone_kit</p>
+            <p><span class="text-indigo-400">import</span> time</p>
+            <p class="text-slate-500">// Initialize obstacle sensor</p>
+            <p>sensor = drone_kit.Sensor(<span class="text-yellow-400">'sonar'</span>)</p>
+            <p>drone = drone_kit.Takeoff()</p>
+            <br>
+            <p><span class="text-indigo-400">while</span> drone.is_flying():</p>
+            <p class="pl-4">distance = sensor.get_range()</p>
+            <p class="pl-4"><span class="text-indigo-400">if</span> distance &lt; <span class="text-amber-400">20</span>:</p>
+            <p class="pl-8 text-yellow-400">drone.hover()</p>
+            <p class="pl-8">drone.turn_right(<span class="text-amber-400">90</span>)</p>
+            <p class="pl-4"><span class="text-indigo-400">else</span>:</p>
+            <p class="pl-8 text-emerald-400">drone.move_forward(<span class="text-amber-400">5</span>)</p>
+          </div>
+
+          <div class="pt-4 border-t border-slate-800 flex justify-between items-center text-sm text-slate-600 dark:text-slate-200">
+            <span>Terminal: Executing...</span>
+            <span class="text-emerald-400">Status: Running Code</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 6.5: WHAT YOUR CHILD WILL BUILD
+       ========================================== -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-800/30 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold bg-brand-100 dark:bg-brand-950/50 text-brand-700 dark:text-brand-300 uppercase tracking-widest mb-4">
+          Hands-On Portfolio
+        </span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-4">
+          What Your Child Will Build
+        </h2>
+        <p class="text-slate-600 dark:text-slate-200 text-base md:text-lg leading-relaxed">
+          Explore real student-created highlights. Select a tab to see their interactive visual code and physical circuitry simulators.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+        
+        <!-- Tabs List (Left 5 Cols) -->
+        <div class="lg:col-span-5 flex flex-col gap-4">
+          
+          <!-- Tab Button 1 -->
+          <button onclick="switchBuildTab(0)" id="build-tab-btn-0" class="build-tab-btn w-full text-left p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-brand-500 dark:border-brand-500 shadow-md ring-2 ring-brand-500/10 transition-all duration-300 flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-indigo-50 dark:bg-indigo-950 flex items-center justify-center text-indigo-600 dark:text-indigo-400 flex-shrink-0">
+              <i class="bi bi-joystick text-brand-500"></i>
+            </div>
+            <div class="flex-grow">
+              <span class="text-xs font-black text-indigo-600 dark:text-indigo-400 uppercase tracking-wider block">Scratch (Ages 6-10)</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Retro Space Rescue Game</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-200 mt-2">Kids construct visual blocks to coordinate ship thrusters and dodge dynamic asteroids.</p>
+            </div>
+          </button>
+
+          <!-- Tab Button 2 -->
+          <button onclick="switchBuildTab(1)" id="build-tab-btn-1" class="build-tab-btn w-full text-left p-6 rounded-2xl bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-slate-350 dark:hover:border-slate-700 transition-all duration-300 flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-coding-100 dark:bg-emerald-950/50 flex items-center justify-center text-coding-500 flex-shrink-0">
+              <i class="bi bi-braces text-emerald-500"></i>
+            </div>
+            <div class="flex-grow">
+              <span class="text-xs font-black text-coding-600 dark:text-coding-400 uppercase tracking-wider block">Python (Ages 11-14)</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Smart Climate Dashboard</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-200 mt-2">A syntax-coded automation program checking temperature sensors via live loops.</p>
+            </div>
+          </button>
+
+          <!-- Tab Button 3 -->
+          <button onclick="switchBuildTab(2)" id="build-tab-btn-2" class="build-tab-btn w-full text-left p-6 rounded-2xl bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-slate-350 dark:hover:border-slate-700 transition-all duration-300 flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-robotics-100 dark:bg-amber-950/50 flex items-center justify-center text-robotics-500 flex-shrink-0">
+              <i class="bi bi-robot text-brand-500"></i>
+            </div>
+            <div class="flex-grow">
+              <span class="text-xs font-black text-robotics-600 dark:text-robotics-400 uppercase tracking-wider block">Hardware (Ages 10-14)</span>
+              <h3 class="text-lg font-bold text-slate-900 dark:text-white mt-1">Sonar Obstacle Evader Rover</h3>
+              <p class="text-sm text-slate-600 dark:text-slate-200 mt-2">Integrating microcontrollers with wheel motor hubs and sensor distance ranges.</p>
+            </div>
+          </button>
+
+        </div>
+
+        <!-- Previews Container (Right 7 Cols) -->
+        <div class="lg:col-span-7 rounded-3xl bg-slate-900 text-white p-6 sm:p-8 flex flex-col justify-between shadow-2xl relative min-h-[450px]">
+          
+          <!-- Tab 1 content: Space Rescue Simulator -->
+          <div id="build-preview-0" class="build-preview-panel space-y-6 flex flex-col justify-between h-full">
+            <div>
+              <div class="flex justify-between items-center pb-4 border-b border-slate-800">
+                <div class="flex gap-2">
+                  <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                </div>
+                <span class="text-sm text-slate-600 dark:text-slate-200 font-mono">space_rescue.sb3</span>
+              </div>
+              
+              <!-- Interactive simulator box -->
+              <div class="bg-slate-950 rounded-2xl p-4 mt-6 relative overflow-hidden h-56 border border-slate-800 flex items-center justify-center">
+                <div class="absolute top-4 left-4 text-sm text-slate-600 dark:text-slate-200 font-mono">Score: <span id="space-score">150</span> | Lives: <i class="bi bi-heart-fill text-rose-500"></i><i class="bi bi-heart-fill text-rose-500"></i><i class="bi bi-heart-fill text-rose-500"></i></div>
+                <div id="space-ship" class="absolute transition-all duration-300 text-3xl" style="left: 10%; bottom: 35%;">
+                  <i class="bi bi-rocket-fill text-brand-500"></i>
+                </div>
+                <div id="asteroid-1" class="absolute text-xl animate-bounce" style="right: 20%; top: 20%;">
+                  <i class="bi bi-activity text-indigo-500"></i>
+                </div>
+                <div id="asteroid-2" class="absolute text-2xl animate-pulse" style="right: 35%; bottom: 15%;">
+                  <i class="bi bi-activity text-indigo-500"></i>
+                </div>
+                <div class="text-center text-sm text-slate-600 dark:text-slate-200 mt-20">
+                  <span class="block text-slate-400 font-bold mb-1">Visual Code Block Logic:</span>
+                  <code class="bg-indigo-900/30 text-indigo-300 px-2.5 py-1 rounded font-mono">when green flag clicked -> forever { if obstacle_distance &lt; 30 then dodge() }</code>
+                </div>
+              </div>
+            </div>
+            
+            <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
+              <button onclick="runSpaceSimulation()" class="px-5 py-2 bg-indigo-600 hover:bg-indigo-500 text-white font-bold text-xs rounded-xl shadow-md transition-colors">
+                Run Simulation
+              </button>
+              <span class="text-sm text-slate-600 dark:text-slate-200 font-mono">Built with Scratch Block Editor</span>
+            </div>
+          </div>
+
+          <!-- Tab 2 content: Smart Climate Python -->
+          <div id="build-preview-1" class="build-preview-panel space-y-6 flex flex-col justify-between h-full hidden">
+            <div>
+              <div class="flex justify-between items-center pb-4 border-b border-slate-800">
+                <div class="flex gap-2">
+                  <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                </div>
+                <span class="text-sm text-slate-600 dark:text-slate-200 font-mono">climate_control.py</span>
+              </div>
+              
+              <!-- Python Code visual & Temperature display -->
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-6">
+                <div class="bg-slate-950 rounded-xl p-4 font-mono text-sm text-slate-600 dark:text-slate-200 leading-relaxed border border-slate-800">
+                  <p class="text-slate-500"># Check ambient temperature</p>
+                  <p><span class="text-purple-400">def</span> check_temp(temp):</p>
+                  <p class="pl-4"><span class="text-purple-400">if</span> temp &gt;= <span class="text-amber-400">25</span>:</p>
+                  <p class="pl-8 text-cyan-400">ac.turn_on()</p>
+                  <p class="pl-4"><span class="text-purple-400">else</span>:</p>
+                  <p class="pl-8 text-rose-450">heater.turn_on()</p>
+                </div>
+                <div class="bg-slate-950 rounded-xl p-4 border border-slate-800 flex flex-col justify-between items-center">
+                  <span class="text-sm text-slate-600 dark:text-slate-200">Sensor Status</span>
+                  <div class="text-center my-2">
+                    <span id="python-temp-display" class="text-4xl font-bold font-mono text-amber-500">26°C</span>
+                    <span id="python-status-display" class="block text-xs text-cyan-400 font-mono mt-1 text-center">AC ACTIVATED</span>
+                  </div>
+                  <button onclick="togglePythonTemp()" class="px-3 py-1.5 bg-slate-800 hover:bg-slate-700 text-[10px] font-bold rounded-lg transition-colors">
+                    Adjust Temperature
+                  </button>
+                </div>
+              </div>
+            </div>
+            
+            <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
+              <span class="text-sm text-slate-600 dark:text-slate-200">Libraries: time, dht11, arduino_io</span>
+              <span class="text-sm text-slate-600 dark:text-slate-200 font-mono">Syntax validation: PASS</span>
+            </div>
+          </div>
+
+          <!-- Tab 3 content: Obstacle Evader Rover -->
+          <div id="build-preview-2" class="build-preview-panel space-y-6 flex flex-col justify-between h-full hidden">
+            <div>
+              <div class="flex justify-between items-center pb-4 border-b border-slate-800">
+                <div class="flex gap-2">
+                  <span class="w-3 h-3 rounded-full bg-red-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-yellow-500"></span>
+                  <span class="w-3 h-3 rounded-full bg-green-500"></span>
+                </div>
+                <span class="text-sm text-slate-600 dark:text-slate-200 font-mono">rover_sonar.ino</span>
+              </div>
+              
+              <!-- Rover graphic layout -->
+              <div class="bg-slate-950 rounded-2xl p-4 mt-6 border border-slate-800 flex flex-col items-center justify-center h-52 relative overflow-hidden">
+                <!-- Sonar waves -->
+                <div id="sonar-waves" class="absolute w-24 h-24 rounded-full border-4 border-dashed border-yellow-500/30" style="left: 40%; top: 25%;"></div>
+                
+                <!-- SVG Rover -->
+                <svg class="w-20 h-20 text-slate-400 z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <rect x="4" y="6" width="16" height="10" rx="2" stroke-width="2"></rect>
+                  <circle cx="7" cy="18" r="3" stroke-width="2"></circle>
+                  <circle cx="17" cy="18" r="3" stroke-width="2"></circle>
+                  <!-- sensor eyes -->
+                  <circle cx="9" cy="11" r="1" fill="currentColor"></circle>
+                  <circle cx="15" cy="11" r="1" fill="currentColor"></circle>
+                  <line x1="12" y1="6" x2="12" y2="2" stroke-width="2"></line>
+                </svg>
+                
+                <span class="text-[11px] text-yellow-500 font-mono mt-3 z-10">Object detected at: <span id="rover-distance">45cm</span></span>
+                <span id="rover-action" class="text-xs text-emerald-400 font-mono mt-1 z-10 text-center">DECELERATING... MOTOR SPEED 40%</span>
+              </div>
+            </div>
+            
+            <div class="pt-4 border-t border-slate-800 flex justify-between items-center">
+              <button onclick="triggerRoverObstacle()" class="px-5 py-2 bg-amber-600 hover:bg-amber-500 text-white font-bold text-xs rounded-xl shadow-md transition-colors">
+                Place Obstacle Close
+              </button>
+              <span class="text-sm text-slate-600 dark:text-slate-200 font-mono">Hardware: ultrasonic HC-SR04, L298N driver</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Embedded Section Interactive Script -->
+    <script>
+      function switchBuildTab(tabIndex) {
+        // Toggle tab styles
+        document.querySelectorAll('.build-tab-btn').forEach((btn, idx) => {
+          if (idx === tabIndex) {
+            btn.className = 'build-tab-btn w-full text-left p-6 rounded-2xl bg-white dark:bg-slate-800 border-2 border-brand-500 dark:border-brand-500 shadow-md ring-2 ring-brand-500/10 transition-all duration-300 flex items-start gap-4';
+          } else {
+            btn.className = 'build-tab-btn w-full text-left p-6 rounded-2xl bg-slate-50/50 dark:bg-slate-900/50 border border-slate-200 dark:border-slate-800 shadow-sm hover:border-slate-300 dark:hover:border-slate-700 transition-all duration-300 flex items-start gap-4';
+          }
+        });
+
+        // Toggle panel visibility
+        document.querySelectorAll('.build-preview-panel').forEach((panel, idx) => {
+          if (idx === tabIndex) {
+            panel.classList.remove('hidden');
+          } else {
+            panel.classList.add('hidden');
+          }
+        });
+      }
+
+      // Space Simulator actions
+      function runSpaceSimulation() {
+        const score = document.getElementById('space-score');
+        const ship = document.getElementById('space-ship');
+        if (score && ship) {
+          ship.style.transform = 'translateY(-30px)';
+          setTimeout(() => {
+            ship.style.transform = 'translateY(0px)';
+            score.textContent = parseInt(score.textContent) + 50;
+          }, 400);
+        }
+      }
+
+      // Python Adjust Temp action
+      let currentTemp = 26;
+      function togglePythonTemp() {
+        const tempDisp = document.getElementById('python-temp-display');
+        const statusDisp = document.getElementById('python-status-display');
+        if (tempDisp && statusDisp) {
+          if (currentTemp === 26) {
+            currentTemp = 21;
+            tempDisp.textContent = currentTemp + '°C';
+            tempDisp.className = 'text-4xl font-bold font-mono text-cyan-400';
+            statusDisp.textContent = 'HEATER ACTIVATED | TEMP COLD';
+            statusDisp.className = 'block text-xs text-rose-400 font-mono mt-1 text-center';
+          } else {
+            currentTemp = 26;
+            tempDisp.textContent = currentTemp + '°C';
+            tempDisp.className = 'text-4xl font-bold font-mono text-amber-500';
+            statusDisp.textContent = 'AC ACTIVATED';
+            statusDisp.className = 'block text-xs text-cyan-400 font-mono mt-1 text-center';
+          }
+        }
+      }
+
+      // Rover actions
+      let obstaclePlaced = false;
+      function triggerRoverObstacle() {
+        const dist = document.getElementById('rover-distance');
+        const action = document.getElementById('rover-action');
+        const waves = document.getElementById('sonar-waves');
+        if (dist && action) {
+          if (!obstaclePlaced) {
+            dist.textContent = '12cm';
+            action.textContent = 'OBSTACLE DETECTED! HALTING MOTORS & REVERSING';
+            action.className = 'text-xs text-rose-500 font-mono mt-1 z-10 text-center';
+            if (waves) waves.className = 'absolute w-24 h-24 rounded-full border-4 border-dashed border-rose-500/80 animate-ping';
+            obstaclePlaced = true;
+          } else {
+            dist.textContent = '45cm';
+            action.textContent = 'DECELERATING... MOTOR SPEED 40%';
+            action.className = 'text-xs text-emerald-400 font-mono mt-1 z-10 text-center';
+            if (waves) waves.className = 'absolute w-24 h-24 rounded-full border-4 border-dashed border-yellow-500/30';
+            obstaclePlaced = false;
+          }
+        }
+      }
+    </script>
+  </section>
+
+  <!-- ==========================================
+       SECTION 7: PARENT TESTIMONIALS
+       ========================================== -->
+  <section class="py-20 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-sm font-bold text-brand-600 uppercase tracking-widest block mb-2">Success Stories</span>
+        <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white mb-4">
+          Trusted by 2,000+ Families
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Review 1 -->
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex text-amber-400">
+              <!-- Star icons -->
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            </div>
+            <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed">
+              "My daughter Leo started in Scratch and is now coding microcontrollers in Python. The progress has been incredible! The coaches are extremely encouraging."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-100 dark:border-slate-800 mt-6">
+            <h5 class="font-bold text-slate-800 dark:text-white text-sm">Marcus Vance</h5>
+            <span class="text-sm text-slate-600 dark:text-slate-200">Parent of Leo (Age 11)</span>
+          </div>
+        </div>
+
+        <!-- Review 2 -->
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex text-amber-400">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            </div>
+            <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed">
+              "We tried several computer science camps but RoboCoders is distinct. The robotics kits are amazing and my boy actually gets to program real sensors."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-100 dark:border-slate-800 mt-6">
+            <h5 class="font-bold text-slate-800 dark:text-white text-sm">Elena Rostova</h5>
+            <span class="text-sm text-slate-600 dark:text-slate-200">Parent of Sasha (Age 9)</span>
+          </div>
+        </div>
+
+        <!-- Review 3 -->
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/50 border border-slate-100 dark:border-slate-800 shadow-sm flex flex-col justify-between">
+          <div class="space-y-4">
+            <div class="flex text-amber-400">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"></path></svg>
+            </div>
+            <p class="text-slate-600 dark:text-slate-200 text-sm leading-relaxed">
+              "Outstanding instructors. They have solid tech credentials but know how to explain loops and variables to teenagers without causing boredom."
+            </p>
+          </div>
+          <div class="pt-6 border-t border-slate-100 dark:border-slate-800 mt-6">
+            <h5 class="font-bold text-slate-800 dark:text-white text-sm">David Jenkins</h5>
+            <span class="text-sm text-slate-600 dark:text-slate-200">Parent of Mike (Age 13)</span>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 8: CTA / START LEARNING
+       ========================================== -->
+  <section class="py-16 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="relative rounded-3xl overflow-hidden bg-gradient-to-tr from-brand-600 to-indigo-700 text-white p-8 sm:p-12 lg:p-16 shadow-2xl">
+        <div class="absolute inset-0 opacity-10 pointer-events-none">
+          <svg class="w-full h-full" xmlns="http://www.w3.org/2000/svg" width="100" height="100" fill="none">
+            <pattern id="cta-dots" width="20" height="20" patternUnits="userSpaceOnUse">
+              <circle cx="10" cy="10" r="1.5" fill="#ffffff" />
+            </pattern>
+            <rect width="100%" height="100%" fill="url(#cta-dots)" />
+          </svg>
+        </div>
+
+        <div class="relative z-10 max-w-3xl mx-auto text-center space-y-6">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black font-heading leading-tight">
+            Ready to Build Your First Robot?
+          </h2>
+          <p class="text-brand-100 text-base sm:text-lg max-w-xl mx-auto">
+            Book a trial session or register directly to secure your child's spot in our upcoming coding & robotics cohort.
+          </p>
+          <div class="flex flex-col sm:flex-row justify-center gap-4 pt-4">
+            <a href="contact.html" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-white text-brand-700 font-bold hover:bg-brand-50 transition-colors shadow-lg">
+              Book a Free Trial Session
+            </a>
+            <a href="pricing.html" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-400 transition-colors border border-brand-400/30">
+              View Term Fees & Plans
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer class="bg-slate-900 text-slate-400 dark:bg-slate-950 border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        
+        <div class="space-y-6">
+          <a href="index.html" class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white shadow-md">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+              </svg>
+            </div>
+            <span class="text-xl font-bold tracking-tight text-white">RoboCoders</span>
+          </a>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Empowering the next generation of creators through playful, gamified, and professional hands-on robotics and coding workshops.
+          </p>
+          <div class="flex gap-4">
+            <a href="#" class="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-brand-600 transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1V12h3v3h-3v6.95c4.56-.93 8-4.96 8-9.75z"/></svg>
+            </a>
+            <a href="#" class="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-brand-600 transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z"/></svg>
+            </a>
+            <a href="#" class="p-2 rounded-lg bg-slate-800 text-slate-400 hover:text-white hover:bg-brand-600 transition-colors">
+              <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.051.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            </a>
+          </div>
+        </div>
+
+        <div class="space-y-6">
+          <h4 class="text-white font-bold tracking-wide uppercase text-sm">Quick Links</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home 1 (Playful)</a></li>
+            <li><a href="home-2.html" class="hover:text-white transition-colors">Home 2 (Futuristic)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Academy Programs</a></li>
+            <li><a href="curriculum.html" class="hover:text-white transition-colors">Learning Tracks</a></li>
+            <li><a href="instructors.html" class="hover:text-white transition-colors">Meet the Team</a></li>
+            <li><a href="projects.html" class="hover:text-white transition-colors">Student Projects</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-6">
+          <h4 class="text-white font-bold tracking-wide uppercase text-sm">Programs</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="programs.html" class="hover:text-white transition-colors">Scratch Visual Coding (6-10 yrs)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Python Games & Logic (11-14 yrs)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Robotics Kits & Sensors (10-14 yrs)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Arduino Smart City (12+ yrs)</a></li>
+          </ul>
+        </div>
+
+        <div class="space-y-6">
+          <h4 class="text-white font-bold tracking-wide uppercase text-sm">Contact Info</h4>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <span>123 Innovation Boulevard, Tech District, Suite 101</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              <span>+1 (555) 908-3210</span>
+            </li>
+            <li class="flex items-start gap-2.5 pt-2">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div>
+                <span class="block font-bold text-white text-xs uppercase tracking-wider">Academy Hours</span>
+                <span class="text-xs text-slate-300 block mt-0.5">Mon-Fri: 3:30 PM - 7:30 PM</span>
+                <span class="text-xs text-slate-300 block">Sat-Sun: 9:00 AM - 5:00 PM</span>
+              </div>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2 11H4a2 2 0 01-2-2V8a2 2 0 012-2h16a2 2 0 012 2v9a2 2 0 01-2 2z"></path></svg>
+              <span>info@robocodersacademy.com</span>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+        <p>&copy; 2026 RoboCoders Academy. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ==========================================
+       BACK TO TOP BUTTON
+       ========================================== -->
+  <button id="back-to-top" class="fixed bottom-6 right-6 p-4 rounded-full bg-brand-600 text-white shadow-xl hover:bg-brand-700 transition-all duration-300 opacity-0 invisible translate-y-4 z-40" title="Back to top">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7 7 7M12 3v18"></path>
+    </svg>
+  </button>
+
+  <!-- Scripts -->
+  <script src="assets/js/main.js"></script>
+</body>
+</html>

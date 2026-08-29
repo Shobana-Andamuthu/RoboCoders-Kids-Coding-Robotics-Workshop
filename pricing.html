@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pricing & Plans | RoboCoders Academy</title>
+  <meta name="description" content="Explore tuition plans, material kits deposits, sibling discount options, and transparent pricing comparison matrices.">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#f0f7ff',
+              100: '#e0effe',
+              200: '#bae0fd',
+              300: '#7cc8fc',
+              400: '#38abfa',
+              500: '#0e91eb',
+              600: '#0273c7',
+              700: '#035ca1',
+              800: '#074f85',
+              900: '#0c426e',
+            },
+            robotics: {
+              100: '#fef3c7',
+              500: '#f59e0b',
+              600: '#d97706',
+            },
+            coding: {
+              100: '#d1fae5',
+              500: '#10b981',
+              600: '#059669',
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'sans-serif'],
+            heading: ['Fredoka', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Custom Stylesheets -->
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body class="bg-white text-slate-800 dark:bg-slate-900 dark:text-slate-100 transition-colors duration-300 antialiased">
+
+  <!-- Page Loader -->
+  <div id="page-loader">
+    <div class="relative flex items-center justify-center">
+      <svg class="loader-gear w-16 h-16 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path>
+      </svg>
+    </div>
+    <span class="mt-4 font-bold text-lg text-slate-600 dark:text-slate-300 font-heading">Loading Tuition Plans...</span>
+  </div>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50 w-full transition-all duration-300 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+        
+        <!-- Logo -->
+        <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white shadow-md shadow-brand-500/20">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+            </svg>
+          </div>
+          <span class="text-xl font-bold tracking-tight bg-gradient-to-r from-brand-600 to-indigo-600 dark:from-brand-400 dark:to-indigo-400 bg-clip-text text-transparent">RoboCoders</span>
+        </a>
+
+        <!-- Desktop Navigation -->
+        <nav class="hidden lg:flex items-center gap-8">
+          <div class="relative group">
+            <button id="home-dropdown-btn" class="flex items-center gap-1.5 text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">
+              <span>Home</span>
+              <svg class="w-4 h-4 dropdown-arrow transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+              </svg>
+            </button>
+            <div id="home-dropdown-menu" class="absolute left-0 mt-2 w-48 rounded-2xl bg-white dark:bg-slate-800 shadow-xl border border-slate-100 dark:border-slate-700/50 py-2 hidden transition-all duration-200">
+              <a href="index.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg mx-2">Home 1 (Playful)</a>
+              <a href="home-2.html" class="block px-4 py-2.5 text-sm text-slate-700 dark:text-slate-300 hover:bg-brand-50 dark:hover:bg-slate-700 hover:text-brand-600 dark:hover:text-brand-400 rounded-lg mx-2">Home 2 (Futuristic)</a>
+            </div>
+          </div>
+
+          <a href="programs.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Programs</a>
+          <a href="instructors.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Instructors</a>
+          <a href="projects.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Projects</a>
+          <a href="pricing.html" class="text-brand-600 dark:text-brand-400 font-medium py-2 border-b-2 border-brand-500">Pricing</a>
+          <a href="contact.html" class="text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Contact</a>
+          <a href="dashboard.html" class="dashboard-nav-link text-slate-600 dark:text-slate-300 hover:text-brand-600 dark:hover:text-brand-400 font-medium py-2">Dashboard</a>
+        </nav>
+
+        <!-- Right Side -->
+        <div class="hidden lg:flex items-center gap-4">
+          <button class="rtl-toggle p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-colors">
+            <span class="rtl-toggle-text text-xs font-bold">RTL</span>
+          </button>
+          <button class="dark-mode-toggle p-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300 hover:text-brand-600 transition-colors">
+            <svg class="sun-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-3.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+            </svg>
+            <svg class="moon-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <a href="login.html" class="header-login-btn px-6 py-2.5 rounded-xl bg-brand-600 text-white font-medium text-sm hover:bg-brand-700 shadow-md">
+            Student Login
+          </a>
+        </div>
+
+        <!-- Mobile Buttons -->
+        <div class="flex items-center gap-3 lg:hidden">
+          <button class="rtl-toggle p-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+            <span class="rtl-toggle-text text-xs font-bold">RTL</span>
+          </button>
+          <button class="dark-mode-toggle p-2 rounded-xl bg-slate-50 dark:bg-slate-800 text-slate-600 dark:text-slate-300">
+            <svg class="sun-icon w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 9H3m15.364-3.364l-.707.707M6.343 17.657l-.707.707m12.728 0l-.707-.707M6.343 6.343l-.707-.707M12 8a4 4 0 100 8 4 4 0 000-8z"></path>
+            </svg>
+            <svg class="moon-icon w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+            </svg>
+          </button>
+          <button id="mobile-menu-btn" class="p-2 rounded-xl text-slate-600 dark:text-slate-300 hover:bg-slate-100">
+            <svg id="menu-icon-open" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+            </svg>
+            <svg id="menu-icon-close" class="w-6 h-6 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+            </svg>
+          </button>
+        </div>
+
+      </div>
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-20 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-50 px-6 py-6 space-y-4 max-h-[calc(100vh-5rem)] overflow-y-auto">
+      
+      <div>
+        <button id="mobile-home-dropdown-btn" class="w-full flex items-center justify-between text-left font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">
+          <span>Home</span>
+          <svg class="w-4 h-4 dropdown-arrow transition-transform duration-200" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div id="mobile-home-dropdown-menu" class="hidden pl-4 py-2 space-y-2">
+          <a href="index.html" class="block text-sm text-slate-600 dark:text-slate-200 py-1">Home 1 (Playful)</a>
+          <a href="home-2.html" class="block text-sm text-slate-600 dark:text-slate-200 py-1">Home 2 (Futuristic)</a>
+        </div>
+      </div>
+      <a href="programs.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Programs</a>
+      <a href="instructors.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Instructors</a>
+      <a href="projects.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Projects</a>
+      <a href="pricing.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Pricing</a>
+      <a href="contact.html" class="block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Contact</a>
+      <a href="dashboard.html" class="dashboard-nav-link block font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">Dashboard</a>
+      <div class="pt-4">
+        <a href="login.html" class="header-login-btn block w-full py-3 rounded-xl bg-brand-600 text-white font-medium text-center">
+          Student Login
+        </a>
+      </div>
+    
+    </div>
+  </header>
+
+  <!-- ==========================================
+       SECTION 1: HERO
+       ========================================== -->
+  <section class="py-16 bg-gradient-to-b from-brand-50/50 to-white dark:from-slate-900/50 dark:to-slate-900 text-center">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
+      <span class="text-sm font-bold text-brand-600 uppercase tracking-widest block">Transparent Tuition</span>
+      <h1 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white leading-tight">
+        Academy Program Pricing
+      </h1>
+      <p class="text-slate-600 dark:text-slate-200 max-w-xl mx-auto text-sm sm:text-base">
+        No long-term contracts. Pause or switch learning tracks between academic terms easily.
+      </p>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 2: DYNAMIC PRICING TOGGLE
+       ========================================== -->
+  <section class="py-10 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      
+      <!-- Toggle Button -->
+      <div class="flex items-center justify-center gap-3 mb-12">
+        <span class="text-sm font-bold text-slate-700 dark:text-slate-100">Monthly Billing</span>
+        <button id="billing-toggle" onclick="toggleBilling()" class="relative inline-flex h-6 w-11 items-center rounded-full bg-brand-600 transition-colors focus:outline-none">
+          <span id="billing-knob" class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform translate-x-6"></span>
+        </button>
+        <span class="text-sm font-bold text-slate-700 dark:text-slate-100">Term Billing <span class="text-xs font-extrabold px-2.5 py-0.5 rounded-full bg-emerald-500 text-white ml-1 font-heading">Save 15%</span></span>
+      </div>
+
+      <!-- Pricing Plans -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+        
+        <!-- Plan 1 -->
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 flex flex-col justify-between">
+          <div class="space-y-4">
+            <h3 class="font-bold text-xl text-slate-900 dark:text-white">Explorer Track</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-200">For younger beginners getting started with visual puzzles.</p>
+            <div class="pt-4">
+              <span id="price-explorer" class="text-4xl font-black text-slate-900 dark:text-white">$149</span>
+              <span class="text-sm text-slate-600 dark:text-slate-200 font-bold"> / month</span>
+            </div>
+            <p class="text-xs font-semibold text-slate-500 font-bold">* Material Fee: $0 deposit</p>
+          </div>
+          <ul class="text-sm text-slate-600 dark:text-slate-200 space-y-3 my-8">
+            <li class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <span>1 Class per week</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <span>Scratch Block Coding environment</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <span>Online Sandbox Portfolio access</span>
+            </li>
+          </ul>
+          <a href="contact.html" class="block text-center py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-colors">
+            Register Student
+          </a>
+        </div>
+
+        <!-- Plan 2 (Builder Track - highlight removed) -->
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 flex flex-col justify-between">
+          <div class="space-y-4">
+            <h3 class="font-bold text-xl text-slate-900 dark:text-white">Builder Track</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-200">Our core hardware integration track with custom kits.</p>
+            <div class="pt-4">
+              <span id="price-builder" class="text-4xl font-black text-slate-900 dark:text-white">$249</span>
+              <span class="text-sm text-slate-600 dark:text-slate-200 font-bold"> / month</span>
+            </div>
+            <p class="text-xs font-semibold text-slate-500 font-bold">* Material Fee: $80 (Refundable deposit)</p>
+          </div>
+          <ul class="text-sm text-slate-600 dark:text-slate-200 space-y-3 my-8">
+            <li class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <span>2 Classes per week</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <span>Robotics Hardware, breadboards, sensors</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <span>Student dashboard & progress metrics</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <span>Robotics Tournament Admissions</span>
+            </li>
+          </ul>
+          <a href="contact.html" class="block text-center py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-colors">
+            Register Student
+          </a>
+        </div>
+
+        <!-- Plan 3 -->
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 flex flex-col justify-between">
+          <div class="space-y-4">
+            <h3 class="font-bold text-xl text-slate-900 dark:text-white">Elite Developer</h3>
+            <p class="text-sm text-slate-600 dark:text-slate-200">Advanced syntax scripting and microcontrollers.</p>
+            <div class="pt-4">
+              <span id="price-elite" class="text-4xl font-black text-slate-900 dark:text-white">$349</span>
+              <span class="text-sm text-slate-600 dark:text-slate-200 font-bold"> / month</span>
+            </div>
+            <p class="text-xs font-semibold text-slate-500 font-bold">* Material Fee: $80 (Refundable deposit)</p>
+          </div>
+          <ul class="text-sm text-slate-600 dark:text-slate-200 space-y-3 my-8">
+            <li class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <span>3 Classes per week</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <span>Python text programming & APIs</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-4 h-4 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7"></path></svg>
+              <span>1-on-1 Milestone grading comments</span>
+            </li>
+          </ul>
+          <a href="contact.html" class="block text-center py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-white font-bold text-xs transition-colors">
+            Register Student
+          </a>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 3: TUITION COMPARISON MATRIX
+       ========================================== -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Plan Comparison</h2>
+        <p class="text-slate-600 dark:text-slate-200 mt-2">Detailed parameters for each tuition tier.</p>
+      </div>
+
+      <div class="max-w-4xl mx-auto overflow-x-auto rounded-3xl border border-slate-150 dark:border-slate-800 shadow-sm bg-white dark:bg-slate-900">
+        <table class="w-full text-left text-xs min-w-[600px]">
+          <thead>
+            <tr class="bg-slate-50 dark:bg-slate-800 border-b border-slate-150 dark:border-slate-800">
+              <th class="p-6 font-bold text-slate-900 dark:text-white">Track Feature</th>
+              <th class="p-6 font-bold text-slate-900 dark:text-white">Explorer</th>
+              <th class="p-6 font-bold text-slate-900 dark:text-white">Builder</th>
+              <th class="p-6 font-bold text-slate-900 dark:text-white">Elite Developer</th>
+            </tr>
+          </thead>
+          <tbody class="divide-y divide-slate-100 dark:divide-slate-800">
+            <tr>
+              <td class="p-6 font-medium text-slate-900 dark:text-white">Weekly Class Count</td>
+              <td class="p-6 text-slate-500">1 Hour Class</td>
+              <td class="p-6 text-slate-500">2 Classes (2 Hours)</td>
+              <td class="p-6 text-slate-500">3 Classes (3 Hours)</td>
+            </tr>
+            <tr>
+              <td class="p-6 font-medium text-slate-900 dark:text-white">Hardware RoboKit Box</td>
+              <td class="p-6 text-slate-400">Not Included</td>
+              <td class="p-6 text-slate-500">Included ($80 dep.)</td>
+              <td class="p-6 text-slate-500">Included ($80 dep.)</td>
+            </tr>
+            <tr>
+              <td class="p-6 font-medium text-slate-900 dark:text-white">Online Sandbox Editor</td>
+              <td class="p-6 text-brand-600 dark:text-brand-400 font-bold">Yes</td>
+              <td class="p-6 text-brand-600 dark:text-brand-400 font-bold">Yes</td>
+              <td class="p-6 text-brand-600 dark:text-brand-400 font-bold">Yes</td>
+            </tr>
+            <tr>
+              <td class="p-6 font-medium text-slate-900 dark:text-white">Python API Cloud</td>
+              <td class="p-6 text-slate-400">No</td>
+              <td class="p-6 text-slate-400">No</td>
+              <td class="p-6 text-brand-600 dark:text-brand-400 font-bold">Yes</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 4: SIBLING DISCOUNTS & MATERIAL FEE
+       ========================================== -->
+  <section class="py-20 bg-white dark:bg-slate-900 border-t border-slate-50 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+        
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 space-y-4">
+          <h4 class="font-bold text-lg text-slate-900 dark:text-white">10% Sibling Discount</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
+            Register multiple children under the same parent email account to automatically receive a 10% discount on the secondary student tuition invoice.
+          </p>
+        </div>
+
+        <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 space-y-4">
+          <h4 class="font-bold text-lg text-slate-900 dark:text-white">Refundable Kit Deposit</h4>
+          <p class="text-sm text-slate-600 dark:text-slate-200 leading-relaxed">
+            The $80 RoboKit deposit fee covers sensory hardware components. This amount is fully refunded to the parent when returning the kit intact at term completion.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 5: BILLING FAQS ACCORDION
+       ========================================== -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <h2 class="text-3xl font-bold text-slate-900 dark:text-white">Billing FAQs</h2>
+        <p class="text-slate-600 dark:text-slate-200 mt-2">Common answers regarding fees, pause terms, and kit returns.</p>
+      </div>
+
+      <div class="max-w-3xl mx-auto space-y-4">
+        
+        <!-- FAQ 1 -->
+        <div class="border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-sm">
+          <button class="faq-btn w-full flex items-center justify-between p-6 text-left font-bold text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+            <span>Can we switch program tracks mid-term?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-panel hidden p-6 border-t border-slate-100 dark:border-slate-800 text-slate-650 dark:text-slate-200 text-xs leading-relaxed">
+            Yes. If our coach detects that the child finds block coding too simple or text coding too challenging, we will transfer your monthly tuition balance to the proper track immediately.
+          </div>
+        </div>
+
+        <!-- FAQ 2 -->
+        <div class="border border-slate-100 dark:border-slate-800 rounded-2xl overflow-hidden bg-white dark:bg-slate-900 shadow-sm">
+          <button class="faq-btn w-full flex items-center justify-between p-6 text-left font-bold text-slate-900 dark:text-white hover:bg-slate-50 dark:hover:bg-slate-800/50 transition-colors">
+            <span>What is the cancellation policy?</span>
+            <svg class="faq-icon w-5 h-5 text-brand-500 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+          </button>
+          <div class="faq-panel hidden p-6 border-t border-slate-100 dark:border-slate-800 text-slate-650 dark:text-slate-200 text-xs leading-relaxed">
+            You can pause or terminate billing plans up to 3 business days before the next monthly invoice cycles. No termination fees apply.
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 5: SCHOOL & DISTRICT PARTNERSHIPS (New Section)
+       ========================================== -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-800/30 border-t border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- New Visual (pricing_partnerships.png) -->
+        <div class="relative rounded-3xl overflow-hidden shadow-xl border border-slate-200 dark:border-slate-750">
+          <img src="assets/images/sections/pricing_partnerships.png" alt="Classroom school children learning robotics with advisor guidance" class="w-full object-cover aspect-[4/3]">
+          <div class="absolute bottom-4 left-4 bg-slate-900/80 backdrop-blur text-white px-4 py-2 rounded-xl text-xs font-mono">
+            School District Lab Outfitting & curriculum licensing
+          </div>
+        </div>
+        <!-- Copy Details -->
+        <div class="space-y-6">
+          <span class="text-xs px-3 py-1 bg-brand-100 dark:bg-brand-950 text-brand-700 dark:text-brand-300 font-extrabold rounded-full uppercase tracking-wider">Institutional Partnerships</span>
+          <h2 class="text-3xl font-black text-slate-900 dark:text-white leading-tight">School District STEM Lab Licensing</h2>
+          <p class="text-sm text-slate-650 dark:text-slate-200 leading-relaxed">
+            RoboCoders partners with private schools, learning centers, and school districts to deploy custom robotics hardware kits and cloud coding simulator platforms.
+          </p>
+          <div class="space-y-4">
+            <div class="flex items-start gap-3">
+              <span class="text-brand-500 font-bold mt-0.5"><i class="bi bi-check-lg text-brand-500"></i></span>
+              <div>
+                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Custom Syllabus Customization</h4>
+                <p class="text-xs text-slate-550 dark:text-slate-400">Aligning block/text learning tracks directly to classroom NGSS and K-12 STEM benchmarks.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <span class="text-brand-500 font-bold mt-0.5"><i class="bi bi-check-lg text-brand-500"></i></span>
+              <div>
+                <h4 class="font-bold text-slate-900 dark:text-white text-sm">Instructor Training & Onboarding</h4>
+                <p class="text-xs text-slate-550 dark:text-slate-400">On-site bootcamps for classroom staff to safely manage resistors, switches, and sonar kits.</p>
+              </div>
+            </div>
+          </div>
+          <div class="pt-4">
+            <a href="contact.html" class="inline-block px-6 py-3 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-xs shadow-md">
+              Inquire About Institutional Licensing
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 6: BOOK TRIAL CALLOUT
+       ========================================== -->
+  <section class="py-16 bg-white dark:bg-slate-900">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="rounded-3xl bg-slate-900 border border-slate-800 text-white p-8 sm:p-12 text-center max-w-4xl mx-auto space-y-6">
+        <h3 class="text-2xl font-bold">Unsure Which Track Fits?</h3>
+        <p class="text-slate-400 text-sm max-w-xl mx-auto">
+          Book a free 30-minute level placement virtual sandbox session. Our coaches will test your kid's logic and recommend a cohort.
+        </p>
+        <div class="pt-4">
+          <a href="contact.html" class="inline-block px-8 py-4 rounded-xl bg-brand-600 hover:bg-brand-500 text-white font-bold text-sm shadow-lg">
+            Schedule Level Placement
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================
+       SECTION 7: SCHOLARSHIP & FINANCIAL AID PROGRAM
+       ========================================== -->
+  <section class="py-20 bg-slate-50 dark:bg-slate-950 border-t border-slate-100 dark:border-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+        <!-- Visual Column -->
+        <div class="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 dark:border-slate-800">
+          <img src="assets/images/sections/pricing_scholarships.png" alt="Happy group of children working together on a coding module in school" class="w-full h-auto object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-slate-950/80 via-transparent to-transparent flex items-end p-6">
+            <div class="bg-slate-900/90 backdrop-blur-md p-4 rounded-2xl border border-slate-800 text-white w-full">
+              <span class="text-[10px] font-mono text-brand-400 font-bold uppercase tracking-wider block">Financial Inclusion</span>
+              <span class="text-xs font-bold mt-1 block">15 annual fully-funded seats for low-income candidates</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Content Column -->
+        <div class="space-y-6">
+          <span class="text-xs font-bold text-brand-600 dark:text-brand-450 uppercase tracking-widest block">Equity & Inclusion</span>
+          <h2 class="text-3xl sm:text-4xl font-black text-slate-900 dark:text-white leading-tight font-heading">
+            RoboCoders STEM Scholarships
+          </h2>
+          <p class="text-slate-655 dark:text-slate-200 text-sm leading-relaxed">
+            We believe that every child deserves the opportunity to build the future. Through partnerships with local educational foundations, we sponsor complete tuition and lab kit fee waivers for kids from underrepresented backgrounds.
+          </p>
+          
+          <div class="space-y-4 pt-4 border-t border-slate-150 dark:border-slate-850">
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-lg bg-brand-100 dark:bg-brand-950/50 flex items-center justify-center text-brand-650 dark:text-brand-400 text-xs font-bold shrink-0"><i class="bi bi-check-lg"></i></div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">Partner School Nominations</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-200 mt-0.5">Local public school teachers can nominate students demonstrating strong computational curiosity.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="w-6 h-6 rounded-lg bg-brand-100 dark:bg-brand-950/50 flex items-center justify-center text-brand-650 dark:text-brand-400 text-xs font-bold shrink-0"><i class="bi bi-check-lg"></i></div>
+              <div>
+                <h4 class="text-sm font-bold text-slate-900 dark:text-white">Zero Equipment Deposit</h4>
+                <p class="text-xs text-slate-600 dark:text-slate-200 mt-0.5">Sponsored slots include microcontrollers, smart car chassis, and sensors at zero cost.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-slate-900 text-slate-400 dark:bg-slate-950 border-t border-slate-800 py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
+        <div class="space-y-6">
+          <a href="index.html" class="flex items-center gap-2.5">
+            <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-brand-500 to-indigo-600 flex items-center justify-center text-white shadow-md">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 3v2m6-2v2M9 19v2m6-2v2M5 9H3m2 6H3m18-6h-2m2 6h-2M7 19h10a2 2 0 002-2V7a2 2 0 00-2-2H7a2 2 0 00-2 2v10a2 2 0 002 2zM9 9h6v6H9V9z"></path>
+              </svg>
+            </div>
+            <span class="text-xl font-bold text-white">RoboCoders</span>
+          </a>
+          <p class="text-sm text-slate-300 leading-relaxed">
+            Empowering the next generation of creators through playful, gamified, and professional hands-on robotics and coding workshops.
+          </p>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-white font-bold tracking-wide uppercase text-sm">Quick Links</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home 1 (Playful)</a></li>
+            <li><a href="home-2.html" class="hover:text-white transition-colors">Home 2 (Futuristic)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Academy Programs</a></li>
+            <li><a href="curriculum.html" class="hover:text-white transition-colors">Learning Tracks</a></li>
+            <li><a href="instructors.html" class="hover:text-white transition-colors">Meet the Team</a></li>
+            <li><a href="projects.html" class="hover:text-white transition-colors">Student Projects</a></li>
+          </ul>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-white font-bold tracking-wide uppercase text-sm">Programs</h4>
+          <ul class="space-y-3 text-sm">
+            <li><a href="programs.html" class="hover:text-white transition-colors">Scratch Visual Coding (6-10 yrs)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Python Games & Logic (11-14 yrs)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Robotics Kits & Sensors (10-14 yrs)</a></li>
+            <li><a href="programs.html" class="hover:text-white transition-colors">Arduino Smart City (12+ yrs)</a></li>
+          </ul>
+        </div>
+        <div class="space-y-6">
+          <h4 class="text-white font-bold tracking-wide uppercase text-sm">Contact Info</h4>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-start gap-2.5">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+              <span>123 Innovation Boulevard, Tech District</span>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
+              <span>+1 (555) 908-3210</span>
+            </li>
+            <li class="flex items-start gap-2.5 pt-2">
+              <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <div>
+                <span class="block font-bold text-white text-xs uppercase tracking-wider">Academy Hours</span>
+                <span class="text-xs text-slate-300 block mt-0.5">Mon-Fri: 3:30 PM - 7:30 PM</span>
+                <span class="text-xs text-slate-300 block">Sat-Sun: 9:00 AM - 5:00 PM</span>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-slate-500">
+        <p>&copy; 2026 RoboCoders Academy. All rights reserved.</p>
+        <div class="flex gap-6">
+          <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+          <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <button id="back-to-top" class="fixed bottom-6 right-6 p-4 rounded-full bg-brand-600 text-white shadow-xl hover:bg-brand-700 opacity-0 invisible translate-y-4 z-40 transition-all">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 10l7-7 7 7M12 3v18"></path>
+    </svg>
+  </button>
+
+  <script src="assets/js/main.js"></script>
+
+  <!-- In-page Billing Toggle JavaScript -->
+  <script>
+    let isTermBilling = false;
+    
+    function toggleBilling() {
+      isTermBilling = !isTermBilling;
+      
+      const knob = document.getElementById('billing-knob');
+      const explorer = document.getElementById('price-explorer');
+      const builder = document.getElementById('price-builder');
+      const elite = document.getElementById('price-elite');
+      
+      if (isTermBilling) {
+        knob.classList.remove('translate-x-6');
+        knob.classList.add('translate-x-1');
+        
+        // Calculate 15% discount (rounded)
+        explorer.innerText = '$126';
+        builder.innerText = '$211';
+        elite.innerText = '$296';
+      } else {
+        knob.classList.remove('translate-x-1');
+        knob.classList.add('translate-x-6');
+        
+        explorer.innerText = '$149';
+        builder.innerText = '$249';
+        elite.innerText = '$349';
+      }
+    }
+  </script>
+</body>
+</html>
