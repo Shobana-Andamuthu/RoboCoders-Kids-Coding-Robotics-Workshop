@@ -163,6 +163,91 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   // ==========================================
+  // 4b. ACTIVE NAV LINK HIGHLIGHTING
+  // Detects current page and highlights the matching
+  // desktop nav link, Home dropdown item, and mobile
+  // menu link. Persists correctly on scroll.
+  // ==========================================
+  (function() {
+    // Get current filename (e.g. "index.html", "programs.html")
+    const path = window.location.pathname;
+    const currentFile = path.split('/').pop() || 'index.html';
+
+    // Active style tokens
+    const ACTIVE_TEXT   = ['text-brand-600', 'dark:text-brand-400'];
+    const ACTIVE_FONT   = ['font-semibold'];
+    const DEFAULT_TEXT  = ['text-slate-600', 'dark:text-slate-300'];
+
+    // ── Desktop nav links (direct <a> elements) ──
+    const desktopNavLinks = document.querySelectorAll('nav.hidden.lg\\:flex a[href]');
+    desktopNavLinks.forEach(link => {
+      const linkFile = link.getAttribute('href').split('/').pop();
+      if (linkFile === currentFile) {
+        DEFAULT_TEXT.forEach(c => link.classList.remove(c));
+        ACTIVE_TEXT.forEach(c => link.classList.add(c));
+        ACTIVE_FONT.forEach(c => link.classList.add(c));
+      }
+    });
+
+    // ── Desktop Home dropdown items ──
+    const homeDropdownItems = document.querySelectorAll('#home-dropdown-menu a[href]');
+    let homeIsActive = false;
+    homeDropdownItems.forEach(item => {
+      const itemFile = item.getAttribute('href').split('/').pop();
+      if (itemFile === currentFile) {
+        homeIsActive = true;
+        // Highlight the dropdown item
+        item.classList.add('bg-brand-50', 'dark:bg-slate-700', 'text-brand-600', 'dark:text-brand-400', 'font-semibold');
+      }
+    });
+    // If on a home page, also highlight the "Home" dropdown button
+    if (homeIsActive) {
+      const homeBtn = document.getElementById('home-dropdown-btn');
+      if (homeBtn) {
+        homeBtn.querySelectorAll('.text-slate-600, .dark\\:text-slate-300')
+          .forEach(el => { el.classList.remove('text-slate-600'); });
+        homeBtn.classList.remove('text-slate-600', 'dark:text-slate-300');
+        ACTIVE_TEXT.forEach(c => homeBtn.classList.add(c));
+        ACTIVE_FONT.forEach(c => homeBtn.classList.add(c));
+      }
+    }
+
+    // ── Mobile menu direct links ──
+    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a[href]');
+    mobileMenuLinks.forEach(link => {
+      const linkFile = link.getAttribute('href').split('/').pop();
+      if (linkFile === currentFile) {
+        link.classList.add('text-brand-600', 'dark:text-brand-400', 'font-semibold');
+        link.classList.remove('text-slate-700', 'text-slate-600', 'dark:text-slate-200');
+      }
+    });
+
+    // ── Mobile Home sub-dropdown: highlight current home item ──
+    const mobileHomeItems = document.querySelectorAll('#mobile-home-dropdown-menu a[href]');
+    let mobileHomeActive = false;
+    mobileHomeItems.forEach(item => {
+      const itemFile = item.getAttribute('href').split('/').pop();
+      if (itemFile === currentFile) {
+        mobileHomeActive = true;
+        item.classList.add('text-brand-600', 'dark:text-brand-400', 'font-semibold');
+        item.classList.remove('text-slate-600', 'dark:text-slate-200');
+      }
+    });
+    // If on a home page, auto-expand the mobile home dropdown and style its toggle button
+    if (mobileHomeActive) {
+      const mobileHomeMenu = document.getElementById('mobile-home-dropdown-menu');
+      const mobileHomeBtn  = document.getElementById('mobile-home-dropdown-btn');
+      if (mobileHomeMenu) mobileHomeMenu.classList.remove('hidden');
+      if (mobileHomeBtn) {
+        const arrow = mobileHomeBtn.querySelector('.dropdown-arrow');
+        if (arrow) arrow.classList.add('rotate-180');
+        mobileHomeBtn.classList.add('text-brand-600', 'dark:text-brand-400', 'font-semibold');
+        mobileHomeBtn.classList.remove('text-slate-700', 'dark:text-slate-200');
+      }
+    }
+  })();
+
+  // ==========================================
   // 5. MOBILE MENU & HOME DROPDOWNS
   // ==========================================
   const mobileMenuBtn = document.getElementById('mobile-menu-btn');
@@ -190,7 +275,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Close menu when resizing past mobile breakpoint
     window.addEventListener('resize', () => {
-      if (window.innerWidth >= 1024) closeMobileMenu();
+      if (window.innerWidth >= 1280) closeMobileMenu();
     });
   }
 

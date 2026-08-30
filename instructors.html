@@ -66,7 +66,7 @@
   <!-- Header -->
   <header class="sticky top-0 z-50 w-full transition-all duration-300 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+      <div class="flex items-center justify-between h-16">
         
         <!-- Logo -->
         <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
@@ -146,7 +146,7 @@
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden lg:hidden absolute top-20 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-50 px-6 py-6 space-y-4 max-h-[calc(100vh-5rem)] overflow-y-auto">
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-16 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-50 px-6 py-6 space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
       
       <div>
         <button id="mobile-home-dropdown-btn" class="w-full flex items-center justify-between text-left font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">
@@ -178,15 +178,35 @@
   <!-- ==========================================
        SECTION 1: HERO
        ========================================== -->
-  <section class="py-16 bg-gradient-to-b from-brand-50/50 to-white dark:from-slate-900/50 dark:to-slate-900 text-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-      <span class="text-sm font-bold text-brand-600 uppercase tracking-widest block">Our Mentorship Team</span>
-      <h1 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white leading-tight">
-        Meet Our STEM Educators
-      </h1>
-      <p class="text-slate-600 dark:text-slate-200 max-w-xl mx-auto text-sm sm:text-base">
-        Active software engineers, mechanical researchers, and certified elementary child-learning specialists.
-      </p>
+  <section class="py-20 bg-gradient-to-br from-brand-50 via-white to-brand-50/20 dark:from-slate-900/50 dark:via-slate-900 dark:to-slate-900/30 relative overflow-hidden">
+    <!-- Visual background accent -->
+    <div class="absolute left-0 top-1/2 -translate-y-1/2 w-72 h-72 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <!-- Text Column -->
+        <div class="lg:col-span-8 space-y-6 text-left">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-extrabold bg-indigo-100 dark:bg-indigo-950 text-indigo-700 dark:text-indigo-300 border border-indigo-200/50 dark:border-indigo-900/50">
+            <i class="bi bi-people-fill text-indigo-500"></i> Mentorship Team
+          </span>
+          <h1 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white leading-tight font-heading">
+            Meet Our STEM Educators
+          </h1>
+          <p class="text-slate-600 dark:text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl">
+            Active software engineers, mechanical researchers, and certified elementary child-learning specialists dedicated to inspiring young minds.
+          </p>
+        </div>
+        
+        <!-- Stats Card Column -->
+        <div class="lg:col-span-4">
+          <div class="p-6 rounded-3xl bg-white dark:bg-slate-900 border border-slate-100 dark:border-slate-800 shadow-xl text-center space-y-3">
+            <span class="block text-4xl font-black text-brand-600 dark:text-brand-400 font-heading">100%</span>
+            <h4 class="font-bold text-slate-900 dark:text-white text-sm">Background Inspected & Certified</h4>
+            <p class="text-xs text-slate-550 dark:text-slate-400">
+              Every mentor undergoes strict child safety evaluations and quarterly pedagogical training.
+            </p>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -195,7 +215,7 @@
        ========================================== -->
   <section class="py-10 bg-white dark:bg-slate-900">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <!-- Profile 1 -->
         <div class="group p-6 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800/80 hover:shadow-xl hover:shadow-brand-500/5 transition-all duration-300">
@@ -299,7 +319,7 @@
         <p class="text-slate-600 dark:text-slate-200 mt-2">Providing a secure and protected physical environment for hardware creation.</p>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
         
         <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 space-y-4">
           <h4 class="font-bold text-lg text-slate-900 dark:text-white">Protected Wiring Tools</h4>
@@ -444,7 +464,7 @@
         </div>
       </div>
 
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 text-center">
         <div class="p-6 bg-slate-50 dark:bg-slate-800/40 rounded-2xl border border-slate-100 dark:border-slate-800/80">
           <span class="text-2xl block mb-2"><i class="bi bi-robot text-brand-500"></i></span>
           <h4 class="font-bold text-sm text-slate-900 dark:text-white">AI Vision Arrays</h4>
@@ -519,12 +539,16 @@
               <span>+1 (555) 908-3210</span>
             </li>
             <li class="flex items-start gap-2.5 pt-2">
-              <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               <div>
                 <span class="block font-bold text-white text-xs uppercase tracking-wider">Academy Hours</span>
                 <span class="text-xs text-slate-300 block mt-0.5">Mon-Fri: 3:30 PM - 7:30 PM</span>
                 <span class="text-xs text-slate-300 block">Sat-Sun: 9:00 AM - 5:00 PM</span>
               </div>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2 11H4a2 2 0 01-2-2V8a2 2 0 012-2h16a2 2 0 012 2v9a2 2 0 01-2 2z"></path></svg>
+              <span>info@robocodersacademy.com</span>
             </li>
           </ul>
         </div>

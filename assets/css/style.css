@@ -425,7 +425,7 @@ header .dark-mode-toggle svg {
 /* ==========================================
  * OTHER PAGES — MOBILE NAV PREFERENCES CONTROL
  * ========================================== */
-@media (max-width: 1023px) {
+@media (max-width: 1279px) {
   /* Hide the toggles in the mobile navbar by default */
   .lg\:hidden .rtl-toggle,
   .lg\:hidden .dark-mode-toggle {
@@ -453,9 +453,9 @@ header {
   transition: box-shadow 0.25s ease, background-color 0.25s ease;
 }
 
-/* Push page body content below the fixed header (header height ~80px) */
+/* Push page body content below the fixed header (header height ~64px) */
 body:has(header) {
-  padding-top: 80px;
+  padding-top: 64px;
 }
 
 header.header-scrolled {
@@ -464,4 +464,54 @@ header.header-scrolled {
 
 .dark header.header-scrolled {
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+}
+
+/* ==========================================
+ * NAV ACTIVE LINK — UNDERLINE INDICATOR
+ * ========================================== */
+nav a.text-brand-600,
+nav button.text-brand-600 {
+  position: relative;
+}
+nav a.text-brand-600::after,
+nav button.text-brand-600::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: currentColor;
+  border-radius: 1px;
+  opacity: 0.7;
+}
+
+/* ==========================================
+ * TABLET NAV RESPONSIVENESS FIX
+ * At 768–1279px, the full desktop nav is too wide.
+ * Show hamburger menu up to 1280px (xl breakpoint).
+ * ========================================== */
+@media (max-width: 1279px) {
+  /* Force hide desktop nav and right-side controls */
+  header nav.hidden.lg\:flex,
+  header div.hidden.lg\:flex {
+    display: none !important;
+  }
+  /* Force show the mobile hamburger row */
+  header div.flex.items-center.gap-3.lg\:hidden {
+    display: flex !important;
+  }
+  /* Force show mobile menu drawer if not hidden */
+  #mobile-menu:not(.hidden) {
+    display: block !important;
+  }
+}
+@media (min-width: 1280px) {
+  header nav.hidden.lg\:flex,
+  header div.hidden.lg\:flex {
+    display: flex !important;
+  }
+  header div.flex.items-center.gap-3.lg\:hidden {
+    display: none !important;
+  }
 }

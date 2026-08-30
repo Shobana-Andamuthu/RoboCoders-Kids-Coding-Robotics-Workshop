@@ -66,7 +66,7 @@
   <!-- Header -->
   <header class="sticky top-0 z-50 w-full transition-all duration-300 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+      <div class="flex items-center justify-between h-16">
         
         <!-- Logo -->
         <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
@@ -146,7 +146,7 @@
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden lg:hidden absolute top-20 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-50 px-6 py-6 space-y-4 max-h-[calc(100vh-5rem)] overflow-y-auto">
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-16 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-50 px-6 py-6 space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
       
       <div>
         <button id="mobile-home-dropdown-btn" class="w-full flex items-center justify-between text-left font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">
@@ -178,15 +178,24 @@
   <!-- ==========================================
        SECTION 1: HERO
        ========================================== -->
-  <section class="py-16 bg-gradient-to-b from-brand-50/50 to-white dark:from-slate-900/50 dark:to-slate-900 text-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-      <span class="text-sm font-bold text-brand-600 uppercase tracking-widest block">Get In Touch</span>
-      <h1 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white leading-tight">
-        Connect With RoboCoders
-      </h1>
-      <p class="text-slate-600 dark:text-slate-200 max-w-xl mx-auto text-sm sm:text-base">
-        Book an academy makerspace visit, inquire about term starts, or speak to our leads.
-      </p>
+  <section class="py-20 bg-gradient-to-b from-brand-50/50 to-white dark:from-slate-900/50 dark:to-slate-900 relative overflow-hidden">
+    <!-- Visual background accent -->
+    <div class="absolute right-0 bottom-0 w-80 h-80 bg-brand-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <!-- Text Column -->
+        <div class="lg:col-span-8 space-y-4 text-left">
+          <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-extrabold bg-brand-100 dark:bg-brand-950 text-brand-600 dark:text-brand-400 uppercase tracking-widest">
+            <i class="bi bi-envelope-fill text-indigo-500"></i> Get In Touch
+          </span>
+          <h1 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white leading-tight font-heading">
+            Connect With RoboCoders
+          </h1>
+          <p class="text-slate-600 dark:text-slate-200 text-base sm:text-lg leading-relaxed max-w-2xl">
+            Book an academy makerspace visit, inquire about term starts, or speak to our leads. We're here to help guide your student's learning pathway.
+          </p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -438,14 +447,18 @@
               <svg class="w-5 h-5 text-brand-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.94.725l.548 2.2a1 1 0 01-.321.988l-1.305.98a10.582 10.582 0 004.872 4.872l.98-1.305a1 1 0 01.988-.321l2.2.548a1 1 0 01.725.94V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"></path></svg>
               <span>+1 (555) 908-3210</span>
             </li>
-            <li class="flex items-start gap-2.5 pt-2">
-              <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-              <div>
-                <span class="block font-bold text-white text-xs uppercase tracking-wider">Academy Hours</span>
-                <span class="text-xs text-slate-300 block mt-0.5">Mon-Fri: 3:30 PM - 7:30 PM</span>
-                <span class="text-xs text-slate-300 block">Sat-Sun: 9:00 AM - 5:00 PM</span>
-              </div>
-            </li>
+             <li class="flex items-start gap-2.5 pt-2">
+               <svg class="w-5 h-5 text-brand-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+               <div>
+                 <span class="block font-bold text-white text-xs uppercase tracking-wider">Academy Hours</span>
+                 <span class="text-xs text-slate-300 block mt-0.5">Mon-Fri: 3:30 PM - 7:30 PM</span>
+                 <span class="text-xs text-slate-300 block">Sat-Sun: 9:00 AM - 5:00 PM</span>
+               </div>
+             </li>
+             <li class="flex items-center gap-2.5">
+               <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2 11H4a2 2 0 01-2-2V8a2 2 0 012-2h16a2 2 0 012 2v9a2 2 0 01-2 2z"></path></svg>
+               <span>info@robocodersacademy.com</span>
+             </li>
           </ul>
         </div>
       </div>

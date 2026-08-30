@@ -66,7 +66,7 @@
   <!-- Header -->
   <header class="sticky top-0 z-50 w-full transition-all duration-300 bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-100 dark:border-slate-800">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-      <div class="flex items-center justify-between h-20">
+      <div class="flex items-center justify-between h-16">
         
         <!-- Logo -->
         <a href="index.html" class="flex items-center gap-2.5 flex-shrink-0">
@@ -146,7 +146,7 @@
     </div>
 
     <!-- Mobile Drawer -->
-    <div id="mobile-menu" class="hidden lg:hidden absolute top-20 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-50 px-6 py-6 space-y-4 max-h-[calc(100vh-5rem)] overflow-y-auto">
+    <div id="mobile-menu" class="hidden lg:hidden absolute top-16 left-0 w-full bg-white dark:bg-slate-900 border-b border-slate-200 dark:border-slate-800 shadow-xl z-50 px-6 py-6 space-y-4 max-h-[calc(100vh-4rem)] overflow-y-auto">
       
       <div>
         <button id="mobile-home-dropdown-btn" class="w-full flex items-center justify-between text-left font-medium text-slate-700 dark:text-slate-200 py-2 border-b border-slate-50 dark:border-slate-800">
@@ -178,13 +178,17 @@
   <!-- ==========================================
        SECTION 1: HERO
        ========================================== -->
-  <section class="py-16 bg-gradient-to-b from-brand-50/50 to-white dark:from-slate-900/50 dark:to-slate-900 text-center">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-4">
-      <span class="text-sm font-bold text-brand-600 uppercase tracking-widest block">Transparent Tuition</span>
-      <h1 class="text-4xl sm:text-5xl font-black text-slate-900 dark:text-white leading-tight">
+  <section class="relative py-20 bg-slate-900 text-white overflow-hidden border-b border-slate-800">
+    <!-- Radial Glow Background -->
+    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-brand-500/20 to-indigo-500/10 rounded-full blur-3xl pointer-events-none"></div>
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center space-y-6">
+      <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-extrabold bg-brand-500/10 text-brand-400 uppercase tracking-widest border border-brand-500/20">
+        <i class="bi bi-wallet2 text-indigo-400"></i> Transparent Tuition
+      </span>
+      <h1 class="text-4xl sm:text-5xl font-black text-white leading-tight font-heading">
         Academy Program Pricing
       </h1>
-      <p class="text-slate-600 dark:text-slate-200 max-w-xl mx-auto text-sm sm:text-base">
+      <p class="text-slate-350 max-w-xl mx-auto text-base leading-relaxed">
         No long-term contracts. Pause or switch learning tracks between academic terms easily.
       </p>
     </div>
@@ -206,7 +210,7 @@
       </div>
 
       <!-- Pricing Plans -->
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
         
         <!-- Plan 1 -->
         <div class="p-8 rounded-3xl bg-slate-50 dark:bg-slate-800/40 border border-slate-100 dark:border-slate-800 flex flex-col justify-between">
@@ -582,12 +586,16 @@
               <span>+1 (555) 908-3210</span>
             </li>
             <li class="flex items-start gap-2.5 pt-2">
-              <svg class="w-5 h-5 text-brand-500 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+              <svg class="w-5 h-5 text-brand-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
               <div>
                 <span class="block font-bold text-white text-xs uppercase tracking-wider">Academy Hours</span>
                 <span class="text-xs text-slate-300 block mt-0.5">Mon-Fri: 3:30 PM - 7:30 PM</span>
                 <span class="text-xs text-slate-300 block">Sat-Sun: 9:00 AM - 5:00 PM</span>
               </div>
+            </li>
+            <li class="flex items-center gap-2.5">
+              <svg class="w-5 h-5 text-brand-500 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L22 8m-2 11H4a2 2 0 01-2-2V8a2 2 0 012-2h16a2 2 0 012 2v9a2 2 0 01-2 2z"></path></svg>
+              <span>info@robocodersacademy.com</span>
             </li>
           </ul>
         </div>
