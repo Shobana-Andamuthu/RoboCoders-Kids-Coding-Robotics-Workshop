@@ -497,11 +497,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // ==========================================
   const dashboardContainer = document.getElementById('student-dashboard');
   if (dashboardContainer) {
-    // Check if user is logged in
-    const isLoggedIn = localStorage.getItem('isLoggedIn');
-    if (isLoggedIn !== 'true') {
-      window.location.href = 'login.html';
-    }
+    // Check if user is logged in (Redirect check removed)
 
     // Set student email/name dynamically
     const studentEmail = localStorage.getItem('studentEmail') || 'alex.coder@academy.com';
@@ -746,12 +742,7 @@ document.addEventListener('DOMContentLoaded', () => {
   dashboardNavLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      const isLoggedIn = localStorage.getItem('isLoggedIn');
-      if (isLoggedIn === 'true') {
-        window.location.href = 'dashboard.html';
-      } else {
-        window.location.href = 'login.html';
-      }
+      window.location.href = 'dashboard.html';
     });
   });
 });
