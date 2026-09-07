@@ -230,19 +230,15 @@ document.addEventListener('DOMContentLoaded', () => {
       if (itemFile === currentFile) {
         mobileHomeActive = true;
         item.classList.add('text-brand-600', 'dark:text-brand-400', 'font-semibold');
-        item.classList.remove('text-slate-600', 'dark:text-slate-200');
+        item.classList.remove('text-slate-500', 'text-slate-600', 'dark:text-slate-200');
       }
     });
-    // If on a home page, auto-expand the mobile home dropdown and style its toggle button
+    // If on a home page, style the mobile Home toggle without opening its submenu
     if (mobileHomeActive) {
-      const mobileHomeMenu = document.getElementById('mobile-home-dropdown-menu');
       const mobileHomeBtn  = document.getElementById('mobile-home-dropdown-btn');
-      if (mobileHomeMenu) mobileHomeMenu.classList.remove('hidden');
       if (mobileHomeBtn) {
-        const arrow = mobileHomeBtn.querySelector('.dropdown-arrow');
-        if (arrow) arrow.classList.add('rotate-180');
         mobileHomeBtn.classList.add('text-brand-600', 'dark:text-brand-400', 'font-semibold');
-        mobileHomeBtn.classList.remove('text-slate-700', 'dark:text-slate-200');
+        mobileHomeBtn.classList.remove('text-slate-700', 'dark:text-slate-200', 'text-slate-600');
       }
     }
   })();
@@ -254,17 +250,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const mobileMenu = document.getElementById('mobile-menu');
   const menuIconOpen = document.getElementById('menu-icon-open');
   const menuIconClose = document.getElementById('menu-icon-close');
+  let mobileMenuScrollY = 0;
 
   if (mobileMenuBtn && mobileMenu) {
 
     function openMobileMenu() {
+      mobileMenuScrollY = window.scrollY;
       mobileMenu.classList.remove('hidden');
+      document.body.classList.add('menu-open');
+      document.body.style.position = 'fixed';
+      document.body.style.top = `-${mobileMenuScrollY}px`;
+      document.body.style.width = '100%';
       if (menuIconOpen) menuIconOpen.classList.add('hidden');
       if (menuIconClose) menuIconClose.classList.remove('hidden');
     }
 
     function closeMobileMenu() {
       mobileMenu.classList.add('hidden');
+      document.body.classList.remove('menu-open');
+      document.body.style.position = '';
+      document.body.style.top = '';
+      document.body.style.width = '';
+      window.scrollTo(0, mobileMenuScrollY);
+      if (mobileHomeDropdownMenu) mobileHomeDropdownMenu.classList.add('hidden');
+      if (mobileHomeDropdownBtn) {
+        const arrow = mobileHomeDropdownBtn.querySelector('.dropdown-arrow');
+        if (arrow) arrow.classList.remove('rotate-180');
+      }
       if (menuIconOpen) menuIconOpen.classList.remove('hidden');
       if (menuIconClose) menuIconClose.classList.add('hidden');
     }
