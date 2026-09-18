@@ -37,3 +37,10 @@
 @media (min-width: 768px) and (max-width: 1023px) {
   /* Tablet tweaks if needed */
 }
+
+@media (min-width: 1024px) {
+  /* Enforce hiding mobile drawer on desktop views */
+  #mobile-menu {
+    display: none !important;
+  }
+}

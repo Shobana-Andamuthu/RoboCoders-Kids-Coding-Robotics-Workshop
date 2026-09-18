@@ -469,21 +469,155 @@ header.header-scrolled {
 /* ==========================================
  * NAV ACTIVE LINK — UNDERLINE INDICATOR
  * ========================================== */
-nav a.text-brand-600,
-nav button.text-brand-600 {
+nav a.nav-active-link,
+nav button.nav-active-link {
   position: relative;
+  color: #0273c7 !important;
+  font-weight: 700 !important;
 }
-nav a.text-brand-600::after,
-nav button.text-brand-600::after {
+
+.dark nav a.nav-active-link,
+.dark nav button.nav-active-link {
+  color: #38abfa !important;
+  font-weight: 700 !important;
+}
+
+nav a.nav-active-link::after,
+nav button.nav-active-link::after {
   content: '';
   position: absolute;
-  bottom: -2px;
+  bottom: -4px;
   left: 0;
   right: 0;
-  height: 2px;
+  height: 2.5px;
   background: currentColor;
-  border-radius: 1px;
-  opacity: 0.7;
+  border-radius: 2px;
+  opacity: 1;
+}
+
+/* ==========================================
+ * HERO SECTION HEIGHT STANDARDIZATION
+ * ========================================== */
+.hero-standard {
+  position: relative;
+  width: 100%;
+  min-height: 320px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-top: 4.5rem;
+  padding-bottom: 4.5rem;
+}
+
+@media (max-width: 768px) {
+  .hero-standard {
+    min-height: 240px;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+}
+
+/* ==========================================
+ * DASHBOARD STATUS BADGES
+ * ========================================== */
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.35rem 0.85rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  line-height: 1;
+}
+
+.status-badge-graded {
+  background-color: #10b981 !important; /* Emerald 500 */
+  color: #ffffff !important;
+}
+
+.status-badge-approved {
+  background-color: #0284c7 !important; /* Sky 600 */
+  color: #ffffff !important;
+}
+
+.status-badge-review {
+  background-color: #f59e0b !important; /* Amber 500 */
+  color: #ffffff !important;
+}
+
+.status-badge-pending {
+  background-color: #64748b !important; /* Slate 500 */
+  color: #ffffff !important;
+}
+
+.status-badge-progress {
+  background-color: #6366f1 !important; /* Indigo 500 */
+  color: #ffffff !important;
+}
+
+.status-badge-completed {
+  background-color: #059669 !important; /* Emerald 600 */
+  color: #ffffff !important;
+}
+
+/* ==========================================
+ * HOME 2 PORTFOLIO ICON CONTRAST FIX
+ * ========================================== */
+.portfolio-icon-box {
+  width: 3.25rem;
+  height: 3.25rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-size: 1.35rem;
+  transition: all 0.2s ease;
+}
+
+.portfolio-icon-box.brand-box {
+  background-color: #e0effe;
+  color: #0273c7;
+}
+
+.portfolio-icon-box.emerald-box {
+  background-color: #d1fae5;
+  color: #059669;
+}
+
+.portfolio-icon-box.amber-box {
+  background-color: #fef3c7;
+  color: #d97706;
+}
+
+.portfolio-icon-box.indigo-box {
+  background-color: #e0e7ff;
+  color: #4338ca;
+}
+
+.dark .portfolio-icon-box.brand-box {
+  background-color: rgba(56, 171, 250, 0.2);
+  color: #38abfa;
+}
+
+.dark .portfolio-icon-box.emerald-box {
+  background-color: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+}
+
+.dark .portfolio-icon-box.amber-box {
+  background-color: rgba(245, 158, 11, 0.2);
+  color: #fbbf24;
+}
+
+.dark .portfolio-icon-box.indigo-box {
+  background-color: rgba(99, 102, 241, 0.2);
+  color: #818cf8;
 }
 
 /* ==========================================
@@ -515,3 +649,4 @@ nav button.text-brand-600::after {
     display: none !important;
   }
 }
+

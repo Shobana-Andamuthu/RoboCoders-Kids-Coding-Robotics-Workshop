@@ -169,77 +169,88 @@ document.addEventListener('DOMContentLoaded', () => {
   // menu link. Persists correctly on scroll.
   // ==========================================
   (function() {
-    // Get current filename (e.g. "index.html", "programs.html")
+    // Get current filename (e.g. "index.html", "home-2.html", "about.html", "programs.html")
     const path = window.location.pathname;
-    const currentFile = path.split('/').pop() || 'index.html';
+    let currentFile = path.split('/').pop() || 'index.html';
+    if (!currentFile || currentFile === '') currentFile = 'index.html';
 
-    // Active style tokens
-    const ACTIVE_TEXT   = ['text-brand-600', 'dark:text-brand-400'];
-    const ACTIVE_FONT   = ['font-semibold'];
-    const DEFAULT_TEXT  = ['text-slate-600', 'dark:text-slate-300'];
-
-    // ── Desktop nav links (direct <a> elements) ──
+    // 1. Reset all desktop direct nav links and dropdown button
     const desktopNavLinks = document.querySelectorAll('nav.hidden.lg\\:flex a[href]');
     desktopNavLinks.forEach(link => {
-      const linkFile = link.getAttribute('href').split('/').pop();
-      if (linkFile === currentFile) {
-        DEFAULT_TEXT.forEach(c => link.classList.remove(c));
-        ACTIVE_TEXT.forEach(c => link.classList.add(c));
-        ACTIVE_FONT.forEach(c => link.classList.add(c));
-      }
+      link.classList.remove('nav-active-link', 'text-brand-600', 'dark:text-brand-400', 'font-semibold', 'border-b-2', 'border-brand-500');
+      link.classList.add('text-slate-600', 'dark:text-slate-300');
     });
 
-    // ── Desktop Home dropdown items ──
-    const homeDropdownItems = document.querySelectorAll('#home-dropdown-menu a[href]');
-    let homeIsActive = false;
-    homeDropdownItems.forEach(item => {
-      const itemFile = item.getAttribute('href').split('/').pop();
-      if (itemFile === currentFile) {
-        homeIsActive = true;
-        // Highlight the dropdown item
-        item.classList.add('bg-brand-50', 'dark:bg-slate-700', 'text-brand-600', 'dark:text-brand-400', 'font-semibold');
-      }
-    });
-    // If on a home page, also highlight the "Home" dropdown button
-    if (homeIsActive) {
-      const homeBtn = document.getElementById('home-dropdown-btn');
-      if (homeBtn) {
-        homeBtn.querySelectorAll('.text-slate-600, .dark\\:text-slate-300')
-          .forEach(el => { el.classList.remove('text-slate-600'); });
-        homeBtn.classList.remove('text-slate-600', 'dark:text-slate-300');
-        ACTIVE_TEXT.forEach(c => homeBtn.classList.add(c));
-        ACTIVE_FONT.forEach(c => homeBtn.classList.add(c));
-      }
+    const homeBtn = document.getElementById('home-dropdown-btn');
+    if (homeBtn) {
+      homeBtn.classList.remove('nav-active-link', 'text-brand-600', 'dark:text-brand-400', 'font-semibold');
+      homeBtn.classList.add('text-slate-600', 'dark:text-slate-300');
     }
 
-    // ── Mobile menu direct links ──
-    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a[href]');
-    mobileMenuLinks.forEach(link => {
-      const linkFile = link.getAttribute('href').split('/').pop();
-      if (linkFile === currentFile) {
-        link.classList.add('text-brand-600', 'dark:text-brand-400', 'font-semibold');
-        link.classList.remove('text-slate-700', 'text-slate-600', 'dark:text-slate-200');
-      }
+    // 2. Reset dropdown items
+    const homeDropdownItems = document.querySelectorAll('#home-dropdown-menu a[href]');
+    homeDropdownItems.forEach(item => {
+      item.classList.remove('bg-brand-50', 'dark:bg-slate-700', 'text-brand-600', 'dark:text-brand-400', 'font-semibold');
+      item.classList.add('text-slate-700', 'dark:text-slate-300');
     });
 
-    // ── Mobile Home sub-dropdown: highlight current home item ──
-    const mobileHomeItems = document.querySelectorAll('#mobile-home-dropdown-menu a[href]');
-    let mobileHomeActive = false;
-    mobileHomeItems.forEach(item => {
-      const itemFile = item.getAttribute('href').split('/').pop();
-      if (itemFile === currentFile) {
-        mobileHomeActive = true;
-        item.classList.add('text-brand-600', 'dark:text-brand-400', 'font-semibold');
-        item.classList.remove('text-slate-500', 'text-slate-600', 'dark:text-slate-200');
-      }
+    // 3. Reset mobile links
+    const mobileMenuLinks = document.querySelectorAll('#mobile-menu a[href]');
+    mobileMenuLinks.forEach(link => {
+      link.classList.remove('nav-active-link', 'text-brand-600', 'dark:text-brand-400', 'font-semibold');
+      link.classList.add('text-slate-700', 'dark:text-slate-200');
     });
-    // If on a home page, style the mobile Home toggle without opening its submenu
-    if (mobileHomeActive) {
-      const mobileHomeBtn  = document.getElementById('mobile-home-dropdown-btn');
-      if (mobileHomeBtn) {
-        mobileHomeBtn.classList.add('text-brand-600', 'dark:text-brand-400', 'font-semibold');
-        mobileHomeBtn.classList.remove('text-slate-700', 'dark:text-slate-200', 'text-slate-600');
+
+    const mobileHomeBtn = document.getElementById('mobile-home-dropdown-btn');
+    if (mobileHomeBtn) {
+      mobileHomeBtn.classList.remove('nav-active-link', 'text-brand-600', 'dark:text-brand-400', 'font-semibold');
+      mobileHomeBtn.classList.add('text-slate-700', 'dark:text-slate-200');
+    }
+
+    // 4. Highlight current page link
+    if (currentFile === 'index.html' || currentFile === 'home-2.html') {
+      // Home page is active
+      if (homeBtn) {
+        homeBtn.classList.remove('text-slate-600', 'dark:text-slate-300');
+        homeBtn.classList.add('nav-active-link', 'text-brand-600', 'dark:text-brand-400', 'font-semibold');
       }
+      if (mobileHomeBtn) {
+        mobileHomeBtn.classList.remove('text-slate-700', 'dark:text-slate-200');
+        mobileHomeBtn.classList.add('nav-active-link', 'text-brand-600', 'dark:text-brand-400', 'font-semibold');
+      }
+
+      // Highlight exact home item in dropdowns
+      homeDropdownItems.forEach(item => {
+        const itemFile = item.getAttribute('href').split('/').pop();
+        if (itemFile === currentFile) {
+          item.classList.add('bg-brand-50', 'dark:bg-slate-700', 'text-brand-600', 'dark:text-brand-400', 'font-semibold');
+        }
+      });
+
+      const mobileHomeItems = document.querySelectorAll('#mobile-home-dropdown-menu a[href]');
+      mobileHomeItems.forEach(item => {
+        const itemFile = item.getAttribute('href').split('/').pop();
+        if (itemFile === currentFile) {
+          item.classList.add('text-brand-600', 'dark:text-brand-400', 'font-semibold');
+        }
+      });
+    } else {
+      // Non-home page active
+      desktopNavLinks.forEach(link => {
+        const linkFile = link.getAttribute('href').split('/').pop();
+        if (linkFile === currentFile) {
+          link.classList.remove('text-slate-600', 'dark:text-slate-300');
+          link.classList.add('nav-active-link', 'text-brand-600', 'dark:text-brand-400', 'font-semibold');
+        }
+      });
+
+      mobileMenuLinks.forEach(link => {
+        const linkFile = link.getAttribute('href').split('/').pop();
+        if (linkFile === currentFile) {
+          link.classList.remove('text-slate-700', 'dark:text-slate-200');
+          link.classList.add('nav-active-link', 'text-brand-600', 'dark:text-brand-400', 'font-semibold');
+        }
+      });
     }
   })();
 
@@ -285,9 +296,9 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileMenu.classList.contains('hidden') ? openMobileMenu() : closeMobileMenu();
     });
 
-    // Close menu when resizing past mobile breakpoint
+    // Close menu when resizing past mobile breakpoint (1024px lg breakpoint)
     window.addEventListener('resize', () => {
-      if (window.innerWidth >= 1280) closeMobileMenu();
+      if (window.innerWidth >= 1024) closeMobileMenu();
     });
   }
 
